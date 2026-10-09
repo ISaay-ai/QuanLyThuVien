@@ -146,7 +146,7 @@
             Controls.Add(LOGIN);
             Controls.Add(textBox1);
             Name = "FrmLogin";
-            Text = "Form1";
+            Text = "Đăng Nhập";
             ResumeLayout(false);
             PerformLayout();
         }
