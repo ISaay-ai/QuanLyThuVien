@@ -43,7 +43,7 @@
             label6 = new Label();
             RegisterBtn = new Button();
             label7 = new Label();
-            linkLabel1 = new LinkLabel();
+            LoginNowLbl = new LinkLabel();
             SuspendLayout();
             // 
             // REGISTER
@@ -176,22 +176,22 @@
             label7.TabIndex = 16;
             label7.Text = "Đã có tài khoản?";
             // 
-            // linkLabel1
+            // LoginNowLbl
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(540, 501);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(144, 25);
-            linkLabel1.TabIndex = 17;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Đăng nhập ngay";
+            LoginNowLbl.AutoSize = true;
+            LoginNowLbl.Location = new Point(540, 501);
+            LoginNowLbl.Name = "LoginNowLbl";
+            LoginNowLbl.Size = new Size(144, 25);
+            LoginNowLbl.TabIndex = 17;
+            LoginNowLbl.TabStop = true;
+            LoginNowLbl.Text = "Đăng nhập ngay";
             // 
             // FrmRegister
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1056, 637);
-            Controls.Add(linkLabel1);
+            Controls.Add(LoginNowLbl);
             Controls.Add(label7);
             Controls.Add(RegisterBtn);
             Controls.Add(label6);
@@ -230,6 +230,6 @@
         private Label label6;
         private Button RegisterBtn;
         private Label label7;
-        private LinkLabel linkLabel1;
+        private LinkLabel LoginNowLbl;
     }
 }
