@@ -80,5 +80,15 @@ namespace QuanLyThuVien
         {
             homeTimer.Start();
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HomeContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
