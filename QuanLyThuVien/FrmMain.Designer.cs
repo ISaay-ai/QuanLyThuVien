@@ -50,7 +50,7 @@
             Setting = new Panel();
             button2 = new Button();
             Help = new Panel();
-            button1 = new Button();
+            HelpBtn = new Button();
             About = new Panel();
             AboutBtn = new Button();
             Quanlinhanvien = new Panel();
@@ -276,7 +276,7 @@
             TrangchuBtn.Text = "              Trang chủ";
             TrangchuBtn.TextAlign = ContentAlignment.MiddleLeft;
             TrangchuBtn.UseVisualStyleBackColor = false;
-            TrangchuBtn.Click += TrangchuBtn_Click;
+            TrangchuBtn.Click += TrangchuBtn_Click_1;
             // 
             // Setting
             // 
@@ -305,28 +305,28 @@
             // 
             // Help
             // 
-            Help.Controls.Add(button1);
+            Help.Controls.Add(HelpBtn);
             Help.Location = new Point(3, 624);
             Help.Name = "Help";
             Help.Size = new Size(313, 95);
             Help.TabIndex = 6;
             // 
-            // button1
+            // HelpBtn
             // 
-            button1.BackColor = Color.FromArgb(53, 162, 184);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(-8, -9);
-            button1.Name = "button1";
-            button1.Padding = new Padding(40, 0, 0, 0);
-            button1.Size = new Size(321, 104);
-            button1.TabIndex = 10;
-            button1.Text = "              Trợ giúp";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = false;
+            HelpBtn.BackColor = Color.FromArgb(53, 162, 184);
+            HelpBtn.FlatStyle = FlatStyle.Flat;
+            HelpBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            HelpBtn.ForeColor = SystemColors.ButtonHighlight;
+            HelpBtn.Image = (Image)resources.GetObject("HelpBtn.Image");
+            HelpBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            HelpBtn.Location = new Point(-8, -9);
+            HelpBtn.Name = "HelpBtn";
+            HelpBtn.Padding = new Padding(40, 0, 0, 0);
+            HelpBtn.Size = new Size(321, 104);
+            HelpBtn.TabIndex = 10;
+            HelpBtn.Text = "              Trợ giúp";
+            HelpBtn.TextAlign = ContentAlignment.MiddleLeft;
+            HelpBtn.UseVisualStyleBackColor = false;
             // 
             // About
             // 
@@ -437,7 +437,7 @@
         private Panel Setting;
         private Button button2;
         private Panel Help;
-        private Button button1;
+        private Button HelpBtn;
         private Panel Quanlinhanvien;
         private Button AboutBtn;
         private Panel Title;
