@@ -223,7 +223,7 @@
         Mk4v1WHPxJiHLzi79Smn9L8/5YGg78fJErp8bi3hvx+Q34vB2yRZAwIKAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="HelpBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAcVJREFUSEu1
         ljFSAzEMRX+RLm26dLlATsHQ0OQSqelygZyBK3AFKkpaSm5BR0MD8zzSjqK112aGLTSza+vrS9a3dnX/
