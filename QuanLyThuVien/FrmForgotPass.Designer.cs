@@ -41,31 +41,35 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(215, 132);
+            textBox1.Location = new Point(183, 79);
+            textBox1.Margin = new Padding(2, 2, 2, 2);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(363, 31);
+            textBox1.Size = new Size(255, 23);
             textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(215, 197);
+            textBox2.Location = new Point(183, 114);
+            textBox2.Margin = new Padding(2, 2, 2, 2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(363, 31);
+            textBox2.Size = new Size(255, 23);
             textBox2.TabIndex = 5;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(262, 276);
+            textBox3.Location = new Point(183, 166);
+            textBox3.Margin = new Padding(2, 2, 2, 2);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(316, 31);
+            textBox3.Size = new Size(255, 23);
             textBox3.TabIndex = 6;
             // 
             // REGISTER
             // 
             REGISTER.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            REGISTER.Location = new Point(215, 38);
+            REGISTER.Location = new Point(188, 21);
+            REGISTER.Margin = new Padding(2, 0, 2, 0);
             REGISTER.Name = "REGISTER";
-            REGISTER.Size = new Size(253, 52);
+            REGISTER.Size = new Size(177, 31);
             REGISTER.TabIndex = 7;
             REGISTER.Text = "Đổi mật khẩu";
             REGISTER.TextAlign = ContentAlignment.MiddleCenter;
@@ -73,35 +77,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(60, 132);
+            label1.Location = new Point(42, 79);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(139, 25);
+            label1.Size = new Size(97, 15);
             label1.TabIndex = 8;
-            label1.Text = "Mã số sinh viên:";
+            label1.Text = "Mã số nhân viên:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(60, 203);
+            label2.Location = new Point(42, 122);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(126, 25);
+            label2.Size = new Size(84, 15);
             label2.TabIndex = 9;
             label2.Text = "Mật khẩu mới:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(60, 276);
+            label3.Location = new Point(42, 166);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(196, 25);
+            label3.Size = new Size(131, 15);
             label3.TabIndex = 10;
             label3.Text = "Nhập lại mật khẩu mới:";
             // 
             // button1
             // 
-            button1.Location = new Point(208, 339);
+            button1.Location = new Point(183, 232);
+            button1.Margin = new Padding(2, 2, 2, 2);
             button1.Name = "button1";
-            button1.Size = new Size(260, 55);
+            button1.Size = new Size(182, 33);
             button1.TabIndex = 11;
             button1.Text = "Đặt lại mật khẩu";
             button1.UseVisualStyleBackColor = true;
@@ -109,18 +117,19 @@
             // LoginNowLbl
             // 
             LoginNowLbl.AutoSize = true;
-            LoginNowLbl.Location = new Point(244, 421);
+            LoginNowLbl.Location = new Point(208, 282);
+            LoginNowLbl.Margin = new Padding(2, 0, 2, 0);
             LoginNowLbl.Name = "LoginNowLbl";
-            LoginNowLbl.Size = new Size(167, 25);
+            LoginNowLbl.Size = new Size(110, 15);
             LoginNowLbl.TabIndex = 18;
             LoginNowLbl.TabStop = true;
             LoginNowLbl.Text = "Quay lại đăng nhập";
             // 
             // FrmForgotPass
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(654, 474);
+            ClientSize = new Size(514, 331);
             Controls.Add(LoginNowLbl);
             Controls.Add(button1);
             Controls.Add(label3);
@@ -130,6 +139,7 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FrmForgotPass";
             Text = "Quên mật khẩu";
             ResumeLayout(false);

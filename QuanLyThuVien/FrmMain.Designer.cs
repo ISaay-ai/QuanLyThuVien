@@ -56,6 +56,10 @@
             Quanlinhanvien = new Panel();
             QuanlinhanvienBtn = new Button();
             Title = new Panel();
+            TitleLbl = new Label();
+            pictureBox1 = new PictureBox();
+            MinimizeBtn = new PictureBox();
+            ExitBtn = new PictureBox();
             sidebar.SuspendLayout();
             MenuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MenuBtn).BeginInit();
@@ -69,6 +73,10 @@
             Help.SuspendLayout();
             About.SuspendLayout();
             Quanlinhanvien.SuspendLayout();
+            Title.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MinimizeBtn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ExitBtn).BeginInit();
             SuspendLayout();
             // 
             // sidebarTimer
@@ -90,8 +98,7 @@
             sidebar.Controls.Add(Help);
             sidebar.Controls.Add(About);
             sidebar.Controls.Add(Quanlinhanvien);
-            sidebar.Dock = DockStyle.Left;
-            sidebar.Location = new Point(0, 0);
+            sidebar.Location = new Point(0, 103);
             sidebar.MaximumSize = new Size(310, 929);
             sidebar.MinimumSize = new Size(112, 929);
             sidebar.Name = "sidebar";
@@ -102,9 +109,10 @@
             // 
             MenuContainer.Controls.Add(Menu);
             MenuContainer.Controls.Add(MenuBtn);
+            MenuContainer.Dock = DockStyle.Top;
             MenuContainer.Location = new Point(3, 3);
             MenuContainer.Name = "MenuContainer";
-            MenuContainer.Size = new Size(313, 93);
+            MenuContainer.Size = new Size(313, 104);
             MenuContainer.TabIndex = 0;
             // 
             // Menu
@@ -112,7 +120,7 @@
             Menu.AutoSize = true;
             Menu.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Menu.ForeColor = SystemColors.ButtonHighlight;
-            Menu.Location = new Point(138, 18);
+            Menu.Location = new Point(137, 28);
             Menu.Name = "Menu";
             Menu.Size = new Size(102, 45);
             Menu.TabIndex = 2;
@@ -122,7 +130,7 @@
             // 
             MenuBtn.Cursor = Cursors.Hand;
             MenuBtn.Image = (Image)resources.GetObject("MenuBtn.Image");
-            MenuBtn.Location = new Point(18, 13);
+            MenuBtn.Location = new Point(19, 28);
             MenuBtn.Name = "MenuBtn";
             MenuBtn.Size = new Size(68, 50);
             MenuBtn.SizeMode = PictureBoxSizeMode.Zoom;
@@ -139,13 +147,12 @@
             HomeContainer.Controls.Add(Quanlisach);
             HomeContainer.Controls.Add(Trangchu);
             HomeContainer.Dock = DockStyle.Top;
-            HomeContainer.Location = new Point(3, 102);
+            HomeContainer.Location = new Point(3, 113);
             HomeContainer.MaximumSize = new Size(313, 415);
             HomeContainer.MinimumSize = new Size(313, 81);
             HomeContainer.Name = "HomeContainer";
             HomeContainer.Size = new Size(313, 415);
             HomeContainer.TabIndex = 5;
-            HomeContainer.Paint += HomeContainer_Paint;
             // 
             // Baocaothongke
             // 
@@ -281,7 +288,7 @@
             // Setting
             // 
             Setting.Controls.Add(button2);
-            Setting.Location = new Point(3, 523);
+            Setting.Location = new Point(3, 534);
             Setting.Name = "Setting";
             Setting.Size = new Size(313, 95);
             Setting.TabIndex = 5;
@@ -306,7 +313,7 @@
             // Help
             // 
             Help.Controls.Add(HelpBtn);
-            Help.Location = new Point(3, 624);
+            Help.Location = new Point(3, 635);
             Help.Name = "Help";
             Help.Size = new Size(313, 95);
             Help.TabIndex = 6;
@@ -331,7 +338,7 @@
             // About
             // 
             About.Controls.Add(AboutBtn);
-            About.Location = new Point(3, 725);
+            About.Location = new Point(3, 736);
             About.Name = "About";
             About.Size = new Size(313, 95);
             About.TabIndex = 12;
@@ -349,18 +356,17 @@
             AboutBtn.Padding = new Padding(40, 0, 0, 0);
             AboutBtn.Size = new Size(321, 103);
             AboutBtn.TabIndex = 10;
-            AboutBtn.Text = "               Về chúng tôi";
+            AboutBtn.Text = "              Về chúng tôi";
             AboutBtn.TextAlign = ContentAlignment.MiddleLeft;
             AboutBtn.UseVisualStyleBackColor = false;
             // 
             // Quanlinhanvien
             // 
             Quanlinhanvien.Controls.Add(QuanlinhanvienBtn);
-            Quanlinhanvien.Location = new Point(3, 826);
+            Quanlinhanvien.Location = new Point(3, 837);
             Quanlinhanvien.Name = "Quanlinhanvien";
             Quanlinhanvien.Size = new Size(313, 95);
             Quanlinhanvien.TabIndex = 11;
-            Quanlinhanvien.Visible = false;
             // 
             // QuanlinhanvienBtn
             // 
@@ -370,37 +376,87 @@
             QuanlinhanvienBtn.ForeColor = SystemColors.ButtonHighlight;
             QuanlinhanvienBtn.Image = (Image)resources.GetObject("QuanlinhanvienBtn.Image");
             QuanlinhanvienBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            QuanlinhanvienBtn.Location = new Point(-3, -13);
+            QuanlinhanvienBtn.Location = new Point(-6, -12);
             QuanlinhanvienBtn.Name = "QuanlinhanvienBtn";
             QuanlinhanvienBtn.Padding = new Padding(40, 0, 0, 0);
-            QuanlinhanvienBtn.Size = new Size(321, 108);
+            QuanlinhanvienBtn.Size = new Size(321, 103);
             QuanlinhanvienBtn.TabIndex = 4;
-            QuanlinhanvienBtn.Text = "           Quản lí nhân viên";
+            QuanlinhanvienBtn.Text = "              Quản lí nhân viên";
             QuanlinhanvienBtn.TextAlign = ContentAlignment.MiddleLeft;
             QuanlinhanvienBtn.UseVisualStyleBackColor = false;
             // 
             // Title
             // 
             Title.BackColor = Color.FromArgb(53, 162, 184);
+            Title.Controls.Add(TitleLbl);
+            Title.Controls.Add(pictureBox1);
+            Title.Controls.Add(MinimizeBtn);
+            Title.Controls.Add(ExitBtn);
             Title.Dock = DockStyle.Top;
-            Title.Location = new Point(310, 0);
+            Title.Location = new Point(0, 0);
             Title.Name = "Title";
-            Title.Size = new Size(1084, 104);
+            Title.Size = new Size(1443, 104);
             Title.TabIndex = 1;
+            Title.MouseDown += Title_MouseDown;
+            Title.MouseMove += Title_MouseMove;
+            Title.MouseUp += Title_MouseUp;
+            // 
+            // TitleLbl
+            // 
+            TitleLbl.AutoSize = true;
+            TitleLbl.BackColor = Color.FromArgb(53, 162, 184);
+            TitleLbl.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            TitleLbl.ForeColor = SystemColors.ButtonHighlight;
+            TitleLbl.Location = new Point(588, 21);
+            TitleLbl.Name = "TitleLbl";
+            TitleLbl.Size = new Size(467, 50);
+            TitleLbl.TabIndex = 3;
+            TitleLbl.Text = "Hệ thống quản lí thư viện";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 21);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 61);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
+            // MinimizeBtn
+            // 
+            MinimizeBtn.Image = (Image)resources.GetObject("MinimizeBtn.Image");
+            MinimizeBtn.Location = new Point(1320, 35);
+            MinimizeBtn.Name = "MinimizeBtn";
+            MinimizeBtn.Size = new Size(33, 36);
+            MinimizeBtn.SizeMode = PictureBoxSizeMode.Zoom;
+            MinimizeBtn.TabIndex = 1;
+            MinimizeBtn.TabStop = false;
+            MinimizeBtn.Click += MinimizeBtn_Click;
+            // 
+            // ExitBtn
+            // 
+            ExitBtn.Image = (Image)resources.GetObject("ExitBtn.Image");
+            ExitBtn.Location = new Point(1384, 35);
+            ExitBtn.Name = "ExitBtn";
+            ExitBtn.Size = new Size(33, 36);
+            ExitBtn.SizeMode = PictureBoxSizeMode.Zoom;
+            ExitBtn.TabIndex = 0;
+            ExitBtn.TabStop = false;
+            ExitBtn.Click += ExitBtn_Click;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1394, 909);
+            ClientSize = new Size(1443, 1029);
             Controls.Add(Title);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMain";
             Text = "FrmMain";
             WindowState = FormWindowState.Minimized;
-            Load += FrmMain_Load;
             sidebar.ResumeLayout(false);
             MenuContainer.ResumeLayout(false);
             MenuContainer.PerformLayout();
@@ -415,6 +471,11 @@
             Help.ResumeLayout(false);
             About.ResumeLayout(false);
             Quanlinhanvien.ResumeLayout(false);
+            Title.ResumeLayout(false);
+            Title.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MinimizeBtn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ExitBtn).EndInit();
             ResumeLayout(false);
         }
 
@@ -448,5 +509,9 @@
         private Panel Quanlisach;
         private Panel panel4;
         private Panel About;
+        private PictureBox ExitBtn;
+        private PictureBox MinimizeBtn;
+        private PictureBox pictureBox1;
+        private Label TitleLbl;
     }
 }
