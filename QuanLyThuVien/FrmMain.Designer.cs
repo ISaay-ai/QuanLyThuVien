@@ -99,10 +99,9 @@
             sidebar.Controls.Add(About);
             sidebar.Controls.Add(Quanlinhanvien);
             sidebar.Location = new Point(0, 103);
-            sidebar.MaximumSize = new Size(310, 929);
             sidebar.MinimumSize = new Size(112, 929);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(310, 929);
+            sidebar.Size = new Size(310, 1116);
             sidebar.TabIndex = 0;
             // 
             // MenuContainer
@@ -450,7 +449,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1443, 1029);
+            ClientSize = new Size(1443, 1139);
             Controls.Add(Title);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
