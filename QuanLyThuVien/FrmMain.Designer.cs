@@ -195,7 +195,7 @@
             MuontrasachBtn.FlatStyle = FlatStyle.Flat;
             MuontrasachBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MuontrasachBtn.ForeColor = SystemColors.ButtonHighlight;
-            MuontrasachBtn.Image = Properties.Resources.book_2__1_;
+            MuontrasachBtn.Image = GUI.Properties.Resources.book_2__1_;
             MuontrasachBtn.ImageAlign = ContentAlignment.MiddleLeft;
             MuontrasachBtn.Location = new Point(-4, 0);
             MuontrasachBtn.Name = "MuontrasachBtn";
@@ -221,7 +221,7 @@
             DocgiaBtn.FlatStyle = FlatStyle.Flat;
             DocgiaBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DocgiaBtn.ForeColor = SystemColors.ButtonHighlight;
-            DocgiaBtn.Image = Properties.Resources.pupil_1_;
+            DocgiaBtn.Image = GUI.Properties.Resources.pupil_1_;
             DocgiaBtn.ImageAlign = ContentAlignment.MiddleLeft;
             DocgiaBtn.Location = new Point(-5, 0);
             DocgiaBtn.Name = "DocgiaBtn";
@@ -247,7 +247,7 @@
             QuanlisachBtn.FlatStyle = FlatStyle.Flat;
             QuanlisachBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             QuanlisachBtn.ForeColor = SystemColors.ButtonHighlight;
-            QuanlisachBtn.Image = Properties.Resources.book_1__1_;
+            QuanlisachBtn.Image = GUI.Properties.Resources.book_1__1_;
             QuanlisachBtn.ImageAlign = ContentAlignment.MiddleLeft;
             QuanlisachBtn.Location = new Point(-4, -9);
             QuanlisachBtn.Name = "QuanlisachBtn";
