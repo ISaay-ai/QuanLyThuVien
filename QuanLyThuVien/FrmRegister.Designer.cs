@@ -60,7 +60,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(214, 83);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(207, 23);
             textBox1.TabIndex = 3;
@@ -88,7 +88,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(214, 134);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(207, 23);
             textBox2.TabIndex = 6;
@@ -108,7 +108,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "K16", "K17", "K18", "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27" });
             comboBox1.Location = new Point(214, 367);
-            comboBox1.Margin = new Padding(2, 2, 2, 2);
+            comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(96, 23);
             comboBox1.TabIndex = 8;
@@ -126,7 +126,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(214, 182);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(207, 23);
             textBox3.TabIndex = 11;
@@ -145,7 +145,7 @@
             // textBox4
             // 
             textBox4.Location = new Point(214, 302);
-            textBox4.Margin = new Padding(2, 2, 2, 2);
+            textBox4.Margin = new Padding(2);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(207, 23);
             textBox4.TabIndex = 13;
@@ -163,8 +163,8 @@
             // RegisterBtn
             // 
             RegisterBtn.BackColor = Color.White;
-            RegisterBtn.Location = new Point(144, 445);
-            RegisterBtn.Margin = new Padding(2, 2, 2, 2);
+            RegisterBtn.Location = new Point(112, 451);
+            RegisterBtn.Margin = new Padding(2);
             RegisterBtn.Name = "RegisterBtn";
             RegisterBtn.Size = new Size(309, 41);
             RegisterBtn.TabIndex = 15;
@@ -174,7 +174,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(159, 507);
+            label7.Location = new Point(112, 507);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(94, 15);
@@ -204,7 +204,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(528, 589);
+            ClientSize = new Size(523, 589);
             Controls.Add(textBox5);
             Controls.Add(LoginNowLbl);
             Controls.Add(label7);
@@ -221,7 +221,7 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(REGISTER);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FrmRegister";
             Text = "Tạo tài khoản";
             ResumeLayout(false);
