@@ -33,17 +33,15 @@
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
-            label4 = new Label();
             ForgotPassLbl = new LinkLabel();
             ShowPassBox = new CheckBox();
-            SignUpLbl = new LinkLabel();
             LOGIN = new Label();
             SuspendLayout();
             // 
             // textBox1
             // 
             textBox1.Location = new Point(67, 120);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(297, 23);
             textBox1.TabIndex = 0;
@@ -51,7 +49,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(67, 175);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(297, 23);
             textBox2.TabIndex = 2;
@@ -62,9 +60,9 @@
             label1.Location = new Point(67, 87);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(89, 15);
+            label1.Size = new Size(127, 15);
             label1.TabIndex = 3;
-            label1.Text = "Tên đăng nhập:";
+            label1.Text = "Tên đăng nhập/MSNV:";
             // 
             // label2
             // 
@@ -79,22 +77,12 @@
             // button1
             // 
             button1.Location = new Point(67, 247);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(295, 35);
             button1.TabIndex = 5;
             button1.Text = "Đăng nhập";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(103, 299);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(108, 15);
-            label4.TabIndex = 7;
-            label4.Text = "Chưa có tài khoản?";
             // 
             // ForgotPassLbl
             // 
@@ -111,23 +99,12 @@
             // 
             ShowPassBox.AutoSize = true;
             ShowPassBox.Location = new Point(67, 203);
-            ShowPassBox.Margin = new Padding(2, 2, 2, 2);
+            ShowPassBox.Margin = new Padding(2);
             ShowPassBox.Name = "ShowPassBox";
             ShowPassBox.Size = new Size(104, 19);
             ShowPassBox.TabIndex = 9;
             ShowPassBox.Text = "Hiện mật khẩu";
             ShowPassBox.UseVisualStyleBackColor = true;
-            // 
-            // SignUpLbl
-            // 
-            SignUpLbl.AutoSize = true;
-            SignUpLbl.Location = new Point(242, 299);
-            SignUpLbl.Margin = new Padding(2, 0, 2, 0);
-            SignUpLbl.Name = "SignUpLbl";
-            SignUpLbl.Size = new Size(79, 15);
-            SignUpLbl.TabIndex = 10;
-            SignUpLbl.TabStop = true;
-            SignUpLbl.Text = "Tạo tài khoản";
             // 
             // LOGIN
             // 
@@ -145,17 +122,15 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(440, 345);
-            Controls.Add(SignUpLbl);
             Controls.Add(ShowPassBox);
             Controls.Add(ForgotPassLbl);
-            Controls.Add(label4);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(LOGIN);
             Controls.Add(textBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FrmLogin";
             Text = "Đăng Nhập";
             ResumeLayout(false);
@@ -169,10 +144,8 @@
         private Label label1;
         private Label label2;
         private Button button1;
-        private Label label4;
         private LinkLabel ForgotPassLbl;
         private CheckBox ShowPassBox;
-        private LinkLabel SignUpLbl;
         private Label LOGIN;
     }
 }

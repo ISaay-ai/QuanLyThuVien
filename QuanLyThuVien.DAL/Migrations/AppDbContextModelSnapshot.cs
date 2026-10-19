@@ -342,58 +342,66 @@ namespace QuanLyThuVien.DAL.Migrations
                 {
                     b.Property<int>("MaTK")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaTK"));
 
                     b.Property<string>("DiaChi")
-                        .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnOrder(9);
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnOrder(8);
 
                     b.Property<string>("GioiTinh")
-                        .IsRequired()
                         .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasColumnOrder(5);
 
                     b.Property<string>("HoTen")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnOrder(4);
 
-                    b.Property<string>("MatKhauHash")
+                    b.Property<string>("MaNV")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("MatKhau")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnOrder(3);
 
-                    b.Property<DateTime>("NgaySinh")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime>("NgayTao")
-                        .HasColumnType("datetime");
+                    b.Property<DateTime?>("NgaySinh")
+                        .HasColumnType("date")
+                        .HasColumnOrder(6);
 
                     b.Property<string>("SDT")
-                        .IsRequired()
-                        .HasColumnType("varchar(15)");
+                        .HasColumnType("varchar(15)")
+                        .HasColumnOrder(7);
 
                     b.Property<string>("TenDangNhap")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("TrangThai")
-                        .HasColumnType("bit");
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnOrder(2);
 
                     b.Property<string>("VaiTro")
-                        .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnOrder(10);
 
                     b.HasKey("MaTK");
+
+                    b.HasIndex("MaNV")
+                        .IsUnique();
 
                     b.HasIndex("TenDangNhap")
                         .IsUnique();
