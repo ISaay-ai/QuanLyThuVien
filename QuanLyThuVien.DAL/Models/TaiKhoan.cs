@@ -10,9 +10,6 @@ namespace QuanLyThuVien.DAL.Models
         public int MaTK { get; set; }
 
         [Required]
-        public string MaNV { get; set; } = string.Empty;
-
-        [Required]
         public string TenDangNhap { get; set; } = string.Empty;
 
         [Required]

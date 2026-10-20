@@ -20,7 +20,7 @@ namespace QuanLyThuVien
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã nhân viên hoặc tên đăng nhập cùng mật khẩu.", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu.", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -29,7 +29,7 @@ namespace QuanLyThuVien
                 var taiKhoan = authenticationService.Authenticate(textBox1.Text.Trim(), textBox2.Text);
                 if (taiKhoan is null)
                 {
-                    MessageBox.Show("Mã nhân viên hoặc mật khẩu không đúng.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     textBox2.Clear();
                     textBox2.Focus();
                     return;

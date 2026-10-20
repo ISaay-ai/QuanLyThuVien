@@ -60,9 +60,9 @@
             label1.Location = new Point(67, 87);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(127, 15);
+            label1.Size = new Size(89, 15);
             label1.TabIndex = 3;
-            label1.Text = "Tên đăng nhập/MSNV:";
+            label1.Text = "Tên đăng nhập:";
             // 
             // label2
             // 

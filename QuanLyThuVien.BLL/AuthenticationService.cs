@@ -5,16 +5,15 @@ namespace QuanLyThuVien.BLL;
 
 public class AuthenticationService
 {
-    public TaiKhoan? Authenticate(string identifier, string matKhau)
+    public TaiKhoan? Authenticate(string tenDangNhap, string matKhau)
     {
-        if (string.IsNullOrWhiteSpace(identifier) || string.IsNullOrEmpty(matKhau))
+        if (string.IsNullOrWhiteSpace(tenDangNhap) || string.IsNullOrEmpty(matKhau))
         {
             return null;
         }
 
         using var context = new AppDbContext();
-        var taiKhoan = context.TaiKhoans.SingleOrDefault(x => x.TenDangNhap == identifier)
-            ?? context.TaiKhoans.SingleOrDefault(x => x.MaNV == identifier);
+        var taiKhoan = context.TaiKhoans.SingleOrDefault(x => x.TenDangNhap == tenDangNhap);
         if (taiKhoan is null || taiKhoan.MatKhau != matKhau)
         {
             return null;
@@ -23,15 +22,15 @@ public class AuthenticationService
         return taiKhoan;
     }
 
-    public bool ResetPassword(string maNhanVien, string matKhauMoi)
+    public bool ResetPassword(string tenDangNhap, string matKhauMoi)
     {
-        if (string.IsNullOrWhiteSpace(maNhanVien) || string.IsNullOrEmpty(matKhauMoi))
+        if (string.IsNullOrWhiteSpace(tenDangNhap) || string.IsNullOrEmpty(matKhauMoi))
         {
             return false;
         }
 
         using var context = new AppDbContext();
-        var taiKhoan = context.TaiKhoans.SingleOrDefault(x => x.MaNV == maNhanVien);
+        var taiKhoan = context.TaiKhoans.SingleOrDefault(x => x.TenDangNhap == tenDangNhap);
         if (taiKhoan is null)
         {
             return false;

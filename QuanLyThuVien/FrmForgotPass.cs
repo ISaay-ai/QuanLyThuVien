@@ -25,12 +25,12 @@ namespace QuanLyThuVien
 
         private void ResetPasswordButton_Click(object? sender, EventArgs e)
         {
-            var maNhanVien = textBox1.Text.Trim();
+            var tenDangNhap = textBox1.Text.Trim();
             var matKhauMoi = textBox2.Text;
 
-            if (string.IsNullOrWhiteSpace(maNhanVien) || string.IsNullOrEmpty(matKhauMoi) || string.IsNullOrEmpty(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(tenDangNhap) || string.IsNullOrEmpty(matKhauMoi) || string.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Vui lòng nhập mã nhân viên và điền đầy đủ mật khẩu mới.", "Đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên đăng nhập và điền đầy đủ mật khẩu mới.", "Đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -44,9 +44,9 @@ namespace QuanLyThuVien
 
             try
             {
-                if (!authenticationService.ResetPassword(maNhanVien, matKhauMoi))
+                if (!authenticationService.ResetPassword(tenDangNhap, matKhauMoi))
                 {
-                    MessageBox.Show("Không tìm thấy mã nhân viên trong hệ thống.", "Đặt lại mật khẩu thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Không tìm thấy tên đăng nhập trong hệ thống.", "Đặt lại mật khẩu thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

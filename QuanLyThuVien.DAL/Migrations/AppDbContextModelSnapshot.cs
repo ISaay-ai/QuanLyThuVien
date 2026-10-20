@@ -350,58 +350,49 @@ namespace QuanLyThuVien.DAL.Migrations
                     b.Property<string>("DiaChi")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)")
-                        .HasColumnOrder(9);
+                        .HasColumnOrder(8);
 
                     b.Property<string>("Email")
                         .HasColumnType("varchar(100)")
-                        .HasColumnOrder(8);
+                        .HasColumnOrder(7);
 
                     b.Property<string>("GioiTinh")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)")
-                        .HasColumnOrder(5);
+                        .HasColumnOrder(4);
 
                     b.Property<string>("HoTen")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
-                        .HasColumnOrder(4);
-
-                    b.Property<string>("MaNV")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnOrder(1);
+                        .HasColumnOrder(3);
 
                     b.Property<string>("MatKhau")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnOrder(3);
+                        .HasColumnOrder(2);
 
                     b.Property<DateTime?>("NgaySinh")
                         .HasColumnType("date")
-                        .HasColumnOrder(6);
+                        .HasColumnOrder(5);
 
                     b.Property<string>("SDT")
                         .HasColumnType("varchar(15)")
-                        .HasColumnOrder(7);
+                        .HasColumnOrder(6);
 
                     b.Property<string>("TenDangNhap")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasColumnOrder(2);
+                        .HasColumnOrder(1);
 
                     b.Property<string>("VaiTro")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)")
-                        .HasColumnOrder(10);
+                        .HasColumnOrder(9);
 
                     b.HasKey("MaTK");
-
-                    b.HasIndex("MaNV")
-                        .IsUnique();
 
                     b.HasIndex("TenDangNhap")
                         .IsUnique();

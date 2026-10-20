@@ -105,10 +105,6 @@ namespace QuanLyThuVien.DAL
                 .HasIndex(x => x.TenDangNhap)
                 .IsUnique();
 
-            modelBuilder.Entity<TaiKhoan>()
-                .HasIndex(x => x.MaNV)
-                .IsUnique();
-
             modelBuilder.Entity<QuyDinhPhat>()
                 .HasIndex(x => x.MaViPham)
                 .IsUnique();
@@ -310,54 +306,49 @@ namespace QuanLyThuVien.DAL
                 entity.Property(x => x.MaTK)
                     .HasColumnOrder(0);
 
-                entity.Property(x => x.MaNV)
+                entity.Property(x => x.TenDangNhap)
                     .HasMaxLength(50)
                     .HasColumnOrder(1)
                     .IsRequired();
 
-                entity.Property(x => x.TenDangNhap)
-                    .HasMaxLength(50)
-                    .HasColumnOrder(2)
-                    .IsRequired();
-
                 entity.Property(x => x.MatKhau)
                     .HasMaxLength(255)
-                    .HasColumnOrder(3)
+                    .HasColumnOrder(2)
                     .IsRequired();
 
                 entity.Property(x => x.HoTen)
                     .HasMaxLength(100)
-                    .HasColumnOrder(4)
+                    .HasColumnOrder(3)
                     .IsRequired();
 
                 entity.Property(x => x.GioiTinh)
                     .HasMaxLength(10)
-                    .HasColumnOrder(5)
+                    .HasColumnOrder(4)
                     .IsRequired(false);
 
                 entity.Property(x => x.SDT)
                     .HasColumnType("varchar(15)")
-                    .HasColumnOrder(7)
+                    .HasColumnOrder(6)
                     .IsRequired(false);
 
                 entity.Property(x => x.Email)
                     .HasColumnType("varchar(100)")
-                    .HasColumnOrder(8)
+                    .HasColumnOrder(7)
                     .IsRequired(false);
 
                 entity.Property(x => x.DiaChi)
                     .HasMaxLength(200)
-                    .HasColumnOrder(9)
+                    .HasColumnOrder(8)
                     .IsRequired(false);
 
                 entity.Property(x => x.VaiTro)
                     .HasMaxLength(20)
-                    .HasColumnOrder(10)
+                    .HasColumnOrder(9)
                     .IsRequired(false);
 
                 entity.Property(x => x.NgaySinh)
                     .HasColumnType("date")
-                    .HasColumnOrder(6)
+                    .HasColumnOrder(5)
                     .IsRequired(false);
 
             });
