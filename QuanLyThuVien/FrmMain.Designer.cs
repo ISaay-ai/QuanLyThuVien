@@ -449,13 +449,14 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(1443, 1139);
+            ClientSize = new Size(1443, 1100);
             Controls.Add(Title);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMain";
             Text = "FrmMain";
             WindowState = FormWindowState.Minimized;
+            Load += FrmMain_Load;
             sidebar.ResumeLayout(false);
             MenuContainer.ResumeLayout(false);
             MenuContainer.PerformLayout();

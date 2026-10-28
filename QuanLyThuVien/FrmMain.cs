@@ -132,5 +132,11 @@ namespace QuanLyThuVien
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
