@@ -14,5 +14,10 @@ namespace QuanLyThuVien.Views
         {
             InitializeComponent();
         }
+
+        private void dtpNgayMuon_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

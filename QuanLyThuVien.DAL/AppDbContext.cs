@@ -23,7 +23,7 @@ namespace QuanLyThuVien.DAL
         public DbSet<PhieuPhat> PhieuPhats { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=THINKPADE\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-ER612F1\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
 
         }
         protected override void OnModelCreating(
