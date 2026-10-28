@@ -8,6 +8,11 @@ namespace QuanLyThuVien.BLL
     public class EmployeeMng
     {
         private readonly TaiKhoan TaiKhoa = new TaiKhoan();
+        public List<TaiKhoan> LayDanhSach()
+        {
+            using var context = new AppDbContext();
+            return context.TaiKhoans.ToList();
+        }
         public bool DangKy(string tenDangNhap, string matKhau, string hoTen, string? gioiTinh = null, string? sdt = null, string? email = null, string? diaChi = null, string? vaiTro = "NhanVien")
         {
             if (string.IsNullOrWhiteSpace(tenDangNhap) ||
@@ -95,53 +100,6 @@ namespace QuanLyThuVien.BLL
             return true;
         }
 
-        public bool DoiMatKhau(int maTK, string matKhauCu, string matKhauMoi)
-        {
-            if (maTK <= 0 ||
-                string.IsNullOrWhiteSpace(matKhauCu) ||
-                string.IsNullOrWhiteSpace(matKhauMoi))
-            {
-                return false;
-            }
-
-            if (matKhauMoi == matKhauCu)
-            {
-                return false;
-            }
-
-            using var context = new AppDbContext();
-            var taiKhoan = context.TaiKhoans.Find(maTK);
-
-            if (taiKhoan == null || taiKhoan.MatKhau != matKhauCu)
-            {
-                return false;
-            }
-
-            taiKhoan.MatKhau = matKhauMoi;
-            context.SaveChanges();
-            return true;
-        }
-
-        public bool XoaTaiKhoan(int maTK)
-        {
-            if (maTK <= 0)
-            {
-                return false;
-            }
-
-            using var context = new AppDbContext();
-            var taiKhoan = context.TaiKhoans.Find(maTK);
-
-            if (taiKhoan == null)
-            {
-                return false;
-            }
-
-            context.TaiKhoans.Remove(taiKhoan);
-            context.SaveChanges();
-            return true;
-        }
-
         public bool XoaTaiKhoan(string tenDangNhap)
         {
             if (string.IsNullOrWhiteSpace(tenDangNhap))
@@ -161,16 +119,6 @@ namespace QuanLyThuVien.BLL
             context.TaiKhoans.Remove(taiKhoan);
             context.SaveChanges();
             return true;
-        }
-
-        public bool XoaTaiKhoan(TaiKhoan taiKhoan)
-        {
-            if (taiKhoan == null)
-            {
-                return false;
-            }
-
-            return XoaTaiKhoan(taiKhoan.MaTK);
         }
     }
 }

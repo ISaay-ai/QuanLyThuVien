@@ -37,7 +37,7 @@
             btnDangKy = new Button();
             rdoNu = new RadioButton();
             rdoNam = new RadioButton();
-            dateTimePicker1 = new DateTimePicker();
+            dtpNgaySinh = new DateTimePicker();
             txtMK = new TextBox();
             txtTenLogIn = new TextBox();
             txtDiaChi = new TextBox();
@@ -56,6 +56,7 @@
             // 
             // dgvNhanVien
             // 
+            dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNhanVien.Location = new Point(265, 575);
             dgvNhanVien.Name = "dgvNhanVien";
@@ -71,7 +72,7 @@
             groupBox1.Controls.Add(btnDangKy);
             groupBox1.Controls.Add(rdoNu);
             groupBox1.Controls.Add(rdoNam);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dtpNgaySinh);
             groupBox1.Controls.Add(txtMK);
             groupBox1.Controls.Add(txtTenLogIn);
             groupBox1.Controls.Add(txtDiaChi);
@@ -114,6 +115,7 @@
             btnXoa.TabIndex = 18;
             btnXoa.Text = "XÓA";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnDoiMK
             // 
@@ -123,6 +125,7 @@
             btnDoiMK.TabIndex = 17;
             btnDoiMK.Text = "ĐỔI MẬT KHẨU";
             btnDoiMK.UseVisualStyleBackColor = true;
+            btnDoiMK.Click += btnDoiMK_Click;
             // 
             // btnDangKy
             // 
@@ -156,12 +159,12 @@
             rdoNam.Text = "Nam";
             rdoNam.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dtpNgaySinh
             // 
-            dateTimePicker1.Location = new Point(102, 106);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 13;
+            dtpNgaySinh.Location = new Point(102, 106);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(200, 23);
+            dtpNgaySinh.TabIndex = 13;
             // 
             // txtMK
             // 
@@ -279,7 +282,7 @@
         private Button btnDangKy;
         private RadioButton rdoNu;
         private RadioButton rdoNam;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpNgaySinh;
         private TextBox txtMK;
         private TextBox txtTenLogIn;
         private TextBox txtDiaChi;
