@@ -42,7 +42,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(183, 79);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(255, 23);
             textBox1.TabIndex = 4;
@@ -50,7 +50,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(183, 114);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(255, 23);
             textBox2.TabIndex = 5;
@@ -58,7 +58,7 @@
             // textBox3
             // 
             textBox3.Location = new Point(183, 166);
-            textBox3.Margin = new Padding(2, 2, 2, 2);
+            textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(255, 23);
             textBox3.TabIndex = 6;
@@ -80,9 +80,9 @@
             label1.Location = new Point(42, 79);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(97, 15);
+            label1.Size = new Size(89, 15);
             label1.TabIndex = 8;
-            label1.Text = "Mã số nhân viên:";
+            label1.Text = "Tên đăng nhập:";
             // 
             // label2
             // 
@@ -107,7 +107,7 @@
             // button1
             // 
             button1.Location = new Point(183, 232);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(182, 33);
             button1.TabIndex = 11;
@@ -139,7 +139,7 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FrmForgotPass";
             Text = "Quên mật khẩu";
             ResumeLayout(false);

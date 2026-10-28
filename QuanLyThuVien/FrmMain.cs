@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using QuanLyThuVien.DAL.Models;
 
 namespace QuanLyThuVien
 {
@@ -12,13 +13,18 @@ namespace QuanLyThuVien
     {
         bool sidebarExpand;
         bool homeCollapsed;
+        private readonly bool isAdmin;
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
-        public FrmMain()
+        public FrmMain(TaiKhoan taiKhoan)
         {
             InitializeComponent();
+            isAdmin = string.Equals(taiKhoan.VaiTro, "Admin", StringComparison.OrdinalIgnoreCase);
+            Quanlinhanvien.Visible = isAdmin;
+            QuanlinhanvienBtn.Enabled = isAdmin;
+            QuanlinhanvienBtn.Click += QuanlinhanvienBtn_Click;
             Title.MouseDown += Title_MouseDown;
             Title.MouseMove += Title_MouseMove;
             Title.MouseUp += Title_MouseUp;
@@ -109,6 +115,17 @@ namespace QuanLyThuVien
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        //Chỉ Admin mới được sử dụng Btn này
+        private void QuanlinhanvienBtn_Click(object? sender, EventArgs e)
+        {
+            if (!isAdmin)
+            {
+                return;
+            }
+
+            using var employeeManagementForm = new Views.QuanlinhanvienView();
+            employeeManagementForm.ShowDialog(this);
         }
 
         private void MinimizeBtn_Click(object sender, EventArgs e)

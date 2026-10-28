@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace QuanLyThuVien.DAL.Models
 {
     public class TheLoai
     {
+        [Key]
         public int MaTheLoai { get; set; }
         public string TenTheLoai { get; set; } = string.Empty;
-        public string? MoTa { get; set; }
 
-        // 1-N: Một thể loại có nhiều sách
-        public List<Sachs> Sachs { get; set; } = new List<Sachs>();
+        // 1 thể loại có nhiều sách
+        public List<Sach> Sachs { get; set; } = new List<Sach>();
+
     }
 }
