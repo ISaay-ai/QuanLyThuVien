@@ -24,7 +24,7 @@ namespace QuanLyThuVien.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Server=ThinkpadE\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=K9XZ\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
 
 
         }
