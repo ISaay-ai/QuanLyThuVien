@@ -111,7 +111,7 @@ namespace QuanLyThuVien
             lnkQuenMatKhau.Location = new Point(265, 395);
             lnkQuenMatKhau.Margin = new Padding(2, 0, 2, 0);
             lnkQuenMatKhau.Name = "lnkQuenMatKhau";
-            lnkQuenMatKhau.Size = new Size(101, 17);
+            lnkQuenMatKhau.Size = new Size(102, 17);
             lnkQuenMatKhau.TabIndex = 3;
             lnkQuenMatKhau.TabStop = true;
             lnkQuenMatKhau.Text = "Quên mật khẩu?";
@@ -125,7 +125,7 @@ namespace QuanLyThuVien
             chkHienMatKhau.Location = new Point(67, 394);
             chkHienMatKhau.Margin = new Padding(2);
             chkHienMatKhau.Name = "chkHienMatKhau";
-            chkHienMatKhau.Size = new Size(111, 21);
+            chkHienMatKhau.Size = new Size(110, 21);
             chkHienMatKhau.TabIndex = 2;
             chkHienMatKhau.Text = "Hiện mật khẩu";
             chkHienMatKhau.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@ namespace QuanLyThuVien
             panel1.BackColor = Color.FromArgb(53, 162, 184);
             panel1.Location = new Point(444, -15);
             panel1.Name = "panel1";
-            panel1.Size = new Size(437, 587);
+            panel1.Size = new Size(465, 587);
             panel1.TabIndex = 10;
             // 
             // FrmLogin

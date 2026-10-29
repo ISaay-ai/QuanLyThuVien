@@ -46,8 +46,10 @@ namespace QuanLyThuVien.GUI
             this.pnlHeader.Controls.Add(this.lblTitle);
             this.pnlHeader.Controls.Add(this.lblClose);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Height = 55;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1000, 55);
+            this.pnlHeader.TabIndex = 0;
             this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
 
             // 
@@ -76,8 +78,8 @@ namespace QuanLyThuVien.GUI
             this.lblClose.Text = "✕";
             this.lblClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
-            this.lblClose.MouseEnter += (s, e) => { this.lblClose.ForeColor = System.Drawing.Color.FromArgb(220, 53, 69); };
-            this.lblClose.MouseLeave += (s, e) => { this.lblClose.ForeColor = System.Drawing.Color.FromArgb(115, 115, 115); };
+            this.lblClose.MouseEnter += new System.EventHandler(this.lblClose_MouseEnter);
+            this.lblClose.MouseLeave += new System.EventHandler(this.lblClose_MouseLeave);
 
             // 
             // pnlSidebar
@@ -87,8 +89,10 @@ namespace QuanLyThuVien.GUI
             this.pnlSidebar.Controls.Add(this.btnThongTinTaiKhoan);
             this.pnlSidebar.Controls.Add(this.btnDangXuat);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Width = 230;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 55);
             this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(230, 605);
+            this.pnlSidebar.TabIndex = 1;
             this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
 
             // 

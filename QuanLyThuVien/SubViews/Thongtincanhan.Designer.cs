@@ -76,7 +76,7 @@ namespace QuanLyThuVien.SubViews
             picAvatar.Location = new Point(75, 77);
             picAvatar.Name = "picAvatar";
             picAvatar.Size = new Size(110, 101);
-            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            picAvatar.SizeMode = PictureBoxSizeMode.StretchImage;
             picAvatar.TabIndex = 0;
             picAvatar.TabStop = false;
             // 
@@ -94,7 +94,7 @@ namespace QuanLyThuVien.SubViews
             btnUploadImage.TabIndex = 1;
             btnUploadImage.Text = "Tải ảnh lên";
             btnUploadImage.UseVisualStyleBackColor = false;
-            btnUploadImage.Click += this.btnUploadImage_Click;
+            btnUploadImage.Click += btnUploadImage_Click;
             // 
             // btnDeleteImage
             // 
@@ -110,7 +110,7 @@ namespace QuanLyThuVien.SubViews
             btnDeleteImage.TabIndex = 2;
             btnDeleteImage.Text = "Xóa ảnh";
             btnDeleteImage.UseVisualStyleBackColor = false;
-            btnDeleteImage.Click += this.btnDeleteImage_Click;
+            btnDeleteImage.Click += btnDeleteImage_Click;
             // 
             // pnlCard
             // 
@@ -216,7 +216,6 @@ namespace QuanLyThuVien.SubViews
             // 
             cboGioiTinh.BackColor = Color.White;
             cboGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboGioiTinh.FlatStyle = FlatStyle.Flat;
             cboGioiTinh.Font = new Font("Segoe UI", 10.5F);
             cboGioiTinh.FormattingEnabled = true;
             cboGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ", "Khác" });
@@ -324,7 +323,7 @@ namespace QuanLyThuVien.SubViews
             btnLuu.TabIndex = 5;
             btnLuu.Text = "Lưu thay đổi";
             btnLuu.UseVisualStyleBackColor = false;
-            btnLuu.Click += this.btnLuu_Click;
+            btnLuu.Click += btnLuu_Click;
             // 
             // btnHuy
             // 
@@ -340,9 +339,9 @@ namespace QuanLyThuVien.SubViews
             btnHuy.TabIndex = 4;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = false;
-            btnHuy.Click += this.btnHuy_Click;
+            btnHuy.Click += btnHuy_Click;
             // 
-            // Profile
+            // Thongtincanhan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;

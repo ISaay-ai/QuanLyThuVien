@@ -30,6 +30,7 @@ namespace QuanLyThuVien.Views
         private System.Windows.Forms.Button btnDangMuon;
         private System.Windows.Forms.Button btnDaTra;
         private System.Windows.Forms.Button btnDSQuaHan;
+        private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.Label lblTitleList;
         private System.Windows.Forms.Label lblTongSo;
         private System.Windows.Forms.DataGridView dgvData;
@@ -76,6 +77,7 @@ namespace QuanLyThuVien.Views
             this.btnDangMuon = new System.Windows.Forms.Button();
             this.btnDaTra = new System.Windows.Forms.Button();
             this.btnDSQuaHan = new System.Windows.Forms.Button();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.lblTitleList = new System.Windows.Forms.Label();
             this.lblTongSo = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
@@ -272,6 +274,7 @@ namespace QuanLyThuVien.Views
             this.grpThongKeMuonQuaHan.Controls.Add(this.btnDangMuon);
             this.grpThongKeMuonQuaHan.Controls.Add(this.btnDaTra);
             this.grpThongKeMuonQuaHan.Controls.Add(this.btnDSQuaHan);
+            this.grpThongKeMuonQuaHan.Controls.Add(this.btnXuatExcel);
             this.grpThongKeMuonQuaHan.Controls.Add(this.lblTitleList);
             this.grpThongKeMuonQuaHan.Controls.Add(this.lblTongSo);
             this.grpThongKeMuonQuaHan.Controls.Add(this.dgvData);
@@ -324,6 +327,27 @@ namespace QuanLyThuVien.Views
             this.btnDSQuaHan.Text = "DS Quá Hạn";
             this.btnDSQuaHan.Click += new System.EventHandler(this.btnDSQuaHan_Click);
             this.btnDSQuaHan.UseVisualStyleBackColor = false;
+
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXuatExcel.BackColor = System.Drawing.Color.FromArgb(16, 124, 65);
+            this.btnXuatExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXuatExcel.FlatAppearance.BorderSize = 0;
+            this.btnXuatExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXuatExcel.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnXuatExcel.ForeColor = System.Drawing.Color.White;
+            this.btnXuatExcel.Location = new System.Drawing.Point(755, 25);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Padding = new System.Windows.Forms.Padding(26, 0, 0, 0);
+            this.btnXuatExcel.Size = new System.Drawing.Size(135, 45);
+            this.btnXuatExcel.TabIndex = 2;
+            this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnXuatExcel.UseVisualStyleBackColor = false;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            this.btnXuatExcel.Paint += new System.Windows.Forms.PaintEventHandler(this.btnXuatExcel_Paint);
 
             // lblTitleList
             this.lblTitleList.AutoSize = true;

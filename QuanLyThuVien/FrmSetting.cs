@@ -107,6 +107,16 @@ namespace QuanLyThuVien.GUI
             this.Close();
         }
 
+        private void lblClose_MouseEnter(object sender, EventArgs e)
+        {
+            lblClose.ForeColor = Color.FromArgb(220, 53, 69);
+        }
+
+        private void lblClose_MouseLeave(object sender, EventArgs e)
+        {
+            lblClose.ForeColor = Color.FromArgb(115, 115, 115);
+        }
+
         #region Vẽ Icon Đồ Họa Đẹp Mắt Cho Sidebar & Header
 
         private void pnlHeader_Paint(object sender, PaintEventArgs e)
