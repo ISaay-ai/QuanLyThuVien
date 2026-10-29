@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -41,6 +41,9 @@ namespace QuanLyThuVien.Views
             btnXoa = new Button();
             btnDoiMK = new Button();
             btnDangKy = new Button();
+            btnHuy = new Button();
+            lblNgaySinh = new Label();
+            dtpNgaySinh = new DateTimePicker();
             txtMK = new TextBox();
             txtTenLogIn = new TextBox();
             txtDiaChi = new TextBox();
@@ -59,11 +62,11 @@ namespace QuanLyThuVien.Views
             // dgvNhanVien
             // 
             dgvNhanVien.AllowUserToAddRows = false;
+            dgvNhanVien.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 255);
             dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNhanVien.BackgroundColor = Color.White;
-            dgvNhanVien.BorderStyle = BorderStyle.None;
             dgvNhanVien.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvNhanVien.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -89,6 +92,7 @@ namespace QuanLyThuVien.Views
             dgvNhanVien.GridColor = Color.FromArgb(230, 230, 240);
             dgvNhanVien.Location = new Point(94, 425);
             dgvNhanVien.Name = "dgvNhanVien";
+            dgvNhanVien.ReadOnly = true;
             dgvNhanVien.RowHeadersVisible = false;
             dgvNhanVien.RowTemplate.Height = 32;
             dgvNhanVien.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -97,11 +101,15 @@ namespace QuanLyThuVien.Views
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.FromArgb(250, 250, 250);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(cboGioiTinh);
             groupBox1.Controls.Add(btnXoa);
             groupBox1.Controls.Add(btnDoiMK);
             groupBox1.Controls.Add(btnDangKy);
+            groupBox1.Controls.Add(btnHuy);
+            groupBox1.Controls.Add(lblNgaySinh);
+            groupBox1.Controls.Add(dtpNgaySinh);
             groupBox1.Controls.Add(txtMK);
             groupBox1.Controls.Add(txtTenLogIn);
             groupBox1.Controls.Add(txtDiaChi);
@@ -117,7 +125,7 @@ namespace QuanLyThuVien.Views
             groupBox1.ForeColor = Color.FromArgb(50, 50, 50);
             groupBox1.Location = new Point(94, 45);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(954, 345);
+            groupBox1.Size = new Size(954, 354);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Đăng Ký";
@@ -128,10 +136,10 @@ namespace QuanLyThuVien.Views
             cboGioiTinh.Font = new Font("Segoe UI", 11F);
             cboGioiTinh.FormattingEnabled = true;
             cboGioiTinh.Items.AddRange(new object[] { "Nam", "Nữ" });
-            cboGioiTinh.Location = new Point(225, 166);
+            cboGioiTinh.Location = new Point(225, 168);
             cboGioiTinh.Name = "cboGioiTinh";
             cboGioiTinh.Size = new Size(225, 28);
-            cboGioiTinh.TabIndex = 6;
+            cboGioiTinh.TabIndex = 7;
             // 
             // btnXoa
             // 
@@ -141,10 +149,10 @@ namespace QuanLyThuVien.Views
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 11.5F);
             btnXoa.ForeColor = Color.FromArgb(42, 138, 98);
-            btnXoa.Location = new Point(610, 245);
+            btnXoa.Location = new Point(683, 291);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(165, 50);
-            btnXoa.TabIndex = 15;
+            btnXoa.Size = new Size(155, 48);
+            btnXoa.TabIndex = 16;
             btnXoa.Text = "Xoá";
             btnXoa.UseVisualStyleBackColor = false;
             btnXoa.Click += btnXoa_Click;
@@ -157,9 +165,9 @@ namespace QuanLyThuVien.Views
             btnDoiMK.FlatStyle = FlatStyle.Flat;
             btnDoiMK.Font = new Font("Segoe UI", 11.5F);
             btnDoiMK.ForeColor = Color.FromArgb(42, 138, 98);
-            btnDoiMK.Location = new Point(200, 245);
+            btnDoiMK.Location = new Point(98, 291);
             btnDoiMK.Name = "btnDoiMK";
-            btnDoiMK.Size = new Size(165, 50);
+            btnDoiMK.Size = new Size(155, 48);
             btnDoiMK.TabIndex = 13;
             btnDoiMK.Text = "Đổi Mật Khẩu";
             btnDoiMK.UseVisualStyleBackColor = false;
@@ -173,19 +181,55 @@ namespace QuanLyThuVien.Views
             btnDangKy.FlatStyle = FlatStyle.Flat;
             btnDangKy.Font = new Font("Segoe UI", 11.5F);
             btnDangKy.ForeColor = Color.FromArgb(42, 138, 98);
-            btnDangKy.Location = new Point(405, 245);
+            btnDangKy.Location = new Point(295, 291);
             btnDangKy.Name = "btnDangKy";
-            btnDangKy.Size = new Size(165, 50);
+            btnDangKy.Size = new Size(155, 48);
             btnDangKy.TabIndex = 14;
             btnDangKy.Text = "Đăng Ký";
             btnDangKy.UseVisualStyleBackColor = false;
             btnDangKy.Click += btnDangKy_Click;
             // 
+            // btnHuy
+            // 
+            btnHuy.BackColor = Color.White;
+            btnHuy.Cursor = Cursors.Hand;
+            btnHuy.FlatAppearance.BorderColor = Color.FromArgb(215, 215, 215);
+            btnHuy.FlatStyle = FlatStyle.Flat;
+            btnHuy.Font = new Font("Segoe UI", 11.5F);
+            btnHuy.ForeColor = Color.FromArgb(42, 138, 98);
+            btnHuy.Location = new Point(480, 291);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(155, 48);
+            btnHuy.TabIndex = 15;
+            btnHuy.Text = "Huỷ";
+            btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // lblNgaySinh
+            // 
+            lblNgaySinh.Font = new Font("Segoe UI", 11F);
+            lblNgaySinh.Location = new Point(75, 222);
+            lblNgaySinh.Name = "lblNgaySinh";
+            lblNgaySinh.Size = new Size(130, 25);
+            lblNgaySinh.TabIndex = 5;
+            lblNgaySinh.Text = "Ngày Sinh";
+            lblNgaySinh.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // dtpNgaySinh
+            // 
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpNgaySinh.Font = new Font("Segoe UI", 11F);
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.Location = new Point(225, 219);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(225, 27);
+            dtpNgaySinh.TabIndex = 6;
+            // 
             // txtMK
             // 
             txtMK.BorderStyle = BorderStyle.FixedSingle;
             txtMK.Font = new Font("Segoe UI", 11F);
-            txtMK.Location = new Point(630, 166);
+            txtMK.Location = new Point(630, 157);
             txtMK.Name = "txtMK";
             txtMK.Size = new Size(225, 27);
             txtMK.TabIndex = 12;
@@ -230,9 +274,9 @@ namespace QuanLyThuVien.Views
             // label7
             // 
             label7.Font = new Font("Segoe UI", 11F);
-            label7.Location = new Point(75, 108);
+            label7.Location = new Point(98, 106);
             label7.Name = "label7";
-            label7.Size = new Size(130, 25);
+            label7.Size = new Size(107, 25);
             label7.TabIndex = 3;
             label7.Text = "Tên Nhân Viên";
             label7.TextAlign = ContentAlignment.MiddleRight;
@@ -240,7 +284,7 @@ namespace QuanLyThuVien.Views
             // label6
             // 
             label6.Font = new Font("Segoe UI", 11F);
-            label6.Location = new Point(485, 168);
+            label6.Location = new Point(485, 157);
             label6.Name = "label6";
             label6.Size = new Size(125, 25);
             label6.TabIndex = 11;
@@ -250,7 +294,7 @@ namespace QuanLyThuVien.Views
             // label5
             // 
             label5.Font = new Font("Segoe UI", 11F);
-            label5.Location = new Point(485, 108);
+            label5.Location = new Point(480, 106);
             label5.Name = "label5";
             label5.Size = new Size(125, 25);
             label5.TabIndex = 9;
@@ -270,7 +314,7 @@ namespace QuanLyThuVien.Views
             // label3
             // 
             label3.Font = new Font("Segoe UI", 11F);
-            label3.Location = new Point(75, 168);
+            label3.Location = new Point(75, 171);
             label3.Name = "label3";
             label3.Size = new Size(130, 25);
             label3.TabIndex = 5;
@@ -284,14 +328,14 @@ namespace QuanLyThuVien.Views
             label2.Name = "label2";
             label2.Size = new Size(130, 25);
             label2.TabIndex = 1;
-            label2.Text = "Mã NV - TK";
+            label2.Text = "Tên đăng nhập";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // QuanlinhanvienView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(250, 250, 250);
+            BackColor = Color.White;
             ClientSize = new Size(1155, 739);
             Controls.Add(groupBox1);
             Controls.Add(dgvNhanVien);
@@ -311,6 +355,9 @@ namespace QuanLyThuVien.Views
         private Button btnXoa;
         private Button btnDoiMK;
         private Button btnDangKy;
+        private Button btnHuy;
+        private Label lblNgaySinh;
+        private DateTimePicker dtpNgaySinh;
         private TextBox txtMK;
         private TextBox txtTenLogIn;
         private TextBox txtDiaChi;

@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 using QuanLyThuVien.BLL;
 
 namespace QuanLyThuVien
@@ -9,29 +11,35 @@ namespace QuanLyThuVien
         public FrmLogin()
         {
             InitializeComponent();
-            textBox2.UseSystemPasswordChar = true;
-            AcceptButton = button1;
-            button1.Click += LoginButton_Click;
-            ForgotPassLbl.LinkClicked += ForgotPassLbl_LinkClicked;
-            ShowPassBox.CheckedChanged += ShowPassBox_CheckedChanged;
         }
 
-        private void LoginButton_Click(object? sender, EventArgs e)
+        private void btnDangNhap_Click(object? sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+            string username = txtTenDangNhap.Text.Trim();
+            string password = txtMatKhau.Text;
+
+            if (string.IsNullOrWhiteSpace(username))
             {
-                MessageBox.Show("Vui lòng nhập tên đăng nhập và mật khẩu.", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên đăng nhập.", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenDangNhap.Focus();
+                return;
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu.", "Đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhau.Focus();
                 return;
             }
 
             try
             {
-                var taiKhoan = authenticationService.Authenticate(textBox1.Text.Trim(), textBox2.Text);
+                var taiKhoan = authenticationService.Authenticate(username, password);
                 if (taiKhoan is null)
                 {
-                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    textBox2.Clear();
-                    textBox2.Focus();
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác.", "Đăng nhập thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMatKhau.Clear();
+                    txtMatKhau.Focus();
                     return;
                 }
 
@@ -40,22 +48,25 @@ namespace QuanLyThuVien
                 mainForm.ShowDialog(this);
                 Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không thể kết nối hoặc truy vấn cơ sở dữ liệu. Vui lòng kiểm tra cấu hình kết nối.", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể kết nối hoặc truy vấn cơ sở dữ liệu: " + ex.Message, "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void ShowPassBox_CheckedChanged(object? sender, EventArgs e)
+        private void chkHienMatKhau_CheckedChanged(object? sender, EventArgs e)
         {
-            textBox2.UseSystemPasswordChar = !ShowPassBox.Checked;
+            txtMatKhau.UseSystemPasswordChar = !chkHienMatKhau.Checked;
         }
 
-        private void ForgotPassLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnkQuenMatKhau_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
         {
             using var forgotPasswordForm = new FrmForgotPass();
-            forgotPasswordForm.ShowDialog(this);
+            if (forgotPasswordForm.ShowDialog(this) == DialogResult.OK)
+            {
+                txtMatKhau.Clear();
+                txtMatKhau.Focus();
+            }
         }
     }
 }

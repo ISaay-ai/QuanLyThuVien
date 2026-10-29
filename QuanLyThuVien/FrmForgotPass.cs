@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System;
 using System.Windows.Forms;
 using QuanLyThuVien.BLL;
 
@@ -16,51 +11,62 @@ namespace QuanLyThuVien
         public FrmForgotPass()
         {
             InitializeComponent();
-            textBox2.UseSystemPasswordChar = true;
-            textBox3.UseSystemPasswordChar = true;
-            AcceptButton = ResetPasswordButton;
-            ResetPasswordButton.Click += ResetPasswordButton_Click;
-            LoginNowLbl.LinkClicked += LoginNowLbl_LinkClicked;
         }
 
-        private void ResetPasswordButton_Click(object? sender, EventArgs e)
+        private void btnDatLaiMatKhau_Click(object? sender, EventArgs e)
         {
-            var tenDangNhap = textBox1.Text.Trim();
-            var matKhauMoi = textBox2.Text;
+            var tenDangNhap = txtTenDangNhap.Text.Trim();
+            var matKhauMoi = txtMatKhauMoi.Text;
+            var xacNhan = txtXacNhanMatKhau.Text;
 
-            if (string.IsNullOrWhiteSpace(tenDangNhap) || string.IsNullOrEmpty(matKhauMoi) || string.IsNullOrEmpty(textBox3.Text))
+            if (string.IsNullOrWhiteSpace(tenDangNhap))
             {
-                MessageBox.Show("Vui lòng nhập tên đăng nhập và điền đầy đủ mật khẩu mới.", "Đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên đăng nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenDangNhap.Focus();
                 return;
             }
 
-            if (matKhauMoi != textBox3.Text)
+            if (string.IsNullOrEmpty(matKhauMoi))
             {
-                MessageBox.Show("Mật khẩu xác nhận không khớp.", "Đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox3.Clear();
-                textBox3.Focus();
+                MessageBox.Show("Vui lòng nhập mật khẩu mới.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMatKhauMoi.Focus();
+                return;
+            }
+
+            if (matKhauMoi != xacNhan)
+            {
+                MessageBox.Show("Mật khẩu xác nhận không khớp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtXacNhanMatKhau.Clear();
+                txtXacNhanMatKhau.Focus();
                 return;
             }
 
             try
             {
-                if (!authenticationService.ResetPassword(tenDangNhap, matKhauMoi))
+                if (authenticationService.ResetPassword(tenDangNhap, matKhauMoi, out string thongBaoLoi))
                 {
-                    MessageBox.Show("Không tìm thấy tên đăng nhập trong hệ thống.", "Đặt lại mật khẩu thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    MessageBox.Show("Đặt lại mật khẩu thành công! Vui lòng sử dụng mật khẩu mới để đăng nhập.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
                 }
-
-                MessageBox.Show("Đặt lại mật khẩu thành công.", "Đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
-                Close();
+                else
+                {
+                    MessageBox.Show(thongBaoLoi, "Đặt lại mật khẩu thất bại", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Không thể cập nhật cơ sở dữ liệu. Vui lòng kiểm tra cấu hình kết nối.", "Lỗi đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi đặt lại mật khẩu", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void LoginNowLbl_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
+        private void chkHienMatKhau_CheckedChanged(object? sender, EventArgs e)
+        {
+            txtMatKhauMoi.UseSystemPasswordChar = !chkHienMatKhau.Checked;
+            txtXacNhanMatKhau.UseSystemPasswordChar = !chkHienMatKhau.Checked;
+        }
+
+        private void lnkQuayLai_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
         {
             Close();
         }

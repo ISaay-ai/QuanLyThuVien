@@ -1,4 +1,8 @@
-﻿namespace QuanLyThuVien.GUI.Views
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyThuVien.SubViews
 {
     partial class TrasachView
     {
@@ -60,7 +64,7 @@
             // 
             // pnlHeader
             // 
-            pnlHeader.BackColor = Color.FromArgb(0, 128, 128);
+            pnlHeader.BackColor = Color.FromArgb(53, 162, 184);
             pnlHeader.Controls.Add(lblTitle);
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
@@ -128,6 +132,7 @@
             dtpNgayTraThucTe.Name = "dtpNgayTraThucTe";
             dtpNgayTraThucTe.Size = new Size(175, 24);
             dtpNgayTraThucTe.TabIndex = 4;
+            dtpNgayTraThucTe.ValueChanged += dtpNgayTraThucTe_ValueChanged;
             // 
             // lblNgayTraThucTe
             // 
@@ -218,6 +223,7 @@
             chkCoViPham.TabIndex = 2;
             chkCoViPham.Text = "Có Vi Phạm (Xử Lý & Tính Tiền Phạt)";
             chkCoViPham.UseVisualStyleBackColor = true;
+            chkCoViPham.CheckedChanged += chkCoViPham_CheckedChanged;
             // 
             // pnlPhat
             // 
@@ -257,7 +263,6 @@
             txtTienPhat.ForeColor = Color.DarkRed;
             txtTienPhat.Location = new Point(82, 45);
             txtTienPhat.Name = "txtTienPhat";
-            txtTienPhat.ReadOnly = true;
             txtTienPhat.Size = new Size(200, 25);
             txtTienPhat.TabIndex = 1;
             // 
@@ -278,6 +283,7 @@
             cboQuyDinhPhat.Name = "cboQuyDinhPhat";
             cboQuyDinhPhat.Size = new Size(462, 23);
             cboQuyDinhPhat.TabIndex = 0;
+            cboQuyDinhPhat.SelectedIndexChanged += cboQuyDinhPhat_SelectedIndexChanged;
             // 
             // lblQuyDinh
             // 
@@ -290,7 +296,8 @@
             // 
             // btnXacNhanTra
             // 
-            btnXacNhanTra.BackColor = Color.FromArgb(0, 128, 128);
+            btnXacNhanTra.BackColor = Color.FromArgb(42, 138, 98);
+            btnXacNhanTra.Cursor = Cursors.Hand;
             btnXacNhanTra.FlatStyle = FlatStyle.Flat;
             btnXacNhanTra.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnXacNhanTra.ForeColor = Color.White;
@@ -298,12 +305,14 @@
             btnXacNhanTra.Name = "btnXacNhanTra";
             btnXacNhanTra.Size = new Size(130, 35);
             btnXacNhanTra.TabIndex = 4;
-            btnXacNhanTra.Text = "✓ Hoàn Thành";
+            btnXacNhanTra.Text = "✓ Xác Nhận Trả";
             btnXacNhanTra.UseVisualStyleBackColor = false;
+            btnXacNhanTra.Click += btnXacNhanTra_Click;
             // 
             // btnHuy
             // 
-            btnHuy.BackColor = Color.Gray;
+            btnHuy.BackColor = Color.FromArgb(108, 117, 125);
+            btnHuy.Cursor = Cursors.Hand;
             btnHuy.FlatStyle = FlatStyle.Flat;
             btnHuy.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
             btnHuy.ForeColor = Color.White;
@@ -313,11 +322,13 @@
             btnHuy.TabIndex = 5;
             btnHuy.Text = "✕ Hủy Bỏ";
             btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnHuy_Click;
             // 
             // TrasachView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(584, 476);
             Controls.Add(btnHuy);
             Controls.Add(btnXacNhanTra);

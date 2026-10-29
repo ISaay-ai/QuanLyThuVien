@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using QuanLyThuVien.DAL;
 using QuanLyThuVien.DAL.Models;
 
@@ -11,82 +12,220 @@ namespace QuanLyThuVien.BLL
         public List<DocGia> LayDanhSach()
         {
             using var context = new AppDbContext();
-            return context.DocGias.ToList();
+            return context.DocGias
+                .Include(x => x.Nganh)
+                .AsNoTracking()
+                .OrderBy(x => x.MaSV)
+                .ToList();
         }
 
-        public bool ThemMoi(string maSV, string tenSV, string nganhHoc, string khoaHoc, string? soDienThoai = null)
+        public List<Nganh> LayDanhSachNganh()
         {
-            // Ép kiểu MaSV từ string sang int vì CSDL lưu kiểu int
-            if (string.IsNullOrWhiteSpace(maSV) || !int.TryParse(maSV.Trim(), out int id) || string.IsNullOrWhiteSpace(tenSV))
-            {
-                return false;
-            }
-
             using var context = new AppDbContext();
-
-            if (context.DocGias.Any(x => x.MaSV == id))
-            {
-                return false;
-            }
-
-            var docGia = new DocGia
-            {
-                MaSV = id,
-                // Lưu ý: Thay đổi tên các thuộc tính bên dưới (HoTen, SDT,...) 
-                // cho khớp hoàn toàn với file Model DocGia.cs trong dự án DAL của bạn
-                HoTen = tenSV.Trim(),
-                // NganhHoc = nganhHoc?.Trim(),
-                // KhoaHoc = khoaHoc?.Trim(),
-                // SDT = soDienThoai?.Trim()
-            };
-
-            context.DocGias.Add(docGia);
-            context.SaveChanges();
-            return true;
+            return context.Nganhs
+                .AsNoTracking()
+                .OrderBy(x => x.TenNganh)
+                .ToList();
         }
 
-        public bool CapNhat(string maSV, string tenSV, string nganhHoc, string khoaHoc, string? soDienThoai = null)
+        public List<DocGia> TimKiem(string? tuKhoa, bool theoMaSV)
         {
-            if (string.IsNullOrWhiteSpace(maSV) || !int.TryParse(maSV.Trim(), out int id))
+            if (string.IsNullOrWhiteSpace(tuKhoa))
             {
-                return false;
+                return LayDanhSach();
             }
 
+            string keyword = tuKhoa.Trim();
             using var context = new AppDbContext();
-            var docGia = context.DocGias.SingleOrDefault(x => x.MaSV == id);
+
+            if (theoMaSV)
+            {
+                return context.DocGias
+                    .Include(x => x.Nganh)
+                    .AsNoTracking()
+                    .Where(x => x.MaSV.ToString().Contains(keyword))
+                    .OrderBy(x => x.MaSV)
+                    .ToList();
+            }
+            else
+            {
+                return context.DocGias
+                    .Include(x => x.Nganh)
+                    .AsNoTracking()
+                    .Where(x => x.HoTen.Contains(keyword))
+                    .OrderBy(x => x.MaSV)
+                    .ToList();
+            }
+        }
+
+        public bool ThemMoi(DocGia docGia, string tenNganh, out string thongBaoLoi)
+        {
+            thongBaoLoi = string.Empty;
 
             if (docGia == null)
             {
+                thongBaoLoi = "Dữ liệu độc giả không hợp lệ.";
                 return false;
             }
 
-            docGia.HoTen = tenSV?.Trim();
-            // docGia.NganhHoc = nganhHoc?.Trim();
-            // docGia.KhoaHoc = khoaHoc?.Trim();
-            // docGia.SDT = soDienThoai?.Trim();
+            if (string.IsNullOrWhiteSpace(docGia.HoTen))
+            {
+                thongBaoLoi = "Họ và tên độc giả không được để trống.";
+                return false;
+            }
 
-            context.SaveChanges();
-            return true;
+            if (string.IsNullOrWhiteSpace(tenNganh))
+            {
+                thongBaoLoi = "Vui lòng chọn hoặc nhập ngành học.";
+                return false;
+            }
+
+            try
+            {
+                using var context = new AppDbContext();
+
+                // Tìm hoặc tạo mới ngành học
+                string normalizedNganh = tenNganh.Trim();
+                var nganh = context.Nganhs.FirstOrDefault(x => x.TenNganh.ToLower() == normalizedNganh.ToLower());
+                if (nganh == null)
+                {
+                    nganh = new Nganh { TenNganh = normalizedNganh };
+                    context.Nganhs.Add(nganh);
+                    context.SaveChanges();
+                }
+
+                docGia.MaNganh = nganh.MaNganh;
+                docGia.HoTen = docGia.HoTen.Trim();
+                docGia.Khoa = (docGia.Khoa ?? string.Empty).Trim();
+                docGia.SDT = (docGia.SDT ?? string.Empty).Trim();
+                docGia.Email = (docGia.Email ?? string.Empty).Trim();
+
+                if (docGia.NgayLapThe == default)
+                {
+                    docGia.NgayLapThe = DateTime.Today;
+                }
+                if (docGia.NgayHetHan == default)
+                {
+                    docGia.NgayHetHan = DateTime.Today.AddYears(4);
+                }
+
+                // CSDL MaSV là IDENTITY tự tăng, không gán MaSV thủ công
+                docGia.MaSV = 0;
+
+                context.DocGias.Add(docGia);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                thongBaoLoi = "Lỗi khi thêm độc giả: " + ex.Message;
+                return false;
+            }
         }
 
-        public bool Xoa(string maSV)
+        public bool CapNhat(DocGia docGia, string tenNganh, out string thongBaoLoi)
         {
-            if (string.IsNullOrWhiteSpace(maSV) || !int.TryParse(maSV.Trim(), out int id))
+            thongBaoLoi = string.Empty;
+
+            if (docGia == null || docGia.MaSV <= 0)
             {
+                thongBaoLoi = "Mã độc giả không hợp lệ.";
                 return false;
             }
 
-            using var context = new AppDbContext();
-            var docGia = context.DocGias.SingleOrDefault(x => x.MaSV == id);
-
-            if (docGia == null)
+            if (string.IsNullOrWhiteSpace(docGia.HoTen))
             {
+                thongBaoLoi = "Họ và tên độc giả không được để trống.";
                 return false;
             }
 
-            context.DocGias.Remove(docGia);
-            context.SaveChanges();
-            return true;
+            if (string.IsNullOrWhiteSpace(tenNganh))
+            {
+                thongBaoLoi = "Vui lòng chọn hoặc nhập ngành học.";
+                return false;
+            }
+
+            try
+            {
+                using var context = new AppDbContext();
+                var existing = context.DocGias.FirstOrDefault(x => x.MaSV == docGia.MaSV);
+                if (existing == null)
+                {
+                    thongBaoLoi = "Không tìm thấy thông tin độc giả cần cập nhật.";
+                    return false;
+                }
+
+                // Tìm hoặc tạo mới ngành học
+                string normalizedNganh = tenNganh.Trim();
+                var nganh = context.Nganhs.FirstOrDefault(x => x.TenNganh.ToLower() == normalizedNganh.ToLower());
+                if (nganh == null)
+                {
+                    nganh = new Nganh { TenNganh = normalizedNganh };
+                    context.Nganhs.Add(nganh);
+                    context.SaveChanges();
+                }
+
+                existing.HoTen = docGia.HoTen.Trim();
+                existing.MaNganh = nganh.MaNganh;
+                existing.Khoa = (docGia.Khoa ?? string.Empty).Trim();
+                existing.SDT = (docGia.SDT ?? string.Empty).Trim();
+                if (!string.IsNullOrWhiteSpace(docGia.Email))
+                {
+                    existing.Email = docGia.Email.Trim();
+                }
+                if (docGia.NgayHetHan != default)
+                {
+                    existing.NgayHetHan = docGia.NgayHetHan;
+                }
+
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                thongBaoLoi = "Lỗi khi cập nhật độc giả: " + ex.Message;
+                return false;
+            }
+        }
+
+        public bool Xoa(int maSV, out string thongBaoLoi)
+        {
+            thongBaoLoi = string.Empty;
+
+            if (maSV <= 0)
+            {
+                thongBaoLoi = "Mã độc giả không hợp lệ.";
+                return false;
+            }
+
+            try
+            {
+                using var context = new AppDbContext();
+
+                // Kiểm tra ràng buộc toàn vẹn dữ liệu: có phiếu mượn sách hay không
+                bool coPhieuMuon = context.PhieuMuons.Any(x => x.MaSV == maSV);
+                if (coPhieuMuon)
+                {
+                    thongBaoLoi = "Không thể xoá độc giả này vì đang có dữ liệu phiếu mượn sách trong hệ thống!";
+                    return false;
+                }
+
+                var existing = context.DocGias.FirstOrDefault(x => x.MaSV == maSV);
+                if (existing == null)
+                {
+                    thongBaoLoi = "Không tìm thấy thông tin độc giả cần xoá.";
+                    return false;
+                }
+
+                context.DocGias.Remove(existing);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                thongBaoLoi = "Lỗi khi xoá độc giả: " + ex.Message;
+                return false;
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using QuanLyThuVien.DAL.Models;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,7 @@ namespace QuanLyThuVien.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Server=K9XZ\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
 
 
         }
@@ -387,7 +387,7 @@ namespace QuanLyThuVien.DAL
                     .HasColumnType("decimal(18,2)");
 
                 entity.Property(x => x.TranPhat)
-                    .HasColumnType("decimal(5,2)");
+                    .HasColumnType("decimal(18,2)");
             });
 
             modelBuilder.Entity<PhieuPhat>(entity =>

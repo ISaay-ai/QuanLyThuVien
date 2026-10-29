@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace QuanLyThuVien.GUI
+namespace QuanLyThuVien.SubViews
 {
-    partial class Profile
+    partial class Thongtincanhan
     {
         /// <summary>
         /// Required designer variable.
@@ -355,7 +355,7 @@ namespace QuanLyThuVien.GUI
             Controls.Add(pnlCard);
             Controls.Add(btnHuy);
             Controls.Add(btnLuu);
-            Name = "Profile";
+            Name = "Thongtincanhan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Thông tin cá nhân";
             ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();

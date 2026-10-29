@@ -1,4 +1,8 @@
-﻿namespace QuanLyThuVien
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyThuVien
 {
     partial class FrmForgotPass
     {
@@ -28,135 +32,180 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            REGISTER = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            ResetPasswordButton = new Button();
-            LoginNowLbl = new LinkLabel();
+            txtTenDangNhap = new TextBox();
+            txtMatKhauMoi = new TextBox();
+            txtXacNhanMatKhau = new TextBox();
+            lblTitle = new Label();
+            lblTenDangNhap = new Label();
+            lblMatKhauMoi = new Label();
+            lblXacNhan = new Label();
+            btnDatLaiMatKhau = new Button();
+            lnkQuayLai = new LinkLabel();
+            chkHienMatKhau = new CheckBox();
             SuspendLayout();
             // 
-            // textBox1
+            // txtTenDangNhap
             // 
-            textBox1.Location = new Point(183, 79);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(255, 23);
-            textBox1.TabIndex = 4;
+            txtTenDangNhap.Font = new Font("Segoe UI", 10.5F);
+            txtTenDangNhap.Location = new Point(190, 78);
+            txtTenDangNhap.Margin = new Padding(2);
+            txtTenDangNhap.Name = "txtTenDangNhap";
+            txtTenDangNhap.PlaceholderText = "Nhập tên đăng nhập...";
+            txtTenDangNhap.Size = new Size(270, 26);
+            txtTenDangNhap.TabIndex = 0;
             // 
-            // textBox2
+            // txtMatKhauMoi
             // 
-            textBox2.Location = new Point(183, 114);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(255, 23);
-            textBox2.TabIndex = 5;
+            txtMatKhauMoi.Font = new Font("Segoe UI", 10.5F);
+            txtMatKhauMoi.Location = new Point(190, 120);
+            txtMatKhauMoi.Margin = new Padding(2);
+            txtMatKhauMoi.Name = "txtMatKhauMoi";
+            txtMatKhauMoi.PlaceholderText = "Nhập mật khẩu mới...";
+            txtMatKhauMoi.Size = new Size(270, 26);
+            txtMatKhauMoi.TabIndex = 1;
+            txtMatKhauMoi.UseSystemPasswordChar = true;
             // 
-            // textBox3
+            // txtXacNhanMatKhau
             // 
-            textBox3.Location = new Point(183, 166);
-            textBox3.Margin = new Padding(2);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(255, 23);
-            textBox3.TabIndex = 6;
+            txtXacNhanMatKhau.Font = new Font("Segoe UI", 10.5F);
+            txtXacNhanMatKhau.Location = new Point(190, 162);
+            txtXacNhanMatKhau.Margin = new Padding(2);
+            txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
+            txtXacNhanMatKhau.PlaceholderText = "Nhập lại mật khẩu mới...";
+            txtXacNhanMatKhau.Size = new Size(270, 26);
+            txtXacNhanMatKhau.TabIndex = 2;
+            txtXacNhanMatKhau.UseSystemPasswordChar = true;
             // 
-            // REGISTER
+            // lblTitle
             // 
-            REGISTER.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            REGISTER.Location = new Point(188, 21);
-            REGISTER.Margin = new Padding(2, 0, 2, 0);
-            REGISTER.Name = "REGISTER";
-            REGISTER.Size = new Size(177, 31);
-            REGISTER.TabIndex = 7;
-            REGISTER.Text = "Đổi mật khẩu";
-            REGISTER.TextAlign = ContentAlignment.MiddleCenter;
+            lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(53, 162, 184);
+            lblTitle.Location = new Point(100, 20);
+            lblTitle.Margin = new Padding(2, 0, 2, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(320, 35);
+            lblTitle.TabIndex = 7;
+            lblTitle.Text = "ĐẶT LẠI MẬT KHẨU";
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // lblTenDangNhap
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(42, 79);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Tên đăng nhập:";
+            lblTenDangNhap.AutoSize = true;
+            lblTenDangNhap.Font = new Font("Segoe UI", 10F);
+            lblTenDangNhap.Location = new Point(35, 81);
+            lblTenDangNhap.Margin = new Padding(2, 0, 2, 0);
+            lblTenDangNhap.Name = "lblTenDangNhap";
+            lblTenDangNhap.Size = new Size(103, 19);
+            lblTenDangNhap.TabIndex = 8;
+            lblTenDangNhap.Text = "Tên đăng nhập:";
             // 
-            // label2
+            // lblMatKhauMoi
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(42, 122);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(84, 15);
-            label2.TabIndex = 9;
-            label2.Text = "Mật khẩu mới:";
+            lblMatKhauMoi.AutoSize = true;
+            lblMatKhauMoi.Font = new Font("Segoe UI", 10F);
+            lblMatKhauMoi.Location = new Point(35, 123);
+            lblMatKhauMoi.Margin = new Padding(2, 0, 2, 0);
+            lblMatKhauMoi.Name = "lblMatKhauMoi";
+            lblMatKhauMoi.Size = new Size(98, 19);
+            lblMatKhauMoi.TabIndex = 9;
+            lblMatKhauMoi.Text = "Mật khẩu mới:";
             // 
-            // label3
+            // lblXacNhan
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(42, 166);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(131, 15);
-            label3.TabIndex = 10;
-            label3.Text = "Nhập lại mật khẩu mới:";
+            lblXacNhan.AutoSize = true;
+            lblXacNhan.Font = new Font("Segoe UI", 10F);
+            lblXacNhan.Location = new Point(35, 165);
+            lblXacNhan.Margin = new Padding(2, 0, 2, 0);
+            lblXacNhan.Name = "lblXacNhan";
+            lblXacNhan.Size = new Size(128, 19);
+            lblXacNhan.TabIndex = 10;
+            lblXacNhan.Text = "Xác nhận mật khẩu:";
             // 
-            // ResetPasswordButton
+            // btnDatLaiMatKhau
             // 
-            ResetPasswordButton.Location = new Point(183, 232);
-            ResetPasswordButton.Margin = new Padding(2);
-            ResetPasswordButton.Name = "ResetPasswordButton";
-            ResetPasswordButton.Size = new Size(182, 33);
-            ResetPasswordButton.TabIndex = 11;
-            ResetPasswordButton.Text = "Đặt lại mật khẩu";
-            ResetPasswordButton.UseVisualStyleBackColor = true;
-            ResetPasswordButton.Click += ResetPasswordButton_Click;
+            btnDatLaiMatKhau.BackColor = Color.FromArgb(53, 162, 184);
+            btnDatLaiMatKhau.Cursor = Cursors.Hand;
+            btnDatLaiMatKhau.FlatAppearance.BorderSize = 0;
+            btnDatLaiMatKhau.FlatStyle = FlatStyle.Flat;
+            btnDatLaiMatKhau.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+            btnDatLaiMatKhau.ForeColor = Color.White;
+            btnDatLaiMatKhau.Location = new Point(190, 235);
+            btnDatLaiMatKhau.Margin = new Padding(2);
+            btnDatLaiMatKhau.Name = "btnDatLaiMatKhau";
+            btnDatLaiMatKhau.Size = new Size(270, 36);
+            btnDatLaiMatKhau.TabIndex = 4;
+            btnDatLaiMatKhau.Text = "Đặt lại mật khẩu";
+            btnDatLaiMatKhau.UseVisualStyleBackColor = false;
+            btnDatLaiMatKhau.Click += btnDatLaiMatKhau_Click;
             // 
-            // LoginNowLbl
+            // lnkQuayLai
             // 
-            LoginNowLbl.AutoSize = true;
-            LoginNowLbl.Location = new Point(208, 282);
-            LoginNowLbl.Margin = new Padding(2, 0, 2, 0);
-            LoginNowLbl.Name = "LoginNowLbl";
-            LoginNowLbl.Size = new Size(110, 15);
-            LoginNowLbl.TabIndex = 18;
-            LoginNowLbl.TabStop = true;
-            LoginNowLbl.Text = "Quay lại đăng nhập";
+            lnkQuayLai.AutoSize = true;
+            lnkQuayLai.Cursor = Cursors.Hand;
+            lnkQuayLai.Font = new Font("Segoe UI", 9.5F);
+            lnkQuayLai.LinkColor = Color.FromArgb(53, 162, 184);
+            lnkQuayLai.Location = new Point(255, 285);
+            lnkQuayLai.Margin = new Padding(2, 0, 2, 0);
+            lnkQuayLai.Name = "lnkQuayLai";
+            lnkQuayLai.Size = new Size(122, 17);
+            lnkQuayLai.TabIndex = 5;
+            lnkQuayLai.TabStop = true;
+            lnkQuayLai.Text = "Quay lại đăng nhập";
+            lnkQuayLai.LinkClicked += lnkQuayLai_LinkClicked;
+            // 
+            // chkHienMatKhau
+            // 
+            chkHienMatKhau.AutoSize = true;
+            chkHienMatKhau.Cursor = Cursors.Hand;
+            chkHienMatKhau.Font = new Font("Segoe UI", 9.5F);
+            chkHienMatKhau.Location = new Point(190, 198);
+            chkHienMatKhau.Margin = new Padding(2);
+            chkHienMatKhau.Name = "chkHienMatKhau";
+            chkHienMatKhau.Size = new Size(111, 21);
+            chkHienMatKhau.TabIndex = 3;
+            chkHienMatKhau.Text = "Hiện mật khẩu";
+            chkHienMatKhau.UseVisualStyleBackColor = true;
+            chkHienMatKhau.CheckedChanged += chkHienMatKhau_CheckedChanged;
             // 
             // FrmForgotPass
             // 
+            AcceptButton = btnDatLaiMatKhau;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(514, 331);
-            Controls.Add(LoginNowLbl);
-            Controls.Add(ResetPasswordButton);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(REGISTER);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            BackColor = Color.White;
+            ClientSize = new Size(514, 335);
+            Controls.Add(chkHienMatKhau);
+            Controls.Add(lnkQuayLai);
+            Controls.Add(btnDatLaiMatKhau);
+            Controls.Add(lblXacNhan);
+            Controls.Add(lblMatKhauMoi);
+            Controls.Add(lblTenDangNhap);
+            Controls.Add(lblTitle);
+            Controls.Add(txtXacNhanMatKhau);
+            Controls.Add(txtMatKhauMoi);
+            Controls.Add(txtTenDangNhap);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FrmForgotPass";
-            Text = "Quên mật khẩu";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Quên Mật Khẩu";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label REGISTER;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Button ResetPasswordButton;
-        private LinkLabel LoginNowLbl;
+        private TextBox txtTenDangNhap;
+        private TextBox txtMatKhauMoi;
+        private TextBox txtXacNhanMatKhau;
+        private Label lblTitle;
+        private Label lblTenDangNhap;
+        private Label lblMatKhauMoi;
+        private Label lblXacNhan;
+        private Button btnDatLaiMatKhau;
+        private LinkLabel lnkQuayLai;
+        private CheckBox chkHienMatKhau;
     }
 }

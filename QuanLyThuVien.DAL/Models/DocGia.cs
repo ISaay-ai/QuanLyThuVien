@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QuanLyThuVien.DAL.Models
 {
@@ -23,6 +23,10 @@ namespace QuanLyThuVien.DAL.Models
 
         public DateTime NgayLapThe { get; set; }
         public DateTime NgayHetHan { get; set; }
+
+        // Thuộc tính tiện ích để hiển thị trực tiếp lên DataGridView (không lưu vào DB)
+        [NotMapped]
+        public string TenNganh => Nganh != null ? Nganh.TenNganh : string.Empty;
 
         // 1 độc giả có nhiều phiếu mượn
         public List<PhieuMuon> PhieuMuons { get; set; } = new List<PhieuMuon>();

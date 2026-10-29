@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuVien.Views
+namespace QuanLyThuVien.Views
 {
     partial class BaocaothongkeView
     {
@@ -28,6 +28,7 @@
 
         private System.Windows.Forms.GroupBox grpThongKeMuonQuaHan;
         private System.Windows.Forms.Button btnDangMuon;
+        private System.Windows.Forms.Button btnDaTra;
         private System.Windows.Forms.Button btnDSQuaHan;
         private System.Windows.Forms.Label lblTitleList;
         private System.Windows.Forms.Label lblTongSo;
@@ -73,6 +74,7 @@
 
             this.grpThongKeMuonQuaHan = new System.Windows.Forms.GroupBox();
             this.btnDangMuon = new System.Windows.Forms.Button();
+            this.btnDaTra = new System.Windows.Forms.Button();
             this.btnDSQuaHan = new System.Windows.Forms.Button();
             this.lblTitleList = new System.Windows.Forms.Label();
             this.lblTongSo = new System.Windows.Forms.Label();
@@ -268,6 +270,7 @@
             // grpThongKeMuonQuaHan
             // 
             this.grpThongKeMuonQuaHan.Controls.Add(this.btnDangMuon);
+            this.grpThongKeMuonQuaHan.Controls.Add(this.btnDaTra);
             this.grpThongKeMuonQuaHan.Controls.Add(this.btnDSQuaHan);
             this.grpThongKeMuonQuaHan.Controls.Add(this.lblTitleList);
             this.grpThongKeMuonQuaHan.Controls.Add(this.lblTongSo);
@@ -279,6 +282,7 @@
             this.grpThongKeMuonQuaHan.TabIndex = 2;
             this.grpThongKeMuonQuaHan.TabStop = false;
             this.grpThongKeMuonQuaHan.Text = "Thống Kê Sinh Viên Đang Mượn Sách và Quá Hạn";
+            this.grpThongKeMuonQuaHan.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
 
             // btnDangMuon
             this.btnDangMuon.BackColor = System.Drawing.Color.FromArgb(38, 138, 88);
@@ -290,7 +294,23 @@
             this.btnDangMuon.Size = new System.Drawing.Size(130, 45);
             this.btnDangMuon.TabIndex = 0;
             this.btnDangMuon.Text = "Đang Mượn";
+            this.btnDangMuon.Click += new System.EventHandler(this.btnDangMuon_Click);
             this.btnDangMuon.UseVisualStyleBackColor = false;
+
+            // 
+            // btnDaTra
+            // 
+            this.btnDaTra.BackColor = System.Drawing.Color.FromArgb(108, 117, 137);
+            this.btnDaTra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDaTra.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDaTra.ForeColor = System.Drawing.Color.White;
+            this.btnDaTra.Location = new System.Drawing.Point(400, 25);
+            this.btnDaTra.Name = "btnDaTra";
+            this.btnDaTra.Size = new System.Drawing.Size(120, 45);
+            this.btnDaTra.TabIndex = 1;
+            this.btnDaTra.Text = "Đã Trả";
+            this.btnDaTra.Click += new System.EventHandler(this.btnDaTra_Click);
+            this.btnDaTra.UseVisualStyleBackColor = false;
 
             // btnDSQuaHan
             this.btnDSQuaHan.BackColor = System.Drawing.Color.FromArgb(108, 117, 137);
@@ -302,6 +322,7 @@
             this.btnDSQuaHan.Size = new System.Drawing.Size(130, 45);
             this.btnDSQuaHan.TabIndex = 1;
             this.btnDSQuaHan.Text = "DS Quá Hạn";
+            this.btnDSQuaHan.Click += new System.EventHandler(this.btnDSQuaHan_Click);
             this.btnDSQuaHan.UseVisualStyleBackColor = false;
 
             // lblTitleList
@@ -332,20 +353,23 @@
             this.dgvData.ColumnHeadersDefaultCellStyle = dgvHeaderStyle;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.EnableHeadersVisualStyles = false;
-            this.dgvData.Location = new System.Drawing.Point(85, 115);
+            this.dgvData.Location = new System.Drawing.Point(40, 115);
             this.dgvData.Name = "dgvData";
             this.dgvData.RowHeadersVisible = false;
             dgvAltRowStyle.BackColor = System.Drawing.Color.FromArgb(235, 238, 255);
             this.dgvData.RowsDefaultCellStyle = dgvAltRowStyle;
-            this.dgvData.Size = new System.Drawing.Size(750, 160);
+            this.dgvData.Size = new System.Drawing.Size(840, 160);
             this.dgvData.TabIndex = 2;
+            this.dgvData.BackgroundColor = System.Drawing.Color.White;
+            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.dgvData.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
 
             // 
             // BaocaothongkeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1000, 650);
             this.Controls.Add(this.grpThongKeSach);
             this.Controls.Add(this.grpThongKeDocGia);
@@ -353,6 +377,8 @@
             this.Name = "BaocaothongkeView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo Cáo Thống Kê";
+            this.Load += new System.EventHandler(this.BaocaothongkeView_Load);
+            this.Resize += new System.EventHandler(this.BaocaothongkeView_Resize);
 
             this.grpThongKeSach.ResumeLayout(false);
             this.pnlSach.ResumeLayout(false);

@@ -1,4 +1,8 @@
-﻿namespace QuanLyThuVien.Views
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace QuanLyThuVien.Views
 {
     partial class MuontrasachViewcs
     {
@@ -60,286 +64,519 @@
 
         private void InitializeComponent()
         {
-            this.gbThongTinSV = new System.Windows.Forms.GroupBox();
-            this.lblMaSV = new System.Windows.Forms.Label();
-            this.txtMaSV = new System.Windows.Forms.TextBox();
-            this.lblTenSV = new System.Windows.Forms.Label();
-            this.txtTenSV = new System.Windows.Forms.TextBox();
-
-            this.gbThongTinSach = new System.Windows.Forms.GroupBox();
-            this.lblMaSach = new System.Windows.Forms.Label();
-            this.txtMaSach = new System.Windows.Forms.TextBox();
-            this.lblTenSach = new System.Windows.Forms.Label();
-            this.txtTenSach = new System.Windows.Forms.TextBox();
-            this.lblTenTG = new System.Windows.Forms.Label();
-            this.txtTenTG = new System.Windows.Forms.TextBox();
-            this.lblSLCon = new System.Windows.Forms.Label();
-            this.txtSLCon = new System.Windows.Forms.TextBox();
-
-            this.gbTimKiem = new System.Windows.Forms.GroupBox();
-            this.rbMaSV = new System.Windows.Forms.RadioButton();
-            this.rbMaSach = new System.Windows.Forms.RadioButton();
-            this.txtTimKiem = new System.Windows.Forms.TextBox();
-
-            this.gbPhieuMuon = new System.Windows.Forms.GroupBox();
-            this.lblMaPM = new System.Windows.Forms.Label();
-            this.txtMaPM = new System.Windows.Forms.TextBox();
-            this.lblPMTenSach = new System.Windows.Forms.Label();
-            this.cbPMTenSach = new System.Windows.Forms.ComboBox();
-            this.lblPMMaSV = new System.Windows.Forms.Label();
-            this.cbPMMaSV = new System.Windows.Forms.ComboBox();
-            this.lblNgayMuon = new System.Windows.Forms.Label();
-            this.dtpNgayMuon = new System.Windows.Forms.DateTimePicker();
-            this.lblNgayTra = new System.Windows.Forms.Label();
-            this.dtpNgayTra = new System.Windows.Forms.DateTimePicker();
-            this.lblTinhTrangSach = new System.Windows.Forms.Label();
-            this.txtTinhTrangSach = new System.Windows.Forms.TextBox();
-
-            this.btnMuon = new System.Windows.Forms.Button();
-            this.btnGiaHan = new System.Windows.Forms.Button();
-            this.btnTraSach = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnHuyBo = new System.Windows.Forms.Button();
-            this.dgvMuonTra = new System.Windows.Forms.DataGridView();
-
-            this.gbThongTinSV.SuspendLayout();
-            this.gbThongTinSach.SuspendLayout();
-            this.gbTimKiem.SuspendLayout();
-            this.gbPhieuMuon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMuonTra)).BeginInit();
-            this.SuspendLayout();
-
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            gbThongTinSV = new GroupBox();
+            lblMaSV = new Label();
+            txtMaSV = new TextBox();
+            lblTenSV = new Label();
+            txtTenSV = new TextBox();
+            gbThongTinSach = new GroupBox();
+            lblMaSach = new Label();
+            txtMaSach = new TextBox();
+            lblTenSach = new Label();
+            txtTenSach = new TextBox();
+            lblTenTG = new Label();
+            txtTenTG = new TextBox();
+            lblSLCon = new Label();
+            txtSLCon = new TextBox();
+            gbTimKiem = new GroupBox();
+            rbMaSV = new RadioButton();
+            rbMaSach = new RadioButton();
+            txtTimKiem = new TextBox();
+            gbPhieuMuon = new GroupBox();
+            lblMaPM = new Label();
+            txtMaPM = new TextBox();
+            lblPMTenSach = new Label();
+            cbPMTenSach = new ComboBox();
+            lblPMMaSV = new Label();
+            cbPMMaSV = new ComboBox();
+            lblNgayMuon = new Label();
+            dtpNgayMuon = new DateTimePicker();
+            lblNgayTra = new Label();
+            dtpNgayTra = new DateTimePicker();
+            lblTinhTrangSach = new Label();
+            txtTinhTrangSach = new TextBox();
+            btnMuon = new Button();
+            btnGiaHan = new Button();
+            btnTraSach = new Button();
+            btnLuu = new Button();
+            btnHuyBo = new Button();
+            dgvMuonTra = new DataGridView();
+            gbThongTinSV.SuspendLayout();
+            gbThongTinSach.SuspendLayout();
+            gbTimKiem.SuspendLayout();
+            gbPhieuMuon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMuonTra).BeginInit();
+            SuspendLayout();
+            // 
             // gbThongTinSV
-            this.gbThongTinSV.Controls.Add(this.lblMaSV);
-            this.gbThongTinSV.Controls.Add(this.txtMaSV);
-            this.gbThongTinSV.Controls.Add(this.lblTenSV);
-            this.gbThongTinSV.Controls.Add(this.txtTenSV);
-            this.gbThongTinSV.Location = new System.Drawing.Point(12, 12);
-            this.gbThongTinSV.Name = "gbThongTinSV";
-            this.gbThongTinSV.Size = new System.Drawing.Size(280, 100);
-            this.gbThongTinSV.TabStop = false;
-            this.gbThongTinSV.Text = "Thông Tin Sinh Viên";
-
-            this.lblMaSV.AutoSize = true;
-            this.lblMaSV.Location = new System.Drawing.Point(15, 30);
-            this.lblMaSV.Text = "Mã SV";
-
-            this.txtMaSV.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtMaSV.Location = new System.Drawing.Point(90, 27);
-            this.txtMaSV.Size = new System.Drawing.Size(170, 20);
-            this.txtMaSV.Enabled = false;
-
-            this.lblTenSV.AutoSize = true;
-            this.lblTenSV.Location = new System.Drawing.Point(15, 65);
-            this.lblTenSV.Text = "Tên SV";
-
-            this.txtTenSV.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtTenSV.Location = new System.Drawing.Point(90, 62);
-            this.txtTenSV.Size = new System.Drawing.Size(170, 20);
-            this.txtTenSV.Enabled = false;
-
-            // gbTimKiem
-            this.gbTimKiem.Controls.Add(this.rbMaSV);
-            this.gbTimKiem.Controls.Add(this.rbMaSach);
-            this.gbTimKiem.Controls.Add(this.txtTimKiem);
-            this.gbTimKiem.Location = new System.Drawing.Point(310, 12);
-            this.gbTimKiem.Name = "gbTimKiem";
-            this.gbTimKiem.Size = new System.Drawing.Size(560, 100);
-            this.gbTimKiem.TabStop = false;
-            this.gbTimKiem.Text = "Tìm Kiếm";
-
-            this.rbMaSV.AutoSize = true;
-            this.rbMaSV.Location = new System.Drawing.Point(30, 45);
-            this.rbMaSV.Text = "Mã SV";
-
-            this.rbMaSach.AutoSize = true;
-            this.rbMaSach.Location = new System.Drawing.Point(110, 45);
-            this.rbMaSach.Text = "Mã Sách";
-
-            this.txtTimKiem.Location = new System.Drawing.Point(210, 43);
-            this.txtTimKiem.Size = new System.Drawing.Size(320, 20);
-
+            // 
+            gbThongTinSV.Controls.Add(lblMaSV);
+            gbThongTinSV.Controls.Add(txtMaSV);
+            gbThongTinSV.Controls.Add(lblTenSV);
+            gbThongTinSV.Controls.Add(txtTenSV);
+            gbThongTinSV.Font = new Font("Segoe UI", 9.5F);
+            gbThongTinSV.Location = new Point(12, 12);
+            gbThongTinSV.Name = "gbThongTinSV";
+            gbThongTinSV.Size = new Size(280, 100);
+            gbThongTinSV.TabIndex = 0;
+            gbThongTinSV.TabStop = false;
+            gbThongTinSV.Text = "Thông Tin Sinh Viên";
+            // 
+            // lblMaSV
+            // 
+            lblMaSV.AutoSize = true;
+            lblMaSV.Location = new Point(15, 30);
+            lblMaSV.Name = "lblMaSV";
+            lblMaSV.Size = new Size(46, 17);
+            lblMaSV.TabIndex = 0;
+            lblMaSV.Text = "Mã SV";
+            // 
+            // txtMaSV
+            // 
+            txtMaSV.BackColor = SystemColors.ControlLight;
+            txtMaSV.Location = new Point(90, 27);
+            txtMaSV.Name = "txtMaSV";
+            txtMaSV.ReadOnly = true;
+            txtMaSV.Size = new Size(170, 24);
+            txtMaSV.TabIndex = 1;
+            // 
+            // lblTenSV
+            // 
+            lblTenSV.AutoSize = true;
+            lblTenSV.Location = new Point(15, 65);
+            lblTenSV.Name = "lblTenSV";
+            lblTenSV.Size = new Size(47, 17);
+            lblTenSV.TabIndex = 2;
+            lblTenSV.Text = "Tên SV";
+            // 
+            // txtTenSV
+            // 
+            txtTenSV.BackColor = SystemColors.ControlLight;
+            txtTenSV.Location = new Point(90, 62);
+            txtTenSV.Name = "txtTenSV";
+            txtTenSV.ReadOnly = true;
+            txtTenSV.Size = new Size(170, 24);
+            txtTenSV.TabIndex = 3;
+            // 
             // gbThongTinSach
-            this.gbThongTinSach.Controls.Add(this.lblMaSach);
-            this.gbThongTinSach.Controls.Add(this.txtMaSach);
-            this.gbThongTinSach.Controls.Add(this.lblTenSach);
-            this.gbThongTinSach.Controls.Add(this.txtTenSach);
-            this.gbThongTinSach.Controls.Add(this.lblTenTG);
-            this.gbThongTinSach.Controls.Add(this.txtTenTG);
-            this.gbThongTinSach.Controls.Add(this.lblSLCon);
-            this.gbThongTinSach.Controls.Add(this.txtSLCon);
-            this.gbThongTinSach.Location = new System.Drawing.Point(12, 130);
-            this.gbThongTinSach.Name = "gbThongTinSach";
-            this.gbThongTinSach.Size = new System.Drawing.Size(280, 170);
-            this.gbThongTinSach.TabStop = false;
-            this.gbThongTinSach.Text = "Thông Tin Sách";
-
-            this.lblMaSach.AutoSize = true;
-            this.lblMaSach.Location = new System.Drawing.Point(15, 30);
-            this.lblMaSach.Text = "Mã Sách";
-
-            this.txtMaSach.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtMaSach.Location = new System.Drawing.Point(90, 27);
-            this.txtMaSach.Size = new System.Drawing.Size(170, 20);
-            this.txtMaSach.Enabled = false;
-
-            this.lblTenSach.AutoSize = true;
-            this.lblTenSach.Location = new System.Drawing.Point(15, 65);
-            this.lblTenSach.Text = "Tên Sách";
-
-            this.txtTenSach.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtTenSach.Location = new System.Drawing.Point(90, 62);
-            this.txtTenSach.Size = new System.Drawing.Size(170, 20);
-            this.txtTenSach.Enabled = false;
-
-            this.lblTenTG.AutoSize = true;
-            this.lblTenTG.Location = new System.Drawing.Point(15, 100);
-            this.lblTenTG.Text = "Tên TG";
-
-            this.txtTenTG.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtTenTG.Location = new System.Drawing.Point(90, 97);
-            this.txtTenTG.Size = new System.Drawing.Size(170, 20);
-            this.txtTenTG.Enabled = false;
-
-            this.lblSLCon.AutoSize = true;
-            this.lblSLCon.Location = new System.Drawing.Point(15, 135);
-            this.lblSLCon.Text = "SL Còn";
-
-            this.txtSLCon.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtSLCon.Location = new System.Drawing.Point(90, 132);
-            this.txtSLCon.Size = new System.Drawing.Size(170, 20);
-            this.txtSLCon.Enabled = false;
-
+            // 
+            gbThongTinSach.Controls.Add(lblMaSach);
+            gbThongTinSach.Controls.Add(txtMaSach);
+            gbThongTinSach.Controls.Add(lblTenSach);
+            gbThongTinSach.Controls.Add(txtTenSach);
+            gbThongTinSach.Controls.Add(lblTenTG);
+            gbThongTinSach.Controls.Add(txtTenTG);
+            gbThongTinSach.Controls.Add(lblSLCon);
+            gbThongTinSach.Controls.Add(txtSLCon);
+            gbThongTinSach.Font = new Font("Segoe UI", 9.5F);
+            gbThongTinSach.Location = new Point(12, 125);
+            gbThongTinSach.Name = "gbThongTinSach";
+            gbThongTinSach.Size = new Size(280, 180);
+            gbThongTinSach.TabIndex = 2;
+            gbThongTinSach.TabStop = false;
+            gbThongTinSach.Text = "Thông Tin Sách";
+            // 
+            // lblMaSach
+            // 
+            lblMaSach.AutoSize = true;
+            lblMaSach.Location = new Point(15, 30);
+            lblMaSach.Name = "lblMaSach";
+            lblMaSach.Size = new Size(58, 17);
+            lblMaSach.TabIndex = 0;
+            lblMaSach.Text = "Mã Sách";
+            // 
+            // txtMaSach
+            // 
+            txtMaSach.BackColor = SystemColors.ControlLight;
+            txtMaSach.Location = new Point(90, 27);
+            txtMaSach.Name = "txtMaSach";
+            txtMaSach.ReadOnly = true;
+            txtMaSach.Size = new Size(170, 24);
+            txtMaSach.TabIndex = 1;
+            // 
+            // lblTenSach
+            // 
+            lblTenSach.AutoSize = true;
+            lblTenSach.Location = new Point(15, 68);
+            lblTenSach.Name = "lblTenSach";
+            lblTenSach.Size = new Size(59, 17);
+            lblTenSach.TabIndex = 2;
+            lblTenSach.Text = "Tên Sách";
+            // 
+            // txtTenSach
+            // 
+            txtTenSach.BackColor = SystemColors.ControlLight;
+            txtTenSach.Location = new Point(90, 65);
+            txtTenSach.Name = "txtTenSach";
+            txtTenSach.ReadOnly = true;
+            txtTenSach.Size = new Size(170, 24);
+            txtTenSach.TabIndex = 3;
+            // 
+            // lblTenTG
+            // 
+            lblTenTG.AutoSize = true;
+            lblTenTG.Location = new Point(15, 105);
+            lblTenTG.Name = "lblTenTG";
+            lblTenTG.Size = new Size(47, 17);
+            lblTenTG.TabIndex = 4;
+            lblTenTG.Text = "Tên TG";
+            // 
+            // txtTenTG
+            // 
+            txtTenTG.BackColor = SystemColors.ControlLight;
+            txtTenTG.Location = new Point(90, 102);
+            txtTenTG.Name = "txtTenTG";
+            txtTenTG.ReadOnly = true;
+            txtTenTG.Size = new Size(170, 24);
+            txtTenTG.TabIndex = 5;
+            // 
+            // lblSLCon
+            // 
+            lblSLCon.AutoSize = true;
+            lblSLCon.Location = new Point(15, 142);
+            lblSLCon.Name = "lblSLCon";
+            lblSLCon.Size = new Size(48, 17);
+            lblSLCon.TabIndex = 6;
+            lblSLCon.Text = "SL Còn";
+            // 
+            // txtSLCon
+            // 
+            txtSLCon.BackColor = SystemColors.ControlLight;
+            txtSLCon.Location = new Point(90, 139);
+            txtSLCon.Name = "txtSLCon";
+            txtSLCon.ReadOnly = true;
+            txtSLCon.Size = new Size(170, 24);
+            txtSLCon.TabIndex = 7;
+            // 
+            // gbTimKiem
+            // 
+            gbTimKiem.Controls.Add(rbMaSV);
+            gbTimKiem.Controls.Add(rbMaSach);
+            gbTimKiem.Controls.Add(txtTimKiem);
+            gbTimKiem.Font = new Font("Segoe UI", 9.5F);
+            gbTimKiem.Location = new Point(310, 12);
+            gbTimKiem.Name = "gbTimKiem";
+            gbTimKiem.Size = new Size(560, 100);
+            gbTimKiem.TabIndex = 1;
+            gbTimKiem.TabStop = false;
+            gbTimKiem.Text = "Tìm Kiếm";
+            // 
+            // rbMaSV
+            // 
+            rbMaSV.AutoSize = true;
+            rbMaSV.Checked = true;
+            rbMaSV.Location = new Point(30, 42);
+            rbMaSV.Name = "rbMaSV";
+            rbMaSV.Size = new Size(64, 21);
+            rbMaSV.TabIndex = 0;
+            rbMaSV.TabStop = true;
+            rbMaSV.Text = "Mã SV";
+            rbMaSV.UseVisualStyleBackColor = true;
+            rbMaSV.CheckedChanged += rbTimKiem_CheckedChanged;
+            // 
+            // rbMaSach
+            // 
+            rbMaSach.AutoSize = true;
+            rbMaSach.Location = new Point(115, 42);
+            rbMaSach.Name = "rbMaSach";
+            rbMaSach.Size = new Size(76, 21);
+            rbMaSach.TabIndex = 1;
+            rbMaSach.Text = "Mã Sách";
+            rbMaSach.UseVisualStyleBackColor = true;
+            rbMaSach.CheckedChanged += rbTimKiem_CheckedChanged;
+            // 
+            // txtTimKiem
+            // 
+            txtTimKiem.Font = new Font("Segoe UI", 10F);
+            txtTimKiem.Location = new Point(210, 40);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.PlaceholderText = "Nhập mã SV/tên SV hoặc mã/tên sách...";
+            txtTimKiem.Size = new Size(325, 25);
+            txtTimKiem.TabIndex = 2;
+            txtTimKiem.TextChanged += txtTimKiem_TextChanged;
+            // 
             // gbPhieuMuon
-            this.gbPhieuMuon.Controls.Add(this.lblMaPM);
-            this.gbPhieuMuon.Controls.Add(this.txtMaPM);
-            this.gbPhieuMuon.Controls.Add(this.lblPMTenSach);
-            this.gbPhieuMuon.Controls.Add(this.cbPMTenSach);
-            this.gbPhieuMuon.Controls.Add(this.lblPMMaSV);
-            this.gbPhieuMuon.Controls.Add(this.cbPMMaSV);
-            this.gbPhieuMuon.Controls.Add(this.lblNgayMuon);
-            this.gbPhieuMuon.Controls.Add(this.dtpNgayMuon);
-            this.gbPhieuMuon.Controls.Add(this.lblNgayTra);
-            this.gbPhieuMuon.Controls.Add(this.dtpNgayTra);
-            this.gbPhieuMuon.Controls.Add(this.lblTinhTrangSach);
-            this.gbPhieuMuon.Controls.Add(this.txtTinhTrangSach);
-            this.gbPhieuMuon.Location = new System.Drawing.Point(310, 130);
-            this.gbPhieuMuon.Name = "gbPhieuMuon";
-            this.gbPhieuMuon.Size = new System.Drawing.Size(560, 170);
-            this.gbPhieuMuon.TabStop = false;
-            this.gbPhieuMuon.Text = "Phiếu Mượn";
-
-            this.lblMaPM.AutoSize = true;
-            this.lblMaPM.Location = new System.Drawing.Point(20, 30);
-            this.lblMaPM.Text = "Mã PM";
-
-            this.txtMaPM.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtMaPM.Location = new System.Drawing.Point(90, 27);
-            this.txtMaPM.Size = new System.Drawing.Size(180, 20);
-            this.txtMaPM.Enabled = false;
-
-            this.lblPMTenSach.AutoSize = true;
-            this.lblPMTenSach.Location = new System.Drawing.Point(20, 75);
-            this.lblPMTenSach.Text = "Tên Sách";
-
-            this.cbPMTenSach.FormattingEnabled = true;
-            this.cbPMTenSach.Location = new System.Drawing.Point(90, 72);
-            this.cbPMTenSach.Size = new System.Drawing.Size(180, 21);
-
-            this.lblPMMaSV.AutoSize = true;
-            this.lblPMMaSV.Location = new System.Drawing.Point(20, 120);
-            this.lblPMMaSV.Text = "Mã SV";
-
-            this.cbPMMaSV.FormattingEnabled = true;
-            this.cbPMMaSV.Location = new System.Drawing.Point(90, 117);
-            this.cbPMMaSV.Size = new System.Drawing.Size(180, 21);
-
-            this.lblNgayMuon.AutoSize = true;
-            this.lblNgayMuon.Location = new System.Drawing.Point(295, 30);
-            this.lblNgayMuon.Text = "Ngày Mượn";
-
-            this.dtpNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayMuon.Location = new System.Drawing.Point(380, 27);
-            this.dtpNgayMuon.Size = new System.Drawing.Size(155, 20);
-
-            this.lblNgayTra.AutoSize = true;
-            this.lblNgayTra.Location = new System.Drawing.Point(295, 75);
-            this.lblNgayTra.Text = "Ngày Trả";
-
-            this.dtpNgayTra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayTra.Location = new System.Drawing.Point(380, 72);
-            this.dtpNgayTra.Size = new System.Drawing.Size(155, 20);
-
-            this.lblTinhTrangSach.AutoSize = true;
-            this.lblTinhTrangSach.Location = new System.Drawing.Point(295, 120);
-            this.lblTinhTrangSach.Text = "Tình Trạng Sách";
-
-            this.txtTinhTrangSach.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.txtTinhTrangSach.Location = new System.Drawing.Point(380, 117);
-            this.txtTinhTrangSach.Size = new System.Drawing.Size(155, 20);
-            this.txtTinhTrangSach.Enabled = false;
-
-            // Buttons
-            this.btnMuon.Location = new System.Drawing.Point(100, 320);
-            this.btnMuon.Size = new System.Drawing.Size(90, 30);
-            this.btnMuon.Text = "Mượn";
-            this.btnMuon.UseVisualStyleBackColor = true;
-
-            this.btnGiaHan.Location = new System.Drawing.Point(260, 320);
-            this.btnGiaHan.Size = new System.Drawing.Size(90, 30);
-            this.btnGiaHan.Text = "Gia Hạn";
-            this.btnGiaHan.UseVisualStyleBackColor = true;
-
-            this.btnTraSach.Location = new System.Drawing.Point(420, 320);
-            this.btnTraSach.Size = new System.Drawing.Size(90, 30);
-            this.btnTraSach.Text = "Trả Sách";
-            this.btnTraSach.UseVisualStyleBackColor = true;
-
-            this.btnLuu.Location = new System.Drawing.Point(580, 320);
-            this.btnLuu.Size = new System.Drawing.Size(90, 30);
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-
-            this.btnHuyBo.Location = new System.Drawing.Point(740, 320);
-            this.btnHuyBo.Size = new System.Drawing.Size(90, 30);
-            this.btnHuyBo.Text = "Huỷ Bỏ";
-            this.btnHuyBo.UseVisualStyleBackColor = true;
-
-            // DataGridView
-            this.dgvMuonTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMuonTra.Location = new System.Drawing.Point(12, 370);
-            this.dgvMuonTra.Size = new System.Drawing.Size(858, 200);
-
-            // Form
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 590);
-
-            this.Controls.Add(this.dgvMuonTra);
-            this.Controls.Add(this.btnHuyBo);
-            this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnTraSach);
-            this.Controls.Add(this.btnGiaHan);
-            this.Controls.Add(this.btnMuon);
-            this.Controls.Add(this.gbPhieuMuon);
-            this.Controls.Add(this.gbThongTinSach);
-            this.Controls.Add(this.gbTimKiem);
-            this.Controls.Add(this.gbThongTinSV);
-
-            this.Name = "MuontrasachViewcs";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản Lý Mượn Trả Sách";
-
-            this.gbThongTinSV.ResumeLayout(false);
-            this.gbThongTinSV.PerformLayout();
-            this.gbThongTinSach.ResumeLayout(false);
-            this.gbThongTinSach.PerformLayout();
-            this.gbTimKiem.ResumeLayout(false);
-            this.gbTimKiem.PerformLayout();
-            this.gbPhieuMuon.ResumeLayout(false);
-            this.gbPhieuMuon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMuonTra)).EndInit();
-            this.ResumeLayout(false);
+            // 
+            gbPhieuMuon.Controls.Add(lblMaPM);
+            gbPhieuMuon.Controls.Add(txtMaPM);
+            gbPhieuMuon.Controls.Add(lblPMTenSach);
+            gbPhieuMuon.Controls.Add(cbPMTenSach);
+            gbPhieuMuon.Controls.Add(lblPMMaSV);
+            gbPhieuMuon.Controls.Add(cbPMMaSV);
+            gbPhieuMuon.Controls.Add(lblNgayMuon);
+            gbPhieuMuon.Controls.Add(dtpNgayMuon);
+            gbPhieuMuon.Controls.Add(lblNgayTra);
+            gbPhieuMuon.Controls.Add(dtpNgayTra);
+            gbPhieuMuon.Controls.Add(lblTinhTrangSach);
+            gbPhieuMuon.Controls.Add(txtTinhTrangSach);
+            gbPhieuMuon.Font = new Font("Segoe UI", 9.5F);
+            gbPhieuMuon.Location = new Point(310, 125);
+            gbPhieuMuon.Name = "gbPhieuMuon";
+            gbPhieuMuon.Size = new Size(560, 180);
+            gbPhieuMuon.TabIndex = 3;
+            gbPhieuMuon.TabStop = false;
+            gbPhieuMuon.Text = "Phiếu Mượn";
+            // 
+            // lblMaPM
+            // 
+            lblMaPM.AutoSize = true;
+            lblMaPM.Location = new Point(20, 30);
+            lblMaPM.Name = "lblMaPM";
+            lblMaPM.Size = new Size(50, 17);
+            lblMaPM.TabIndex = 0;
+            lblMaPM.Text = "Mã PM";
+            // 
+            // txtMaPM
+            // 
+            txtMaPM.BackColor = SystemColors.ControlLight;
+            txtMaPM.Location = new Point(90, 27);
+            txtMaPM.Name = "txtMaPM";
+            txtMaPM.ReadOnly = true;
+            txtMaPM.Size = new Size(180, 24);
+            txtMaPM.TabIndex = 1;
+            // 
+            // lblPMTenSach
+            // 
+            lblPMTenSach.AutoSize = true;
+            lblPMTenSach.Location = new Point(20, 75);
+            lblPMTenSach.Name = "lblPMTenSach";
+            lblPMTenSach.Size = new Size(59, 17);
+            lblPMTenSach.TabIndex = 2;
+            lblPMTenSach.Text = "Tên Sách";
+            // 
+            // cbPMTenSach
+            // 
+            cbPMTenSach.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPMTenSach.FormattingEnabled = true;
+            cbPMTenSach.Location = new Point(90, 72);
+            cbPMTenSach.Name = "cbPMTenSach";
+            cbPMTenSach.Size = new Size(180, 25);
+            cbPMTenSach.TabIndex = 3;
+            cbPMTenSach.SelectedIndexChanged += cbPMTenSach_SelectedIndexChanged;
+            // 
+            // lblPMMaSV
+            // 
+            lblPMMaSV.AutoSize = true;
+            lblPMMaSV.Location = new Point(20, 120);
+            lblPMMaSV.Name = "lblPMMaSV";
+            lblPMMaSV.Size = new Size(46, 17);
+            lblPMMaSV.TabIndex = 4;
+            lblPMMaSV.Text = "Mã SV";
+            // 
+            // cbPMMaSV
+            // 
+            cbPMMaSV.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPMMaSV.FormattingEnabled = true;
+            cbPMMaSV.Location = new Point(90, 117);
+            cbPMMaSV.Name = "cbPMMaSV";
+            cbPMMaSV.Size = new Size(180, 25);
+            cbPMMaSV.TabIndex = 5;
+            cbPMMaSV.SelectedIndexChanged += cbPMMaSV_SelectedIndexChanged;
+            // 
+            // lblNgayMuon
+            // 
+            lblNgayMuon.AutoSize = true;
+            lblNgayMuon.Location = new Point(295, 30);
+            lblNgayMuon.Name = "lblNgayMuon";
+            lblNgayMuon.Size = new Size(78, 17);
+            lblNgayMuon.TabIndex = 6;
+            lblNgayMuon.Text = "Ngày Mượn";
+            // 
+            // dtpNgayMuon
+            // 
+            dtpNgayMuon.Format = DateTimePickerFormat.Short;
+            dtpNgayMuon.Location = new Point(380, 27);
+            dtpNgayMuon.Name = "dtpNgayMuon";
+            dtpNgayMuon.Size = new Size(155, 24);
+            dtpNgayMuon.TabIndex = 7;
+            // 
+            // lblNgayTra
+            // 
+            lblNgayTra.AutoSize = true;
+            lblNgayTra.Location = new Point(295, 75);
+            lblNgayTra.Name = "lblNgayTra";
+            lblNgayTra.Size = new Size(53, 17);
+            lblNgayTra.TabIndex = 8;
+            lblNgayTra.Text = "Hạn Trả";
+            // 
+            // dtpNgayTra
+            // 
+            dtpNgayTra.Format = DateTimePickerFormat.Short;
+            dtpNgayTra.Location = new Point(380, 72);
+            dtpNgayTra.Name = "dtpNgayTra";
+            dtpNgayTra.Size = new Size(155, 24);
+            dtpNgayTra.TabIndex = 9;
+            // 
+            // lblTinhTrangSach
+            // 
+            lblTinhTrangSach.AutoSize = true;
+            lblTinhTrangSach.Location = new Point(295, 120);
+            lblTinhTrangSach.Name = "lblTinhTrangSach";
+            lblTinhTrangSach.Size = new Size(69, 17);
+            lblTinhTrangSach.TabIndex = 10;
+            lblTinhTrangSach.Text = "Tình Trạng";
+            // 
+            // txtTinhTrangSach
+            // 
+            txtTinhTrangSach.BackColor = SystemColors.ControlLight;
+            txtTinhTrangSach.Location = new Point(380, 117);
+            txtTinhTrangSach.Name = "txtTinhTrangSach";
+            txtTinhTrangSach.ReadOnly = true;
+            txtTinhTrangSach.Size = new Size(155, 24);
+            txtTinhTrangSach.TabIndex = 11;
+            // 
+            // btnMuon
+            // 
+            btnMuon.BackColor = Color.White;
+            btnMuon.Cursor = Cursors.Hand;
+            btnMuon.FlatStyle = FlatStyle.Flat;
+            btnMuon.Font = new Font("Segoe UI", 10F);
+            btnMuon.ForeColor = Color.FromArgb(42, 138, 98);
+            btnMuon.Location = new Point(70, 320);
+            btnMuon.Name = "btnMuon";
+            btnMuon.Size = new Size(110, 36);
+            btnMuon.TabIndex = 4;
+            btnMuon.Text = "Mượn";
+            btnMuon.UseVisualStyleBackColor = false;
+            btnMuon.Click += btnMuon_Click;
+            // 
+            // btnGiaHan
+            // 
+            btnGiaHan.BackColor = Color.White;
+            btnGiaHan.Cursor = Cursors.Hand;
+            btnGiaHan.FlatStyle = FlatStyle.Flat;
+            btnGiaHan.Font = new Font("Segoe UI", 10F);
+            btnGiaHan.ForeColor = Color.FromArgb(0, 120, 215);
+            btnGiaHan.Location = new Point(230, 320);
+            btnGiaHan.Name = "btnGiaHan";
+            btnGiaHan.Size = new Size(110, 36);
+            btnGiaHan.TabIndex = 5;
+            btnGiaHan.Text = "Gia Hạn";
+            btnGiaHan.UseVisualStyleBackColor = false;
+            btnGiaHan.Click += btnGiaHan_Click;
+            // 
+            // btnTraSach
+            // 
+            btnTraSach.BackColor = Color.White;
+            btnTraSach.Cursor = Cursors.Hand;
+            btnTraSach.FlatStyle = FlatStyle.Flat;
+            btnTraSach.Font = new Font("Segoe UI", 10F);
+            btnTraSach.ForeColor = Color.FromArgb(200, 100, 0);
+            btnTraSach.Location = new Point(390, 320);
+            btnTraSach.Name = "btnTraSach";
+            btnTraSach.Size = new Size(110, 36);
+            btnTraSach.TabIndex = 6;
+            btnTraSach.Text = "Trả Sách";
+            btnTraSach.UseVisualStyleBackColor = false;
+            btnTraSach.Click += btnTraSach_Click;
+            // 
+            // btnLuu
+            // 
+            btnLuu.BackColor = Color.FromArgb(248, 248, 248);
+            btnLuu.Cursor = Cursors.Hand;
+            btnLuu.FlatStyle = FlatStyle.Flat;
+            btnLuu.Font = new Font("Segoe UI", 10F);
+            btnLuu.ForeColor = Color.FromArgb(64, 64, 64);
+            btnLuu.Location = new Point(550, 320);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(110, 36);
+            btnLuu.TabIndex = 7;
+            btnLuu.Text = "Lưu";
+            btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
+            // 
+            // btnHuyBo
+            // 
+            btnHuyBo.BackColor = Color.FromArgb(248, 248, 248);
+            btnHuyBo.Cursor = Cursors.Hand;
+            btnHuyBo.FlatStyle = FlatStyle.Flat;
+            btnHuyBo.Font = new Font("Segoe UI", 10F);
+            btnHuyBo.ForeColor = Color.FromArgb(64, 64, 64);
+            btnHuyBo.Location = new Point(710, 320);
+            btnHuyBo.Name = "btnHuyBo";
+            btnHuyBo.Size = new Size(110, 36);
+            btnHuyBo.TabIndex = 8;
+            btnHuyBo.Text = "Huỷ Bỏ";
+            btnHuyBo.UseVisualStyleBackColor = false;
+            btnHuyBo.Click += btnHuyBo_Click;
+            // 
+            // dgvMuonTra
+            // 
+            dgvMuonTra.AllowUserToAddRows = false;
+            dgvMuonTra.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 255);
+            dgvMuonTra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvMuonTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMuonTra.BorderStyle = BorderStyle.None;
+            dgvMuonTra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvMuonTra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(88, 86, 245);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 120, 215);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dgvMuonTra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvMuonTra.ColumnHeadersHeight = 36;
+            dgvMuonTra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(232, 230, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvMuonTra.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvMuonTra.EnableHeadersVisualStyles = false;
+            dgvMuonTra.GridColor = Color.White;
+            dgvMuonTra.Location = new Point(12, 372);
+            dgvMuonTra.MultiSelect = false;
+            dgvMuonTra.Name = "dgvMuonTra";
+            dgvMuonTra.ReadOnly = true;
+            dgvMuonTra.RowHeadersVisible = false;
+            dgvMuonTra.RowTemplate.Height = 30;
+            dgvMuonTra.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMuonTra.Size = new Size(858, 206);
+            dgvMuonTra.TabIndex = 9;
+            dgvMuonTra.CellClick += dgvMuonTra_CellClick;
+            // 
+            // MuontrasachViewcs
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(885, 590);
+            Controls.Add(dgvMuonTra);
+            Controls.Add(btnHuyBo);
+            Controls.Add(btnLuu);
+            Controls.Add(btnTraSach);
+            Controls.Add(btnGiaHan);
+            Controls.Add(btnMuon);
+            Controls.Add(gbPhieuMuon);
+            Controls.Add(gbThongTinSach);
+            Controls.Add(gbTimKiem);
+            Controls.Add(gbThongTinSV);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "MuontrasachViewcs";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Quản Lý Mượn Trả Sách";
+            gbThongTinSV.ResumeLayout(false);
+            gbThongTinSV.PerformLayout();
+            gbThongTinSach.ResumeLayout(false);
+            gbThongTinSach.PerformLayout();
+            gbTimKiem.ResumeLayout(false);
+            gbTimKiem.PerformLayout();
+            gbPhieuMuon.ResumeLayout(false);
+            gbPhieuMuon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvMuonTra).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

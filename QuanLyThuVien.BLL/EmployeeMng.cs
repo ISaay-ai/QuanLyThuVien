@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using QuanLyThuVien.DAL;
 using QuanLyThuVien.DAL.Models;
@@ -13,7 +13,7 @@ namespace QuanLyThuVien.BLL
             using var context = new AppDbContext();
             return context.TaiKhoans.ToList();
         }
-        public bool DangKy(string tenDangNhap, string matKhau, string hoTen, string? gioiTinh = null, string? sdt = null, string? email = null, string? diaChi = null, string? vaiTro = "NhanVien")
+        public bool DangKy(string tenDangNhap, string matKhau, string hoTen, string? gioiTinh = null, DateTime? ngaySinh = null, string? sdt = null, string? email = null, string? diaChi = null, string? vaiTro = "NhanVien")
         {
             if (string.IsNullOrWhiteSpace(tenDangNhap) ||
                 string.IsNullOrWhiteSpace(matKhau) ||
@@ -43,6 +43,7 @@ namespace QuanLyThuVien.BLL
                 MatKhau = matKhau,
                 HoTen = hoTen,
                 GioiTinh = gioiTinh,
+                NgaySinh = ngaySinh,
                 SDT = sdt,
                 Email = email,
                 DiaChi = diaChi,
@@ -66,6 +67,7 @@ namespace QuanLyThuVien.BLL
                 taiKhoan.MatKhau,
                 taiKhoan.HoTen,
                 taiKhoan.GioiTinh,
+                taiKhoan.NgaySinh,
                 taiKhoan.SDT,
                 taiKhoan.Email,
                 taiKhoan.DiaChi,

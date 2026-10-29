@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -47,7 +47,7 @@ namespace QuanLyThuVien.DAL.Migrations
                     TenQuyDinh = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     KieuTinh = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     MucPhat = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TranPhat = table.Column<decimal>(type: "decimal(5,2)", nullable: false),
+                    TranPhat = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ApDung = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuVien
+namespace QuanLyThuVien
 {
     partial class FrmMain
     {
@@ -49,8 +49,6 @@
             TrangchuBtn = new Button();
             Setting = new Panel();
             button2 = new Button();
-            Help = new Panel();
-            HelpBtn = new Button();
             About = new Panel();
             AboutBtn = new Button();
             Quanlinhanvien = new Panel();
@@ -60,6 +58,7 @@
             pictureBox1 = new PictureBox();
             MinimizeBtn = new PictureBox();
             ExitBtn = new PictureBox();
+            ViewPanel = new Panel();
             sidebar.SuspendLayout();
             MenuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MenuBtn).BeginInit();
@@ -70,7 +69,6 @@
             Quanlisach.SuspendLayout();
             Trangchu.SuspendLayout();
             Setting.SuspendLayout();
-            Help.SuspendLayout();
             About.SuspendLayout();
             Quanlinhanvien.SuspendLayout();
             Title.SuspendLayout();
@@ -95,7 +93,6 @@
             sidebar.Controls.Add(MenuContainer);
             sidebar.Controls.Add(HomeContainer);
             sidebar.Controls.Add(Setting);
-            sidebar.Controls.Add(Help);
             sidebar.Controls.Add(About);
             sidebar.Controls.Add(Quanlinhanvien);
             sidebar.Location = new Point(0, 103);
@@ -309,35 +306,10 @@
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             // 
-            // Help
-            // 
-            Help.Controls.Add(HelpBtn);
-            Help.Location = new Point(3, 635);
-            Help.Name = "Help";
-            Help.Size = new Size(313, 95);
-            Help.TabIndex = 6;
-            // 
-            // HelpBtn
-            // 
-            HelpBtn.BackColor = Color.FromArgb(53, 162, 184);
-            HelpBtn.FlatStyle = FlatStyle.Flat;
-            HelpBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            HelpBtn.ForeColor = SystemColors.ButtonHighlight;
-            HelpBtn.Image = (Image)resources.GetObject("HelpBtn.Image");
-            HelpBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            HelpBtn.Location = new Point(-8, -9);
-            HelpBtn.Name = "HelpBtn";
-            HelpBtn.Padding = new Padding(40, 0, 0, 0);
-            HelpBtn.Size = new Size(321, 104);
-            HelpBtn.TabIndex = 10;
-            HelpBtn.Text = "              Trợ giúp";
-            HelpBtn.TextAlign = ContentAlignment.MiddleLeft;
-            HelpBtn.UseVisualStyleBackColor = false;
-            // 
             // About
             // 
             About.Controls.Add(AboutBtn);
-            About.Location = new Point(3, 736);
+            About.Location = new Point(3, 635);
             About.Name = "About";
             About.Size = new Size(313, 95);
             About.TabIndex = 12;
@@ -362,7 +334,7 @@
             // Quanlinhanvien
             // 
             Quanlinhanvien.Controls.Add(QuanlinhanvienBtn);
-            Quanlinhanvien.Location = new Point(3, 837);
+            Quanlinhanvien.Location = new Point(3, 736);
             Quanlinhanvien.Name = "Quanlinhanvien";
             Quanlinhanvien.Size = new Size(313, 95);
             Quanlinhanvien.TabIndex = 11;
@@ -406,7 +378,7 @@
             TitleLbl.BackColor = Color.FromArgb(53, 162, 184);
             TitleLbl.Font = new Font("Segoe UI", 27.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             TitleLbl.ForeColor = SystemColors.ButtonHighlight;
-            TitleLbl.Location = new Point(588, 21);
+            TitleLbl.Location = new Point(528, 21);
             TitleLbl.Name = "TitleLbl";
             TitleLbl.Size = new Size(467, 50);
             TitleLbl.TabIndex = 3;
@@ -444,18 +416,28 @@
             ExitBtn.TabStop = false;
             ExitBtn.Click += ExitBtn_Click;
             // 
+            // ViewPanel
+            // 
+            ViewPanel.BackColor = Color.White;
+            ViewPanel.Location = new Point(316, 110);
+            ViewPanel.Name = "ViewPanel";
+            ViewPanel.Size = new Size(946, 1003);
+            ViewPanel.TabIndex = 2;
+            // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(245, 245, 248);
             BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1443, 1100);
+            Controls.Add(ViewPanel);
             Controls.Add(Title);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmMain";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmMain";
-            WindowState = FormWindowState.Minimized;
             Load += FrmMain_Load;
             sidebar.ResumeLayout(false);
             MenuContainer.ResumeLayout(false);
@@ -468,7 +450,6 @@
             Quanlisach.ResumeLayout(false);
             Trangchu.ResumeLayout(false);
             Setting.ResumeLayout(false);
-            Help.ResumeLayout(false);
             About.ResumeLayout(false);
             Quanlinhanvien.ResumeLayout(false);
             Title.ResumeLayout(false);
@@ -481,7 +462,6 @@
 
         #endregion
         private System.Windows.Forms.Timer sidebarTimer;
-        private Button button8;
         private System.Windows.Forms.Timer homeTimer;
         private FlowLayoutPanel sidebar;
         private Panel MenuContainer;
@@ -497,21 +477,18 @@
         private Button TrangchuBtn;
         private Panel Setting;
         private Button button2;
-        private Panel Help;
-        private Button HelpBtn;
         private Panel Quanlinhanvien;
         private Button AboutBtn;
         private Panel Title;
-        private Panel panel3;
         private Panel Trangchu;
         private Panel Baocaothongke;
         private Panel Muontrasach;
         private Panel Quanlisach;
-        private Panel panel4;
         private Panel About;
         private PictureBox ExitBtn;
         private PictureBox MinimizeBtn;
         private PictureBox pictureBox1;
         private Label TitleLbl;
+        public Panel ViewPanel;
     }
 }
