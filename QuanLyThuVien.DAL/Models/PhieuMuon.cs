@@ -12,7 +12,7 @@ namespace QuanLyThuVien.DAL.Models
         public int MaPM { get; set; }
 
         // Khóa ngoại
-        public int MaDG { get; set; }
+        public int MaSV { get; set; }
         public int MaTK { get; set; }
 
         public DateTime NgayMuon { get; set; }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace QuanLyThuVien.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class Khoitao : Migration
+    public partial class khoitao : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -106,9 +106,8 @@ namespace QuanLyThuVien.DAL.Migrations
                 name: "DocGia",
                 columns: table => new
                 {
-                    MaDG = table.Column<int>(type: "int", nullable: false)
+                    MaSV = table.Column<int>(type: "int", maxLength: 20, nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MaSV = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     HoTen = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     MaNganh = table.Column<int>(type: "int", nullable: false),
                     Khoa = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
@@ -119,7 +118,7 @@ namespace QuanLyThuVien.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DocGia", x => x.MaDG);
+                    table.PrimaryKey("PK_DocGia", x => x.MaSV);
                     table.ForeignKey(
                         name: "FK_DocGia_Nganh_MaNganh",
                         column: x => x.MaNganh,
@@ -174,7 +173,7 @@ namespace QuanLyThuVien.DAL.Migrations
                 {
                     MaPM = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MaDG = table.Column<int>(type: "int", nullable: false),
+                    MaSV = table.Column<int>(type: "int", nullable: false),
                     MaTK = table.Column<int>(type: "int", nullable: false),
                     NgayMuon = table.Column<DateTime>(type: "date", nullable: false),
                     HanTra = table.Column<DateTime>(type: "date", nullable: false),
@@ -185,10 +184,10 @@ namespace QuanLyThuVien.DAL.Migrations
                 {
                     table.PrimaryKey("PK_PhieuMuon", x => x.MaPM);
                     table.ForeignKey(
-                        name: "FK_PhieuMuon_DocGia_MaDG",
-                        column: x => x.MaDG,
+                        name: "FK_PhieuMuon_DocGia_MaSV",
+                        column: x => x.MaSV,
                         principalTable: "DocGia",
-                        principalColumn: "MaDG",
+                        principalColumn: "MaSV",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PhieuMuon_TaiKhoan_MaTK",
@@ -288,9 +287,9 @@ namespace QuanLyThuVien.DAL.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuMuon_MaDG",
+                name: "IX_PhieuMuon_MaSV",
                 table: "PhieuMuon",
-                column: "MaDG");
+                column: "MaSV");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PhieuMuon_MaTK",

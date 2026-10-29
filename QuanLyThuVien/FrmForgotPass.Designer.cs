@@ -35,7 +35,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            button1 = new Button();
+            ResetPasswordButton = new Button();
             LoginNowLbl = new LinkLabel();
             SuspendLayout();
             // 
@@ -104,15 +104,16 @@
             label3.TabIndex = 10;
             label3.Text = "Nhập lại mật khẩu mới:";
             // 
-            // button1
+            // ResetPasswordButton
             // 
-            button1.Location = new Point(183, 232);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(182, 33);
-            button1.TabIndex = 11;
-            button1.Text = "Đặt lại mật khẩu";
-            button1.UseVisualStyleBackColor = true;
+            ResetPasswordButton.Location = new Point(183, 232);
+            ResetPasswordButton.Margin = new Padding(2);
+            ResetPasswordButton.Name = "ResetPasswordButton";
+            ResetPasswordButton.Size = new Size(182, 33);
+            ResetPasswordButton.TabIndex = 11;
+            ResetPasswordButton.Text = "Đặt lại mật khẩu";
+            ResetPasswordButton.UseVisualStyleBackColor = true;
+            ResetPasswordButton.Click += ResetPasswordButton_Click;
             // 
             // LoginNowLbl
             // 
@@ -131,7 +132,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(514, 331);
             Controls.Add(LoginNowLbl);
-            Controls.Add(button1);
+            Controls.Add(ResetPasswordButton);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -155,7 +156,7 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Button button1;
+        private Button ResetPasswordButton;
         private LinkLabel LoginNowLbl;
     }
 }

@@ -12,8 +12,8 @@ using QuanLyThuVien.DAL;
 namespace QuanLyThuVien.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20261020081332_Khoitao")]
-    partial class Khoitao
+    [Migration("20261029012709_khoitao")]
+    partial class khoitao
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,11 +53,12 @@ namespace QuanLyThuVien.DAL.Migrations
 
             modelBuilder.Entity("QuanLyThuVien.DAL.Models.DocGia", b =>
                 {
-                    b.Property<int>("MaDG")
+                    b.Property<int>("MaSV")
                         .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDG"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaSV"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -76,11 +77,6 @@ namespace QuanLyThuVien.DAL.Migrations
                     b.Property<int>("MaNganh")
                         .HasColumnType("int");
 
-                    b.Property<string>("MaSV")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<DateTime>("NgayHetHan")
                         .HasColumnType("date");
 
@@ -91,7 +87,7 @@ namespace QuanLyThuVien.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
-                    b.HasKey("MaDG");
+                    b.HasKey("MaSV");
 
                     b.HasIndex("MaNganh");
 
@@ -148,7 +144,7 @@ namespace QuanLyThuVien.DAL.Migrations
                     b.Property<DateTime>("HanTra")
                         .HasColumnType("date");
 
-                    b.Property<int>("MaDG")
+                    b.Property<int>("MaSV")
                         .HasColumnType("int");
 
                     b.Property<int>("MaTK")
@@ -167,7 +163,7 @@ namespace QuanLyThuVien.DAL.Migrations
 
                     b.HasKey("MaPM");
 
-                    b.HasIndex("MaDG");
+                    b.HasIndex("MaSV");
 
                     b.HasIndex("MaTK");
 
@@ -455,7 +451,7 @@ namespace QuanLyThuVien.DAL.Migrations
                 {
                     b.HasOne("QuanLyThuVien.DAL.Models.DocGia", "DocGia")
                         .WithMany("PhieuMuons")
-                        .HasForeignKey("MaDG")
+                        .HasForeignKey("MaSV")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

@@ -18,8 +18,8 @@ namespace QuanLyThuVien
             InitializeComponent();
             textBox2.UseSystemPasswordChar = true;
             textBox3.UseSystemPasswordChar = true;
-            AcceptButton = button1;
-            button1.Click += ResetPasswordButton_Click;
+            AcceptButton = ResetPasswordButton;
+            ResetPasswordButton.Click += ResetPasswordButton_Click;
             LoginNowLbl.LinkClicked += LoginNowLbl_LinkClicked;
         }
 

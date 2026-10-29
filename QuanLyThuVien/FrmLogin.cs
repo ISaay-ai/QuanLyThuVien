@@ -46,15 +46,16 @@ namespace QuanLyThuVien
             }
         }
 
-        private void ForgotPassLbl_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
-        {
-            using var forgotPasswordForm = new FrmForgotPass();
-            forgotPasswordForm.ShowDialog(this);
-        }
 
         private void ShowPassBox_CheckedChanged(object? sender, EventArgs e)
         {
             textBox2.UseSystemPasswordChar = !ShowPassBox.Checked;
+        }
+
+        private void ForgotPassLbl_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using var forgotPasswordForm = new FrmForgotPass();
+            forgotPasswordForm.ShowDialog(this);
         }
     }
 }

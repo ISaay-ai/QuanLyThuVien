@@ -36,11 +36,12 @@
             ForgotPassLbl = new LinkLabel();
             ShowPassBox = new CheckBox();
             LOGIN = new Label();
+            panel1 = new Panel();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(67, 120);
+            textBox1.Location = new Point(67, 262);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(297, 23);
@@ -48,7 +49,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(67, 175);
+            textBox2.Location = new Point(67, 349);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(297, 23);
@@ -57,7 +58,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(67, 87);
+            label1.Location = new Point(67, 220);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(89, 15);
@@ -67,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(67, 152);
+            label2.Location = new Point(67, 318);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(60, 15);
@@ -76,18 +77,19 @@
             // 
             // button1
             // 
-            button1.Location = new Point(67, 247);
+            button1.Location = new Point(69, 457);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(295, 35);
             button1.TabIndex = 5;
             button1.Text = "Đăng nhập";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += LoginButton_Click;
             // 
             // ForgotPassLbl
             // 
             ForgotPassLbl.AutoSize = true;
-            ForgotPassLbl.Location = new Point(263, 206);
+            ForgotPassLbl.Location = new Point(270, 402);
             ForgotPassLbl.Margin = new Padding(2, 0, 2, 0);
             ForgotPassLbl.Name = "ForgotPassLbl";
             ForgotPassLbl.Size = new Size(94, 15);
@@ -98,7 +100,7 @@
             // ShowPassBox
             // 
             ShowPassBox.AutoSize = true;
-            ShowPassBox.Location = new Point(67, 203);
+            ShowPassBox.Location = new Point(67, 398);
             ShowPassBox.Margin = new Padding(2);
             ShowPassBox.Name = "ShowPassBox";
             ShowPassBox.Size = new Size(104, 19);
@@ -109,7 +111,7 @@
             // LOGIN
             // 
             LOGIN.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LOGIN.Location = new Point(136, 29);
+            LOGIN.Location = new Point(134, 78);
             LOGIN.Margin = new Padding(2, 0, 2, 0);
             LOGIN.Name = "LOGIN";
             LOGIN.Size = new Size(177, 31);
@@ -117,11 +119,20 @@
             LOGIN.Text = "Đăng nhập";
             LOGIN.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(53, 162, 184);
+            panel1.Location = new Point(444, -15);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(437, 587);
+            panel1.TabIndex = 10;
+            // 
             // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(440, 345);
+            ClientSize = new Size(883, 560);
+            Controls.Add(panel1);
             Controls.Add(ShowPassBox);
             Controls.Add(ForgotPassLbl);
             Controls.Add(button1);
@@ -147,5 +158,6 @@
         private LinkLabel ForgotPassLbl;
         private CheckBox ShowPassBox;
         private Label LOGIN;
+        private Panel panel1;
     }
 }

@@ -50,11 +50,12 @@ namespace QuanLyThuVien.DAL.Migrations
 
             modelBuilder.Entity("QuanLyThuVien.DAL.Models.DocGia", b =>
                 {
-                    b.Property<int>("MaDG")
+                    b.Property<int>("MaSV")
                         .ValueGeneratedOnAdd()
+                        .HasMaxLength(20)
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDG"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaSV"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -73,11 +74,6 @@ namespace QuanLyThuVien.DAL.Migrations
                     b.Property<int>("MaNganh")
                         .HasColumnType("int");
 
-                    b.Property<string>("MaSV")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
                     b.Property<DateTime>("NgayHetHan")
                         .HasColumnType("date");
 
@@ -88,7 +84,7 @@ namespace QuanLyThuVien.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
-                    b.HasKey("MaDG");
+                    b.HasKey("MaSV");
 
                     b.HasIndex("MaNganh");
 
@@ -145,7 +141,7 @@ namespace QuanLyThuVien.DAL.Migrations
                     b.Property<DateTime>("HanTra")
                         .HasColumnType("date");
 
-                    b.Property<int>("MaDG")
+                    b.Property<int>("MaSV")
                         .HasColumnType("int");
 
                     b.Property<int>("MaTK")
@@ -164,7 +160,7 @@ namespace QuanLyThuVien.DAL.Migrations
 
                     b.HasKey("MaPM");
 
-                    b.HasIndex("MaDG");
+                    b.HasIndex("MaSV");
 
                     b.HasIndex("MaTK");
 
@@ -452,7 +448,7 @@ namespace QuanLyThuVien.DAL.Migrations
                 {
                     b.HasOne("QuanLyThuVien.DAL.Models.DocGia", "DocGia")
                         .WithMany("PhieuMuons")
-                        .HasForeignKey("MaDG")
+                        .HasForeignKey("MaSV")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

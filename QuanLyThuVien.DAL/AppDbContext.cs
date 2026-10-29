@@ -24,7 +24,7 @@ namespace QuanLyThuVien.DAL
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Server=DESKTOP-ER612F1\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=ThinkpadE\\SQLEXPRESS;Database=QuanLyThuVien;Trusted_Connection=true;TrustServerCertificate=True;");
 
 
         }
@@ -74,10 +74,6 @@ namespace QuanLyThuVien.DAL
 
             modelBuilder.Entity<Nganh>()
                 .HasKey(x => x.MaNganh);
-
-            modelBuilder.Entity<DocGia>()
-                .HasKey(x => x.MaDG);
-
             modelBuilder.Entity<TaiKhoan>()
                 .HasKey(x => x.MaTK);
 
@@ -163,7 +159,7 @@ namespace QuanLyThuVien.DAL
             modelBuilder.Entity<PhieuMuon>()
                 .HasOne(x => x.DocGia)
                 .WithMany(x => x.PhieuMuons)
-                .HasForeignKey(x => x.MaDG)
+                .HasForeignKey(x => x.MaSV)
                 .OnDelete(DeleteBehavior.Restrict);
 
 
