@@ -9,8 +9,6 @@ namespace QuanLyThuVien.DAL.Models
     public class DocGia
     {
         [Key]
-        public int MaDG { get; set; }
-
         // Mã sinh viên phải duy nhất
         public string MaSV { get; set; } = string.Empty;
 
