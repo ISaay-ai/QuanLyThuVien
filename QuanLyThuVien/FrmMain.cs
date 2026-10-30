@@ -22,9 +22,6 @@ namespace QuanLyThuVien
             currentUser = taiKhoan;
             isAdmin = string.Equals(taiKhoan.VaiTro, "Admin", StringComparison.OrdinalIgnoreCase);
 
-            // Phân quyền 2 role:
-            // Admin: toàn quyền truy cập tất cả chức năng, bao gồm Quản lý nhân viên
-            // Nhân viên: không thể truy cập Quản lý nhân viên
             Quanlinhanvien.Visible = isAdmin;
             QuanlinhanvienBtn.Enabled = isAdmin;
 
@@ -67,7 +64,6 @@ namespace QuanLyThuVien
             ViewPanel.Location = new Point(left, top);
             ViewPanel.Size = new Size(width, height);
 
-            // Tự động căn chỉnh lại vị trí của Form con khi ViewPanel thay đổi kích thước
             CanChinhFormCon(currentChildForm);
         }
         public void OpenChildForm(Form childForm)
@@ -84,8 +80,8 @@ namespace QuanLyThuVien
 
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill; // Đặt kích thước chuẩn mở rộng toàn diện tích ViewPanel
-            childForm.BackColor = ViewPanel.BackColor; // Đồng bộ màu nền trắng 100% với ViewPanel
+            childForm.Dock = DockStyle.Fill;
+            childForm.BackColor = ViewPanel.BackColor;
 
             // Bật thanh cuộn tự động trên ViewPanel
             ViewPanel.AutoScroll = true;
@@ -107,11 +103,6 @@ namespace QuanLyThuVien
             childForm.BringToFront();
             childForm.Show();
         }
-
-        /// <summary>
-        /// Hàm căn chỉnh Form con luôn nằm chính giữa ViewPanel
-        /// Được tự động gọi khi mở form mới hoặc khi kích thước FrmMain / ViewPanel thay đổi
-        /// </summary>
         private void CanChinhFormCon(Form? childForm)
         {
             if (childForm == null || ViewPanel == null) return;
@@ -126,7 +117,6 @@ namespace QuanLyThuVien
 
         public void ShowHomeScreen()
         {
-            // Đóng form con cũ an toàn trước khi hiển thị màn hình chính
             if (currentChildForm != null)
             {
                 Form oldForm = currentChildForm;
@@ -147,7 +137,7 @@ namespace QuanLyThuVien
 
             var lblWelcome = new Label
             {
-                Text = "CHÀO MỪNG ĐẾN VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN",
+                Text = "CHÀO MỪNG ĐẾN VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN - GenLib",
                 Font = new Font("Segoe UI", 20F, FontStyle.Bold),
                 ForeColor = Color.FromArgb(53, 162, 184),
                 Dock = DockStyle.Top,

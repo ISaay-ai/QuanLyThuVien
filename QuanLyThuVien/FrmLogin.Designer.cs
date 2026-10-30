@@ -32,6 +32,7 @@ namespace QuanLyThuVien
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             txtTenDangNhap = new TextBox();
             txtMatKhau = new TextBox();
             lblTenDangNhap = new Label();
@@ -41,6 +42,10 @@ namespace QuanLyThuVien
             chkHienMatKhau = new CheckBox();
             lblTitleLogin = new Label();
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtTenDangNhap
@@ -135,7 +140,7 @@ namespace QuanLyThuVien
             // 
             lblTitleLogin.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             lblTitleLogin.ForeColor = Color.FromArgb(53, 162, 184);
-            lblTitleLogin.Location = new Point(67, 90);
+            lblTitleLogin.Location = new Point(67, 121);
             lblTitleLogin.Margin = new Padding(2, 0, 2, 0);
             lblTitleLogin.Name = "lblTitleLogin";
             lblTitleLogin.Size = new Size(297, 45);
@@ -146,10 +151,33 @@ namespace QuanLyThuVien
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(53, 162, 184);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(444, -15);
             panel1.Name = "panel1";
             panel1.Size = new Size(465, 587);
             panel1.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(124, 178);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(220, 152);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(109, 371);
+            label1.Name = "label1";
+            label1.Size = new Size(268, 30);
+            label1.TabIndex = 1;
+            label1.Text = "Hệ thống quản lí thư viện";
             // 
             // FrmLogin
             // 
@@ -173,6 +201,9 @@ namespace QuanLyThuVien
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng Nhập - Hệ Thống Quản Lý Thư Viện";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,5 +219,7 @@ namespace QuanLyThuVien
         private CheckBox chkHienMatKhau;
         private Label lblTitleLogin;
         private Panel panel1;
+        private Label label1;
+        private PictureBox pictureBox1;
     }
 }
