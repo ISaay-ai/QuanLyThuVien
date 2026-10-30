@@ -64,9 +64,9 @@ namespace QuanLyThuVien.Views
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             gbThongTinSV = new GroupBox();
             lblMaSV = new Label();
             txtMaSV = new TextBox();
@@ -430,11 +430,11 @@ namespace QuanLyThuVien.Views
             // 
             // btnMuon
             // 
-            btnMuon.BackColor = Color.White;
+            btnMuon.BackColor = Color.LimeGreen;
             btnMuon.Cursor = Cursors.Hand;
             btnMuon.FlatStyle = FlatStyle.Flat;
-            btnMuon.Font = new Font("Segoe UI", 10F);
-            btnMuon.ForeColor = Color.FromArgb(42, 138, 98);
+            btnMuon.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMuon.ForeColor = Color.White;
             btnMuon.Location = new Point(70, 320);
             btnMuon.Name = "btnMuon";
             btnMuon.Size = new Size(110, 36);
@@ -445,11 +445,11 @@ namespace QuanLyThuVien.Views
             // 
             // btnGiaHan
             // 
-            btnGiaHan.BackColor = Color.White;
+            btnGiaHan.BackColor = Color.FromArgb(53, 162, 184);
             btnGiaHan.Cursor = Cursors.Hand;
             btnGiaHan.FlatStyle = FlatStyle.Flat;
-            btnGiaHan.Font = new Font("Segoe UI", 10F);
-            btnGiaHan.ForeColor = Color.FromArgb(0, 120, 215);
+            btnGiaHan.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGiaHan.ForeColor = Color.White;
             btnGiaHan.Location = new Point(230, 320);
             btnGiaHan.Name = "btnGiaHan";
             btnGiaHan.Size = new Size(110, 36);
@@ -460,11 +460,11 @@ namespace QuanLyThuVien.Views
             // 
             // btnTraSach
             // 
-            btnTraSach.BackColor = Color.White;
+            btnTraSach.BackColor = Color.FromArgb(192, 0, 0);
             btnTraSach.Cursor = Cursors.Hand;
             btnTraSach.FlatStyle = FlatStyle.Flat;
-            btnTraSach.Font = new Font("Segoe UI", 10F);
-            btnTraSach.ForeColor = Color.FromArgb(200, 100, 0);
+            btnTraSach.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTraSach.ForeColor = Color.White;
             btnTraSach.Location = new Point(390, 320);
             btnTraSach.Name = "btnTraSach";
             btnTraSach.Size = new Size(110, 36);
@@ -475,11 +475,11 @@ namespace QuanLyThuVien.Views
             // 
             // btnLuu
             // 
-            btnLuu.BackColor = Color.FromArgb(248, 248, 248);
+            btnLuu.BackColor = Color.FromArgb(0, 192, 0);
             btnLuu.Cursor = Cursors.Hand;
             btnLuu.FlatStyle = FlatStyle.Flat;
-            btnLuu.Font = new Font("Segoe UI", 10F);
-            btnLuu.ForeColor = Color.FromArgb(64, 64, 64);
+            btnLuu.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLuu.ForeColor = Color.White;
             btnLuu.Location = new Point(550, 320);
             btnLuu.Name = "btnLuu";
             btnLuu.Size = new Size(110, 36);
@@ -490,11 +490,11 @@ namespace QuanLyThuVien.Views
             // 
             // btnHuyBo
             // 
-            btnHuyBo.BackColor = Color.FromArgb(248, 248, 248);
+            btnHuyBo.BackColor = SystemColors.ControlDark;
             btnHuyBo.Cursor = Cursors.Hand;
             btnHuyBo.FlatStyle = FlatStyle.Flat;
-            btnHuyBo.Font = new Font("Segoe UI", 10F);
-            btnHuyBo.ForeColor = Color.FromArgb(64, 64, 64);
+            btnHuyBo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHuyBo.ForeColor = Color.White;
             btnHuyBo.Location = new Point(710, 320);
             btnHuyBo.Name = "btnHuyBo";
             btnHuyBo.Size = new Size(110, 36);
@@ -507,32 +507,32 @@ namespace QuanLyThuVien.Views
             // 
             dgvMuonTra.AllowUserToAddRows = false;
             dgvMuonTra.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 255);
-            dgvMuonTra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 248, 255);
+            dgvMuonTra.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvMuonTra.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvMuonTra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMuonTra.BorderStyle = BorderStyle.None;
             dgvMuonTra.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvMuonTra.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(88, 86, 245);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 120, 215);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dgvMuonTra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(88, 86, 245);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 120, 215);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dgvMuonTra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvMuonTra.ColumnHeadersHeight = 36;
             dgvMuonTra.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(232, 230, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvMuonTra.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(232, 230, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvMuonTra.DefaultCellStyle = dataGridViewCellStyle6;
             dgvMuonTra.EnableHeadersVisualStyles = false;
             dgvMuonTra.GridColor = Color.White;
             dgvMuonTra.Location = new Point(12, 372);

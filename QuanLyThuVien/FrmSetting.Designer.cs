@@ -178,5 +178,75 @@ namespace QuanLyThuVien.GUI
         }
 
         #endregion
+
+        #region Giao diện đồ họa Paint & Hover của Form Setting
+
+        private void lblClose_MouseEnter(object sender, System.EventArgs e)
+        {
+            lblClose.ForeColor = System.Drawing.Color.FromArgb(220, 53, 69);
+        }
+
+        private void lblClose_MouseLeave(object sender, System.EventArgs e)
+        {
+            lblClose.ForeColor = System.Drawing.Color.FromArgb(115, 115, 115);
+        }
+
+        private void pnlHeader_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using var pen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(229, 231, 235), 1);
+            e.Graphics.DrawLine(pen, 0, pnlHeader.Height - 1, pnlHeader.Width, pnlHeader.Height - 1);
+        }
+
+        private void pnlSidebar_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            using var pen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(229, 231, 235), 1);
+            e.Graphics.DrawLine(pen, pnlSidebar.Width - 1, 0, pnlSidebar.Width - 1, pnlSidebar.Height);
+        }
+
+        private void btnThongTinTaiKhoan_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            System.Drawing.Color iconColor = (pnlIndicator.Top == btnThongTinTaiKhoan.Top)
+                ? System.Drawing.Color.FromArgb(0, 120, 215)
+                : System.Drawing.Color.FromArgb(107, 114, 128);
+
+            using var brush = new System.Drawing.SolidBrush(iconColor);
+            using var pen = new System.Drawing.Pen(iconColor, 1.8F);
+
+            // Đầu người (vòng tròn)
+            g.FillEllipse(brush, 19, 13, 10, 10);
+
+            // Thân người (vòm cung vai)
+            g.DrawArc(pen, 15, 23, 18, 14, 190, 160);
+        }
+
+        private void btnDangXuat_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            System.Drawing.Color iconColor = System.Drawing.Color.FromArgb(220, 53, 69); // Màu đỏ cảnh báo đăng xuất
+            using var pen = new System.Drawing.Pen(iconColor, 1.8F);
+            using var brush = new System.Drawing.SolidBrush(iconColor);
+
+            // Khung cửa đăng xuất
+            g.DrawLine(pen, 28, 13, 16, 13);
+            g.DrawLine(pen, 16, 13, 16, 31);
+            g.DrawLine(pen, 16, 31, 28, 31);
+
+            // Mũi tên trỏ ra ngoài
+            g.DrawLine(pen, 22, 22, 33, 22);
+            System.Drawing.Point[] arrowHead = new System.Drawing.Point[]
+            {
+                new System.Drawing.Point(30, 18),
+                new System.Drawing.Point(34, 22),
+                new System.Drawing.Point(30, 26)
+            };
+            g.DrawLines(pen, arrowHead);
+        }
+
+        #endregion
     }
 }

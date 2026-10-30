@@ -32,9 +32,9 @@ namespace QuanLyThuVien.Views
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dgvNhanVien = new DataGridView();
             groupBox1 = new GroupBox();
             cboGioiTinh = new ComboBox();
@@ -63,31 +63,31 @@ namespace QuanLyThuVien.Views
             // 
             dgvNhanVien.AllowUserToAddRows = false;
             dgvNhanVien.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 255);
-            dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 248, 255);
+            dgvNhanVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvNhanVien.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvNhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNhanVien.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvNhanVien.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(88, 86, 245);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 120, 215);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(88, 86, 245);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 120, 215);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dgvNhanVien.ColumnHeadersHeight = 36;
             dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.Padding = new Padding(8, 0, 0, 0);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(232, 230, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.Padding = new Padding(8, 0, 0, 0);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(232, 230, 255);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dgvNhanVien.DefaultCellStyle = dataGridViewCellStyle6;
             dgvNhanVien.EnableHeadersVisualStyles = false;
             dgvNhanVien.GridColor = Color.FromArgb(230, 230, 240);
             dgvNhanVien.Location = new Point(94, 425);
@@ -143,12 +143,12 @@ namespace QuanLyThuVien.Views
             // 
             // btnXoa
             // 
-            btnXoa.BackColor = Color.White;
+            btnXoa.BackColor = Color.Red;
             btnXoa.Cursor = Cursors.Hand;
             btnXoa.FlatAppearance.BorderColor = Color.FromArgb(215, 215, 215);
             btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Font = new Font("Segoe UI", 11.5F);
-            btnXoa.ForeColor = Color.FromArgb(42, 138, 98);
+            btnXoa.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnXoa.ForeColor = Color.White;
             btnXoa.Location = new Point(683, 291);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(155, 48);
@@ -159,12 +159,12 @@ namespace QuanLyThuVien.Views
             // 
             // btnDoiMK
             // 
-            btnDoiMK.BackColor = Color.White;
+            btnDoiMK.BackColor = Color.FromArgb(53, 162, 184);
             btnDoiMK.Cursor = Cursors.Hand;
             btnDoiMK.FlatAppearance.BorderColor = Color.FromArgb(215, 215, 215);
             btnDoiMK.FlatStyle = FlatStyle.Flat;
-            btnDoiMK.Font = new Font("Segoe UI", 11.5F);
-            btnDoiMK.ForeColor = Color.FromArgb(42, 138, 98);
+            btnDoiMK.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDoiMK.ForeColor = Color.White;
             btnDoiMK.Location = new Point(98, 291);
             btnDoiMK.Name = "btnDoiMK";
             btnDoiMK.Size = new Size(155, 48);
@@ -175,12 +175,12 @@ namespace QuanLyThuVien.Views
             // 
             // btnDangKy
             // 
-            btnDangKy.BackColor = Color.White;
+            btnDangKy.BackColor = Color.FromArgb(0, 192, 0);
             btnDangKy.Cursor = Cursors.Hand;
             btnDangKy.FlatAppearance.BorderColor = Color.FromArgb(215, 215, 215);
             btnDangKy.FlatStyle = FlatStyle.Flat;
-            btnDangKy.Font = new Font("Segoe UI", 11.5F);
-            btnDangKy.ForeColor = Color.FromArgb(42, 138, 98);
+            btnDangKy.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDangKy.ForeColor = Color.White;
             btnDangKy.Location = new Point(295, 291);
             btnDangKy.Name = "btnDangKy";
             btnDangKy.Size = new Size(155, 48);
@@ -191,12 +191,12 @@ namespace QuanLyThuVien.Views
             // 
             // btnHuy
             // 
-            btnHuy.BackColor = Color.White;
+            btnHuy.BackColor = SystemColors.ControlDark;
             btnHuy.Cursor = Cursors.Hand;
             btnHuy.FlatAppearance.BorderColor = Color.FromArgb(215, 215, 215);
             btnHuy.FlatStyle = FlatStyle.Flat;
-            btnHuy.Font = new Font("Segoe UI", 11.5F);
-            btnHuy.ForeColor = Color.FromArgb(42, 138, 98);
+            btnHuy.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHuy.ForeColor = Color.White;
             btnHuy.Location = new Point(480, 291);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(155, 48);

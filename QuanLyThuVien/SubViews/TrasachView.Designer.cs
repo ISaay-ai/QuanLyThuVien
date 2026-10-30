@@ -118,7 +118,7 @@ namespace QuanLyThuVien.SubViews
             // 
             lblSoNgayTre.AutoSize = true;
             lblSoNgayTre.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            lblSoNgayTre.ForeColor = Color.Red;
+            lblSoNgayTre.ForeColor = Color.Lime;
             lblSoNgayTre.Location = new Point(370, 100);
             lblSoNgayTre.Name = "lblSoNgayTre";
             lblSoNgayTre.Size = new Size(49, 17);
@@ -216,12 +216,12 @@ namespace QuanLyThuVien.SubViews
             // 
             chkCoViPham.AutoSize = true;
             chkCoViPham.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
-            chkCoViPham.ForeColor = Color.DarkRed;
+            chkCoViPham.ForeColor = Color.Red;
             chkCoViPham.Location = new Point(12, 205);
             chkCoViPham.Name = "chkCoViPham";
-            chkCoViPham.Size = new Size(248, 21);
+            chkCoViPham.Size = new Size(99, 21);
             chkCoViPham.TabIndex = 2;
-            chkCoViPham.Text = "Có Vi Phạm (Xử Lý & Tính Tiền Phạt)";
+            chkCoViPham.Text = "Có Vi Phạm";
             chkCoViPham.UseVisualStyleBackColor = true;
             chkCoViPham.CheckedChanged += chkCoViPham_CheckedChanged;
             // 
@@ -296,7 +296,7 @@ namespace QuanLyThuVien.SubViews
             // 
             // btnXacNhanTra
             // 
-            btnXacNhanTra.BackColor = Color.FromArgb(42, 138, 98);
+            btnXacNhanTra.BackColor = Color.FromArgb(53, 162, 184);
             btnXacNhanTra.Cursor = Cursors.Hand;
             btnXacNhanTra.FlatStyle = FlatStyle.Flat;
             btnXacNhanTra.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
@@ -311,7 +311,7 @@ namespace QuanLyThuVien.SubViews
             // 
             // btnHuy
             // 
-            btnHuy.BackColor = Color.FromArgb(108, 117, 125);
+            btnHuy.BackColor = SystemColors.ControlDark;
             btnHuy.Cursor = Cursors.Hand;
             btnHuy.FlatStyle = FlatStyle.Flat;
             btnHuy.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);

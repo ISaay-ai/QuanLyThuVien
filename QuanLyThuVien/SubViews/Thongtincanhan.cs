@@ -144,13 +144,3 @@ namespace QuanLyThuVien.SubViews
         }
     }
 }
-
-namespace QuanLyThuVien.GUI
-{
-    // Alias giữ tương thích ngược
-    public class Profile : QuanLyThuVien.SubViews.Thongtincanhan
-    {
-        public Profile() : base() { }
-        public Profile(TaiKhoan? user) : base(user) { }
-    }
-}
