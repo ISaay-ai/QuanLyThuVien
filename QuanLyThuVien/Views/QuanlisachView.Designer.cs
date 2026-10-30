@@ -31,7 +31,6 @@ namespace QuanLyThuVien.Views
             btnXoa = new Button();
             btnGhi = new Button();
             btnHuyBo = new Button();
-            btnTrangChu = new Button();
             dataGridView1 = new DataGridView();
             textBoxSearch = new TextBox();
             groupBoxSearch = new GroupBox();
@@ -172,33 +171,23 @@ namespace QuanLyThuVien.Views
             // 
             // btnGhi
             // 
-            btnGhi.Location = new Point(32, 551);
+            btnGhi.Location = new Point(69, 551);
             btnGhi.Name = "btnGhi";
             btnGhi.Size = new Size(70, 33);
             btnGhi.TabIndex = 11;
-            btnGhi.Text = "Ghi";
+            btnGhi.Text = "Lưu";
             btnGhi.UseVisualStyleBackColor = true;
             btnGhi.Click += btnGhi_Click;
             // 
             // btnHuyBo
             // 
-            btnHuyBo.Location = new Point(120, 551);
+            btnHuyBo.Location = new Point(170, 551);
             btnHuyBo.Name = "btnHuyBo";
             btnHuyBo.Size = new Size(70, 33);
             btnHuyBo.TabIndex = 12;
             btnHuyBo.Text = "Huỷ bỏ";
             btnHuyBo.UseVisualStyleBackColor = true;
             btnHuyBo.Click += btnHuyBo_Click;
-            // 
-            // btnTrangChu
-            // 
-            btnTrangChu.Location = new Point(207, 551);
-            btnTrangChu.Name = "btnTrangChu";
-            btnTrangChu.Size = new Size(83, 33);
-            btnTrangChu.TabIndex = 13;
-            btnTrangChu.Text = "Trang Chủ";
-            btnTrangChu.UseVisualStyleBackColor = true;
-            btnTrangChu.Click += btnTrangChu_Click;
             // 
             // dataGridView1
             // 
@@ -319,7 +308,6 @@ namespace QuanLyThuVien.Views
             ClientSize = new Size(866, 668);
             Controls.Add(groupBoxSearch);
             Controls.Add(dataGridView1);
-            Controls.Add(btnTrangChu);
             Controls.Add(btnHuyBo);
             Controls.Add(btnGhi);
             Controls.Add(btnXoa);
@@ -371,7 +359,6 @@ namespace QuanLyThuVien.Views
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnGhi;
         private System.Windows.Forms.Button btnHuyBo;
-        private System.Windows.Forms.Button btnTrangChu;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.GroupBox groupBoxSearch;

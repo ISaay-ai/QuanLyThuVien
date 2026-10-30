@@ -49,6 +49,8 @@ namespace QuanLyThuVien
             TrangchuBtn = new Button();
             Setting = new Panel();
             button2 = new Button();
+            Chatbot = new Panel();
+            Chatbotbtn = new Button();
             Quanlinhanvien = new Panel();
             QuanlinhanvienBtn = new Button();
             Title = new Panel();
@@ -67,6 +69,7 @@ namespace QuanLyThuVien
             Quanlisach.SuspendLayout();
             Trangchu.SuspendLayout();
             Setting.SuspendLayout();
+            Chatbot.SuspendLayout();
             Quanlinhanvien.SuspendLayout();
             Title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -90,6 +93,7 @@ namespace QuanLyThuVien
             sidebar.Controls.Add(MenuContainer);
             sidebar.Controls.Add(HomeContainer);
             sidebar.Controls.Add(Setting);
+            sidebar.Controls.Add(Chatbot);
             sidebar.Controls.Add(Quanlinhanvien);
             sidebar.Location = new Point(0, 103);
             sidebar.MinimumSize = new Size(112, 929);
@@ -302,10 +306,35 @@ namespace QuanLyThuVien
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             // 
+            // Chatbot
+            // 
+            Chatbot.Controls.Add(Chatbotbtn);
+            Chatbot.Location = new Point(3, 635);
+            Chatbot.Name = "Chatbot";
+            Chatbot.Size = new Size(313, 95);
+            Chatbot.TabIndex = 6;
+            // 
+            // Chatbotbtn
+            // 
+            Chatbotbtn.BackColor = Color.FromArgb(53, 162, 184);
+            Chatbotbtn.FlatStyle = FlatStyle.Flat;
+            Chatbotbtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Chatbotbtn.ForeColor = SystemColors.ButtonHighlight;
+            Chatbotbtn.Image = (Image)resources.GetObject("Chatbotbtn.Image");
+            Chatbotbtn.ImageAlign = ContentAlignment.MiddleLeft;
+            Chatbotbtn.Location = new Point(-8, -2);
+            Chatbotbtn.Name = "Chatbotbtn";
+            Chatbotbtn.Padding = new Padding(40, 0, 0, 0);
+            Chatbotbtn.Size = new Size(321, 95);
+            Chatbotbtn.TabIndex = 9;
+            Chatbotbtn.Text = "              AI Chatbot";
+            Chatbotbtn.TextAlign = ContentAlignment.MiddleLeft;
+            Chatbotbtn.UseVisualStyleBackColor = false;
+            // 
             // Quanlinhanvien
             // 
             Quanlinhanvien.Controls.Add(QuanlinhanvienBtn);
-            Quanlinhanvien.Location = new Point(3, 635);
+            Quanlinhanvien.Location = new Point(3, 736);
             Quanlinhanvien.Name = "Quanlinhanvien";
             Quanlinhanvien.Size = new Size(313, 95);
             Quanlinhanvien.TabIndex = 11;
@@ -421,6 +450,7 @@ namespace QuanLyThuVien
             Quanlisach.ResumeLayout(false);
             Trangchu.ResumeLayout(false);
             Setting.ResumeLayout(false);
+            Chatbot.ResumeLayout(false);
             Quanlinhanvien.ResumeLayout(false);
             Title.ResumeLayout(false);
             Title.PerformLayout();
@@ -458,5 +488,7 @@ namespace QuanLyThuVien
         private PictureBox pictureBox1;
         private Label TitleLbl;
         public Panel ViewPanel;
+        private Panel Chatbot;
+        private Button Chatbotbtn;
     }
 }

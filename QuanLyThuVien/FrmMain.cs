@@ -34,6 +34,7 @@ namespace QuanLyThuVien
             MuontrasachBtn.Click += MuontrasachBtn_Click;
             BaocaothongkeBtn.Click += BaocaothongkeBtn_Click;
             button2.Click += CaiDatBtn_Click;
+            Chatbotbtn.Click += ChatbotBtn_Click;
 
             Title.MouseDown += Title_MouseDown;
             Title.MouseMove += Title_MouseMove;
@@ -285,6 +286,12 @@ namespace QuanLyThuVien
         private void AboutBtn_Click(object? sender, EventArgs e)
         {
             OpenChildForm(new GUI.FrmSetting(currentUser, true));
+        }
+
+        // Nhấn nút "AI Chatbot": mở FrmChatBot dạng form con trên ViewPanel
+        private void ChatbotBtn_Click(object? sender, EventArgs e)
+        {
+            OpenChildForm(new SubViews.FrmChatBot());
         }
 
         private void CaiDatBtn_Click(object? sender, EventArgs e)

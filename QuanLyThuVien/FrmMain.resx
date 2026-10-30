@@ -223,6 +223,17 @@
         Mk4v1WHPxJiHLzi79Smn9L8/5YGg78fJErp8bi3hvx+Q34vB2yRZAwIKAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="Chatbotbtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAFMSURBVEhLxZaxUQMxEEXfDAmxY2cU4MQdOCAhcAe0QIgLoAAqcAnUQAU0QAG0QATzD92N9KU7
+        ztywF7wZz9e3Vtpd6cTtwx3RVMJSgGvheuFxYSnAEbh3vfC4sIS0yxfgFdj4+OBz4a8oCPAEfAJfwPNY
+        4Eq4FOAqpVS7U7CcN6Xaa1xNMgVw01p90k/ARxZQv7XznRZW+H2CKVLKRpsEOKRg4ujjg8+FMYAt8J4a
+        pVi5+bS7s+uFx4UWqW6qTZ+2nXsyr9K5d73wuNAi1UxN0dfr7M1xCZXgpKOglOZdqWOhxhlN8xSVUAzC
+        vhEwD6zG2vr/fqMWfnamLtSE+REYQ2l/TLWclXIPqGtM3TcnmNNdBB6gRS1E79QJq6kT3r2DKfqcdqY1
+        bqTOGH33Dubor0xnXuN72uLfXw5ThL6RcsJfgz3h716xygt/Dt8TjP103ztvDAAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="QuanlinhanvienBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAfRJREFUSEu9
@@ -1668,6 +1679,6 @@
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>74</value>
   </metadata>
 </root>
