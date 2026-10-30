@@ -10,6 +10,7 @@ namespace QuanLyThuVien.GUI
         private System.Windows.Forms.Panel pnlSidebar;
         private System.Windows.Forms.Panel pnlIndicator;
         private System.Windows.Forms.Button btnThongTinTaiKhoan;
+        private System.Windows.Forms.Button btnGioiThieu;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Panel pnlContent;
 
@@ -26,155 +27,168 @@ namespace QuanLyThuVien.GUI
 
         private void InitializeComponent()
         {
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblClose = new System.Windows.Forms.Label();
-            this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.pnlIndicator = new System.Windows.Forms.Panel();
-            this.btnThongTinTaiKhoan = new System.Windows.Forms.Button();
-            this.btnDangXuat = new System.Windows.Forms.Button();
-            this.pnlContent = new System.Windows.Forms.Panel();
-
-            this.pnlHeader.SuspendLayout();
-            this.pnlSidebar.SuspendLayout();
-            this.SuspendLayout();
-
+            pnlHeader = new Panel();
+            lblTitle = new Label();
+            lblClose = new Label();
+            pnlSidebar = new Panel();
+            pnlIndicator = new Panel();
+            btnThongTinTaiKhoan = new Button();
+            btnGioiThieu = new Button();
+            btnDangXuat = new Button();
+            pnlContent = new Panel();
+            pnlHeader.SuspendLayout();
+            pnlSidebar.SuspendLayout();
+            SuspendLayout();
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.White;
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Controls.Add(this.lblClose);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1000, 55);
-            this.pnlHeader.TabIndex = 0;
-            this.pnlHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlHeader_Paint);
-
+            pnlHeader.BackColor = Color.White;
+            pnlHeader.Controls.Add(lblTitle);
+            // pnlHeader.Controls.Add(lblClose);
+            pnlHeader.Dock = DockStyle.Top;
+            pnlHeader.Location = new Point(0, 0);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(1000, 55);
+            pnlHeader.TabIndex = 0;
+            pnlHeader.Paint += pnlHeader_Paint;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(24, 24, 27);
-            this.lblTitle.Location = new System.Drawing.Point(20, 12);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(95, 28);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Settings";
-
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(24, 24, 27);
+            lblTitle.Location = new Point(20, 12);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(89, 28);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Settings";
             // 
             // lblClose
             // 
-            this.lblClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblClose.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblClose.ForeColor = System.Drawing.Color.FromArgb(115, 115, 115);
-            this.lblClose.Location = new System.Drawing.Point(955, 14);
-            this.lblClose.Name = "lblClose";
-            this.lblClose.Size = new System.Drawing.Size(30, 28);
-            this.lblClose.TabIndex = 1;
-            this.lblClose.Text = "✕";
-            this.lblClose.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblClose.Click += new System.EventHandler(this.lblClose_Click);
-            this.lblClose.MouseEnter += new System.EventHandler(this.lblClose_MouseEnter);
-            this.lblClose.MouseLeave += new System.EventHandler(this.lblClose_MouseLeave);
-
+            lblClose.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblClose.Cursor = Cursors.Hand;
+            lblClose.Font = new Font("Segoe UI", 13F);
+            lblClose.ForeColor = Color.FromArgb(115, 115, 115);
+            lblClose.Location = new Point(955, 14);
+            lblClose.Name = "lblClose";
+            lblClose.Size = new Size(30, 28);
+            lblClose.TabIndex = 1;
+            lblClose.Text = "✕";
+            lblClose.TextAlign = ContentAlignment.MiddleCenter;
+            lblClose.Click += lblClose_Click;
+            lblClose.MouseEnter += lblClose_MouseEnter;
+            lblClose.MouseLeave += lblClose_MouseLeave;
             // 
             // pnlSidebar
             // 
-            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
-            this.pnlSidebar.Controls.Add(this.pnlIndicator);
-            this.pnlSidebar.Controls.Add(this.btnThongTinTaiKhoan);
-            this.pnlSidebar.Controls.Add(this.btnDangXuat);
-            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSidebar.Location = new System.Drawing.Point(0, 55);
-            this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(230, 605);
-            this.pnlSidebar.TabIndex = 1;
-            this.pnlSidebar.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSidebar_Paint);
-
+            pnlSidebar.BackColor = Color.FromArgb(248, 249, 250);
+            pnlSidebar.Controls.Add(pnlIndicator);
+            pnlSidebar.Controls.Add(btnThongTinTaiKhoan);
+            pnlSidebar.Controls.Add(btnGioiThieu);
+            pnlSidebar.Controls.Add(btnDangXuat);
+            pnlSidebar.Dock = DockStyle.Left;
+            pnlSidebar.Location = new Point(0, 55);
+            pnlSidebar.Name = "pnlSidebar";
+            pnlSidebar.Size = new Size(230, 605);
+            pnlSidebar.TabIndex = 1;
+            pnlSidebar.Paint += pnlSidebar_Paint;
             // 
             // pnlIndicator
             // 
-            this.pnlIndicator.BackColor = System.Drawing.Color.FromArgb(0, 120, 215);
-            this.pnlIndicator.Location = new System.Drawing.Point(0, 8);
-            this.pnlIndicator.Name = "pnlIndicator";
-            this.pnlIndicator.Size = new System.Drawing.Size(4, 46);
-            this.pnlIndicator.TabIndex = 0;
-
+            pnlIndicator.BackColor = Color.FromArgb(0, 120, 215);
+            pnlIndicator.Location = new Point(0, 8);
+            pnlIndicator.Name = "pnlIndicator";
+            pnlIndicator.Size = new Size(4, 46);
+            pnlIndicator.TabIndex = 0;
             // 
             // btnThongTinTaiKhoan
             // 
-            this.btnThongTinTaiKhoan.BackColor = System.Drawing.Color.White;
-            this.btnThongTinTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThongTinTaiKhoan.FlatAppearance.BorderSize = 0;
-            this.btnThongTinTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThongTinTaiKhoan.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnThongTinTaiKhoan.ForeColor = System.Drawing.Color.FromArgb(24, 24, 27);
-            this.btnThongTinTaiKhoan.Location = new System.Drawing.Point(0, 8);
-            this.btnThongTinTaiKhoan.Name = "btnThongTinTaiKhoan";
-            this.btnThongTinTaiKhoan.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnThongTinTaiKhoan.Size = new System.Drawing.Size(230, 46);
-            this.btnThongTinTaiKhoan.TabIndex = 1;
-            this.btnThongTinTaiKhoan.Text = "Thông tin tài khoản";
-            this.btnThongTinTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongTinTaiKhoan.UseVisualStyleBackColor = false;
-            this.btnThongTinTaiKhoan.Click += new System.EventHandler(this.btnThongTinTaiKhoan_Click);
-            this.btnThongTinTaiKhoan.Paint += new System.Windows.Forms.PaintEventHandler(this.btnThongTinTaiKhoan_Paint);
-
+            btnThongTinTaiKhoan.BackColor = Color.White;
+            btnThongTinTaiKhoan.Cursor = Cursors.Hand;
+            btnThongTinTaiKhoan.FlatAppearance.BorderSize = 0;
+            btnThongTinTaiKhoan.FlatStyle = FlatStyle.Flat;
+            btnThongTinTaiKhoan.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+            btnThongTinTaiKhoan.ForeColor = Color.FromArgb(24, 24, 27);
+            btnThongTinTaiKhoan.Location = new Point(0, 8);
+            btnThongTinTaiKhoan.Name = "btnThongTinTaiKhoan";
+            btnThongTinTaiKhoan.Padding = new Padding(48, 0, 0, 0);
+            btnThongTinTaiKhoan.Size = new Size(230, 46);
+            btnThongTinTaiKhoan.TabIndex = 1;
+            btnThongTinTaiKhoan.Text = "Thông tin tài khoản";
+            btnThongTinTaiKhoan.TextAlign = ContentAlignment.MiddleLeft;
+            btnThongTinTaiKhoan.UseVisualStyleBackColor = false;
+            btnThongTinTaiKhoan.Click += btnThongTinTaiKhoan_Click;
+            btnThongTinTaiKhoan.Paint += btnThongTinTaiKhoan_Paint;
+            // 
+            // btnGioiThieu
+            // 
+            btnGioiThieu.BackColor = Color.Transparent;
+            btnGioiThieu.Cursor = Cursors.Hand;
+            btnGioiThieu.FlatAppearance.BorderSize = 0;
+            btnGioiThieu.FlatStyle = FlatStyle.Flat;
+            btnGioiThieu.Font = new Font("Segoe UI", 10.5F);
+            btnGioiThieu.ForeColor = Color.FromArgb(75, 85, 99);
+            btnGioiThieu.Location = new Point(0, 58);
+            btnGioiThieu.Name = "btnGioiThieu";
+            btnGioiThieu.Padding = new Padding(48, 0, 0, 0);
+            btnGioiThieu.Size = new Size(230, 46);
+            btnGioiThieu.TabIndex = 2;
+            btnGioiThieu.Text = "Về chúng tôi";
+            btnGioiThieu.TextAlign = ContentAlignment.MiddleLeft;
+            btnGioiThieu.UseVisualStyleBackColor = false;
+            btnGioiThieu.Click += btnGioiThieu_Click;
+            btnGioiThieu.Paint += btnGioiThieu_Paint;
             // 
             // btnDangXuat
             // 
-            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.btnDangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDangXuat.FlatAppearance.BorderSize = 0;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(75, 85, 99);
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 58);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(48, 0, 0, 0);
-            this.btnDangXuat.Size = new System.Drawing.Size(230, 46);
-            this.btnDangXuat.TabIndex = 2;
-            this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDangXuat.UseVisualStyleBackColor = false;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
-            this.btnDangXuat.Paint += new System.Windows.Forms.PaintEventHandler(this.btnDangXuat_Paint);
-
+            btnDangXuat.BackColor = Color.Transparent;
+            btnDangXuat.Cursor = Cursors.Hand;
+            btnDangXuat.FlatAppearance.BorderSize = 0;
+            btnDangXuat.FlatStyle = FlatStyle.Flat;
+            btnDangXuat.Font = new Font("Segoe UI", 10.5F);
+            btnDangXuat.ForeColor = Color.FromArgb(75, 85, 99);
+            btnDangXuat.Location = new Point(0, 108);
+            btnDangXuat.Name = "btnDangXuat";
+            btnDangXuat.Padding = new Padding(48, 0, 0, 0);
+            btnDangXuat.Size = new Size(230, 46);
+            btnDangXuat.TabIndex = 3;
+            btnDangXuat.Text = "Đăng xuất";
+            btnDangXuat.TextAlign = ContentAlignment.MiddleLeft;
+            btnDangXuat.UseVisualStyleBackColor = false;
+            btnDangXuat.Click += btnDangXuat_Click;
+            btnDangXuat.Paint += btnDangXuat_Paint;
             // 
             // pnlContent
             // 
-            this.pnlContent.AutoScroll = true;
-            this.pnlContent.BackColor = System.Drawing.Color.White;
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContent.Location = new System.Drawing.Point(230, 55);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(770, 605);
-            this.pnlContent.TabIndex = 2;
-
+            pnlContent.AutoScroll = true;
+            pnlContent.BackColor = Color.White;
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(230, 55);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Size = new Size(770, 605);
+            pnlContent.TabIndex = 2;
             // 
             // FrmSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 660);
-            this.Controls.Add(this.pnlContent);
-            this.Controls.Add(this.pnlSidebar);
-            this.Controls.Add(this.pnlHeader);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmSetting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Settings";
-            this.Load += new System.EventHandler(this.FrmSetting_Load);
-
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
-            this.pnlSidebar.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(1000, 660);
+            Controls.Add(pnlContent);
+            Controls.Add(pnlSidebar);
+            Controls.Add(pnlHeader);
+            FormBorderStyle = FormBorderStyle.Sizable;
+            MaximizeBox = true;
+            MinimizeBox = true;
+            ControlBox = true;
+            Name = "FrmSetting";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Settings";
+            Load += FrmSetting_Load;
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            pnlSidebar.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -220,6 +234,30 @@ namespace QuanLyThuVien.GUI
 
             // Thân người (vòm cung vai)
             g.DrawArc(pen, 15, 23, 18, 14, 190, 160);
+        }
+
+        private void btnGioiThieu_Paint(object sender, System.Windows.Forms.PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            System.Drawing.Color iconColor = (pnlIndicator.Top == btnGioiThieu.Top)
+                ? System.Drawing.Color.FromArgb(0, 120, 215)
+                : System.Drawing.Color.FromArgb(107, 114, 128);
+
+            using var pen = new System.Drawing.Pen(iconColor, 1.8F);
+            using var brush = new System.Drawing.SolidBrush(iconColor);
+
+            // Vòng tròn thông tin 'i'
+            g.DrawEllipse(pen, 17, 13, 20, 20);
+
+            // Dấu chấm chữ i
+            g.FillEllipse(brush, 26, 17, 2.5F, 2.5F);
+
+            // Thân chữ i
+            g.DrawLine(pen, 27, 22, 27, 28);
+            g.DrawLine(pen, 25, 22, 27, 22);
+            g.DrawLine(pen, 25, 28, 29, 28);
         }
 
         private void btnDangXuat_Paint(object sender, System.Windows.Forms.PaintEventArgs e)

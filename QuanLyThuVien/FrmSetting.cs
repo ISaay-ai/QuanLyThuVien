@@ -10,22 +10,30 @@ namespace QuanLyThuVien.GUI
     public partial class FrmSetting : Form
     {
         private readonly TaiKhoan? _currentUser;
+        private readonly bool _showAboutInitially;
         private Form? _currentChildForm = null;
 
-        public FrmSetting() : this(null)
+        public FrmSetting() : this(null, false)
         {
         }
 
-        public FrmSetting(TaiKhoan? currentUser)
+        public FrmSetting(TaiKhoan? currentUser, bool showAbout = false)
         {
             InitializeComponent();
             _currentUser = currentUser;
+            _showAboutInitially = showAbout;
         }
 
         private void FrmSetting_Load(object? sender, EventArgs e)
         {
-            // Mở mặc định màn hình Thông tin cá nhân
-            btnThongTinTaiKhoan_Click(this, EventArgs.Empty);
+            if (_showAboutInitially)
+            {
+                btnGioiThieu_Click(this, EventArgs.Empty);
+            }
+            else
+            {
+                btnThongTinTaiKhoan_Click(this, EventArgs.Empty);
+            }
         }
         private void OpenChildForm(Form childForm)
         {
@@ -50,6 +58,7 @@ namespace QuanLyThuVien.GUI
             childForm.BringToFront();
             childForm.Show();
         }
+
         private void btnThongTinTaiKhoan_Click(object sender, EventArgs e)
         {
             pnlIndicator.Top = btnThongTinTaiKhoan.Top;
@@ -59,11 +68,37 @@ namespace QuanLyThuVien.GUI
             btnThongTinTaiKhoan.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             btnThongTinTaiKhoan.ForeColor = Color.FromArgb(24, 24, 27);
 
+            btnGioiThieu.BackColor = Color.Transparent;
+            btnGioiThieu.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
+            btnGioiThieu.ForeColor = Color.FromArgb(75, 85, 99);
+
             btnDangXuat.BackColor = Color.Transparent;
             btnDangXuat.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
             btnDangXuat.ForeColor = Color.FromArgb(75, 85, 99);
 
+            pnlSidebar.Invalidate();
             OpenChildForm(new Thongtincanhan(_currentUser));
+        }
+
+        private void btnGioiThieu_Click(object sender, EventArgs e)
+        {
+            pnlIndicator.Top = btnGioiThieu.Top;
+            pnlIndicator.Visible = true;
+
+            btnGioiThieu.BackColor = Color.White;
+            btnGioiThieu.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
+            btnGioiThieu.ForeColor = Color.FromArgb(24, 24, 27);
+
+            btnThongTinTaiKhoan.BackColor = Color.Transparent;
+            btnThongTinTaiKhoan.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
+            btnThongTinTaiKhoan.ForeColor = Color.FromArgb(75, 85, 99);
+
+            btnDangXuat.BackColor = Color.Transparent;
+            btnDangXuat.Font = new Font("Segoe UI", 10.5F, FontStyle.Regular);
+            btnDangXuat.ForeColor = Color.FromArgb(75, 85, 99);
+
+            pnlSidebar.Invalidate();
+            OpenChildForm(new Vechungtoi());
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
@@ -83,7 +118,10 @@ namespace QuanLyThuVien.GUI
             }
             else
             {
-                pnlIndicator.Top = btnThongTinTaiKhoan.Top;
+                if (_currentChildForm is Vechungtoi)
+                    pnlIndicator.Top = btnGioiThieu.Top;
+                else
+                    pnlIndicator.Top = btnThongTinTaiKhoan.Top;
             }
         }
         private void lblClose_Click(object sender, EventArgs e)

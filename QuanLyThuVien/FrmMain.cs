@@ -33,7 +33,6 @@ namespace QuanLyThuVien
             DocgiaBtn.Click += DocgiaBtn_Click;
             MuontrasachBtn.Click += MuontrasachBtn_Click;
             BaocaothongkeBtn.Click += BaocaothongkeBtn_Click;
-            AboutBtn.Click += AboutBtn_Click;
             button2.Click += CaiDatBtn_Click;
 
             Title.MouseDown += Title_MouseDown;
@@ -285,7 +284,7 @@ namespace QuanLyThuVien
 
         private void AboutBtn_Click(object? sender, EventArgs e)
         {
-            OpenChildForm(new Views.AboutView());
+            OpenChildForm(new GUI.FrmSetting(currentUser, true));
         }
 
         private void CaiDatBtn_Click(object? sender, EventArgs e)

@@ -49,8 +49,6 @@ namespace QuanLyThuVien
             TrangchuBtn = new Button();
             Setting = new Panel();
             button2 = new Button();
-            About = new Panel();
-            AboutBtn = new Button();
             Quanlinhanvien = new Panel();
             QuanlinhanvienBtn = new Button();
             Title = new Panel();
@@ -69,7 +67,6 @@ namespace QuanLyThuVien
             Quanlisach.SuspendLayout();
             Trangchu.SuspendLayout();
             Setting.SuspendLayout();
-            About.SuspendLayout();
             Quanlinhanvien.SuspendLayout();
             Title.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -93,7 +90,6 @@ namespace QuanLyThuVien
             sidebar.Controls.Add(MenuContainer);
             sidebar.Controls.Add(HomeContainer);
             sidebar.Controls.Add(Setting);
-            sidebar.Controls.Add(About);
             sidebar.Controls.Add(Quanlinhanvien);
             sidebar.Location = new Point(0, 103);
             sidebar.MinimumSize = new Size(112, 929);
@@ -306,35 +302,10 @@ namespace QuanLyThuVien
             button2.TextAlign = ContentAlignment.MiddleLeft;
             button2.UseVisualStyleBackColor = false;
             // 
-            // About
-            // 
-            About.Controls.Add(AboutBtn);
-            About.Location = new Point(3, 635);
-            About.Name = "About";
-            About.Size = new Size(313, 95);
-            About.TabIndex = 12;
-            // 
-            // AboutBtn
-            // 
-            AboutBtn.BackColor = Color.FromArgb(53, 162, 184);
-            AboutBtn.FlatStyle = FlatStyle.Flat;
-            AboutBtn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            AboutBtn.ForeColor = SystemColors.ButtonHighlight;
-            AboutBtn.Image = (Image)resources.GetObject("AboutBtn.Image");
-            AboutBtn.ImageAlign = ContentAlignment.MiddleLeft;
-            AboutBtn.Location = new Point(-8, -8);
-            AboutBtn.Name = "AboutBtn";
-            AboutBtn.Padding = new Padding(40, 0, 0, 0);
-            AboutBtn.Size = new Size(321, 103);
-            AboutBtn.TabIndex = 10;
-            AboutBtn.Text = "              Về chúng tôi";
-            AboutBtn.TextAlign = ContentAlignment.MiddleLeft;
-            AboutBtn.UseVisualStyleBackColor = false;
-            // 
             // Quanlinhanvien
             // 
             Quanlinhanvien.Controls.Add(QuanlinhanvienBtn);
-            Quanlinhanvien.Location = new Point(3, 736);
+            Quanlinhanvien.Location = new Point(3, 635);
             Quanlinhanvien.Name = "Quanlinhanvien";
             Quanlinhanvien.Size = new Size(313, 95);
             Quanlinhanvien.TabIndex = 11;
@@ -450,7 +421,6 @@ namespace QuanLyThuVien
             Quanlisach.ResumeLayout(false);
             Trangchu.ResumeLayout(false);
             Setting.ResumeLayout(false);
-            About.ResumeLayout(false);
             Quanlinhanvien.ResumeLayout(false);
             Title.ResumeLayout(false);
             Title.PerformLayout();
@@ -478,13 +448,11 @@ namespace QuanLyThuVien
         private Panel Setting;
         private Button button2;
         private Panel Quanlinhanvien;
-        private Button AboutBtn;
         private Panel Title;
         private Panel Trangchu;
         private Panel Baocaothongke;
         private Panel Muontrasach;
         private Panel Quanlisach;
-        private Panel About;
         private PictureBox ExitBtn;
         private PictureBox MinimizeBtn;
         private PictureBox pictureBox1;
