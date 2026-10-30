@@ -17,7 +17,7 @@ namespace QuanLyThuVien.Views
 
         private List<DocGia> dsDocGia = new List<DocGia>();
         private List<Sach> dsSach = new List<Sach>();
-        private List<ChiTietPhieuMuon> dsMuonTra = new List<ChiTietPhieuMuon>();
+        private List<ChiTietMuonTraDTO> dsMuonTra = new List<ChiTietMuonTraDTO>();
 
         public MuontrasachViewcs()
         {
@@ -90,8 +90,6 @@ namespace QuanLyThuVien.Views
 
         private void DinhDangCotDataGridView()
         {
-            if (dgvMuonTra.Columns["PhieuMuon"] is DataGridViewColumn colPM) colPM.Visible = false;
-            if (dgvMuonTra.Columns["Sach"] is DataGridViewColumn colS) colS.Visible = false;
             if (dgvMuonTra.Columns["SoLuong"] is DataGridViewColumn colSL) colSL.Visible = false;
 
             if (dgvMuonTra.Columns["MaPM"] is DataGridViewColumn cMaPM)
@@ -161,28 +159,28 @@ namespace QuanLyThuVien.Views
             if (dgvMuonTra.Columns["SoNgayQuaHan"] is DataGridViewColumn colQuaHan) colQuaHan.Visible = false;
         }
 
-        private void HienThiChiTiet(ChiTietPhieuMuon? ctpm)
+        private void HienThiChiTiet(ChiTietMuonTraDTO? dto)
         {
-            if (ctpm == null)
+            if (dto == null)
             {
                 XoaTrangPhieuMuon();
                 return;
             }
 
-            txtMaPM.Text = ctpm.MaPM.ToString();
-            txtTinhTrangSach.Text = ctpm.TinhTrangSach;
-            if (ctpm.NgayMuon != default)
+            txtMaPM.Text = dto.MaPM.ToString();
+            txtTinhTrangSach.Text = dto.TinhTrangSach;
+            if (dto.NgayMuon != default)
             {
-                dtpNgayMuon.Value = ctpm.NgayMuon;
+                dtpNgayMuon.Value = dto.NgayMuon;
             }
-            if (ctpm.HanTra != default)
+            if (dto.HanTra != default)
             {
-                dtpNgayTra.Value = ctpm.HanTra;
+                dtpNgayTra.Value = dto.HanTra;
             }
 
             // Đồng bộ combobox Độc giả và thông tin sinh viên
-            cbPMMaSV.SelectedValue = ctpm.MaSV;
-            var dg = dsDocGia.FirstOrDefault(x => x.MaSV == ctpm.MaSV);
+            cbPMMaSV.SelectedValue = dto.MaSV;
+            var dg = dsDocGia.FirstOrDefault(x => x.MaSV == dto.MaSV);
             if (dg != null)
             {
                 txtMaSV.Text = dg.MaSV.ToString();
@@ -190,13 +188,13 @@ namespace QuanLyThuVien.Views
             }
             else
             {
-                txtMaSV.Text = ctpm.MaSV.ToString();
-                txtTenSV.Text = ctpm.TenDocGia;
+                txtMaSV.Text = dto.MaSV.ToString();
+                txtTenSV.Text = dto.TenDocGia;
             }
 
             // Đồng bộ combobox Sách và thông tin sách
-            cbPMTenSach.SelectedValue = ctpm.MaSach;
-            var sach = dsSach.FirstOrDefault(x => x.MaSach == ctpm.MaSach);
+            cbPMTenSach.SelectedValue = dto.MaSach;
+            var sach = dsSach.FirstOrDefault(x => x.MaSach == dto.MaSach);
             if (sach != null)
             {
                 txtMaSach.Text = sach.MaSach.ToString();
@@ -206,8 +204,8 @@ namespace QuanLyThuVien.Views
             }
             else
             {
-                txtMaSach.Text = ctpm.MaSach.ToString();
-                txtTenSach.Text = ctpm.TenSach;
+                txtMaSach.Text = dto.MaSach.ToString();
+                txtTenSach.Text = dto.TenSach;
                 txtTenTG.Text = string.Empty;
                 txtSLCon.Text = string.Empty;
             }
@@ -232,9 +230,9 @@ namespace QuanLyThuVien.Views
                 return;
             }
 
-            if (e.RowIndex >= 0 && dgvMuonTra.Rows[e.RowIndex].DataBoundItem is ChiTietPhieuMuon ctpm)
+            if (e.RowIndex >= 0 && dgvMuonTra.Rows[e.RowIndex].DataBoundItem is ChiTietMuonTraDTO dto)
             {
-                HienThiChiTiet(ctpm);
+                HienThiChiTiet(dto);
             }
         }
 
@@ -290,26 +288,26 @@ namespace QuanLyThuVien.Views
 
         private void btnGiaHan_Click(object sender, EventArgs e)
         {
-            if (dgvMuonTra.CurrentRow?.DataBoundItem is not ChiTietPhieuMuon ctpm)
+            if (dgvMuonTra.CurrentRow?.DataBoundItem is not ChiTietMuonTraDTO dto)
             {
                 MessageBox.Show("Vui lòng chọn phiếu mượn cần gia hạn từ bảng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            if (ctpm.NgayTra != null || ctpm.TrangThai == "DaTra")
+            if (dto.NgayTra != null || dto.TrangThai == "DaTra")
             {
                 MessageBox.Show("Sách này đã được trả, không thể gia hạn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (ctpm.SoLanGiaHan >= 2)
+            if (dto.SoLanGiaHan >= 2)
             {
                 MessageBox.Show("Phiếu mượn này đã được gia hạn 2 lần (tối đa theo quy định), không thể gia hạn thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             SetTrangThaiNut(ThaoTac.GiaHan);
-            dtpNgayTra.Value = ctpm.HanTra.AddDays(7);
+            dtpNgayTra.Value = dto.HanTra.AddDays(7);
         }
 
         // =========================================================================================================
@@ -317,43 +315,43 @@ namespace QuanLyThuVien.Views
         // =========================================================================================================
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            ChiTietPhieuMuon? ctpm = null;
+            ChiTietMuonTraDTO? dto = null;
 
             // 1. Lấy thông tin phiếu mượn từ dòng đang chọn trên DataGridView
-            if (dgvMuonTra.CurrentRow?.DataBoundItem is ChiTietPhieuMuon item1)
+            if (dgvMuonTra.CurrentRow?.DataBoundItem is ChiTietMuonTraDTO item1)
             {
-                ctpm = item1;
+                dto = item1;
             }
-            else if (dgvMuonTra.SelectedRows.Count > 0 && dgvMuonTra.SelectedRows[0].DataBoundItem is ChiTietPhieuMuon item2)
+            else if (dgvMuonTra.SelectedRows.Count > 0 && dgvMuonTra.SelectedRows[0].DataBoundItem is ChiTietMuonTraDTO item2)
             {
-                ctpm = item2;
+                dto = item2;
             }
 
             // 2. Nếu người dùng chưa chọn dòng nào, tự động lấy phiếu mượn chưa trả đầu tiên
-            if (ctpm == null)
+            if (dto == null)
             {
-                ctpm = dsMuonTra.FirstOrDefault(x => x.NgayTra == null && x.TrangThai != "DaTra");
+                dto = dsMuonTra.FirstOrDefault(x => x.NgayTra == null && x.TrangThai != "DaTra");
             }
 
-            if (ctpm == null)
+            if (dto == null)
             {
                 MessageBox.Show("Hiện không có phiếu mượn nào cần trả sách trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             // 3. Nếu dòng đang chọn đã được trả trước đó, hỗ trợ chuyển sang phiếu mượn đang mượn gần nhất
-            if (ctpm.NgayTra != null || ctpm.TrangThai == "DaTra")
+            if (dto.NgayTra != null || dto.TrangThai == "DaTra")
             {
                 var chuaTra = dsMuonTra.FirstOrDefault(x => x.NgayTra == null && x.TrangThai != "DaTra");
                 if (chuaTra != null)
                 {
                     var luaChon = MessageBox.Show(
-                        $"Phiếu mượn số {ctpm.MaPM} đã được trả trước đó rồi.\n\nBạn có muốn chuyển sang trả sách cho phiếu mượn chưa trả gần nhất (Mã PM: {chuaTra.MaPM} - Độc giả: {chuaTra.TenDocGia} - Sách: {chuaTra.TenSach}) không?",
+                        $"Phiếu mượn số {dto.MaPM} đã được trả trước đó rồi.\n\nBạn có muốn chuyển sang trả sách cho phiếu mượn chưa trả gần nhất (Mã PM: {chuaTra.MaPM} - Độc giả: {chuaTra.TenDocGia} - Sách: {chuaTra.TenSach}) không?",
                         "Phiếu mượn đã trả", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (luaChon == DialogResult.Yes)
                     {
-                        ctpm = chuaTra;
+                        dto = chuaTra;
                     }
                     else
                     {
@@ -368,7 +366,7 @@ namespace QuanLyThuVien.Views
             }
 
             // 4. Khởi tạo và hiển thị popup TrasachView dạng Modal Dialog
-            using var frmTra = new SubViews.TrasachView(ctpm);
+            using var frmTra = new SubViews.TrasachView(dto);
             if (frmTra.ShowDialog(this) == DialogResult.OK)
             {
                 // Khi xác nhận trả sách thành công, làm mới toàn bộ dữ liệu trên bảng
@@ -435,9 +433,9 @@ namespace QuanLyThuVien.Views
         private void btnHuyBo_Click(object sender, EventArgs e)
         {
             SetTrangThaiNut(ThaoTac.Xem);
-            if (dgvMuonTra.CurrentRow?.DataBoundItem is ChiTietPhieuMuon ctpm)
+            if (dgvMuonTra.CurrentRow?.DataBoundItem is ChiTietMuonTraDTO dto)
             {
-                HienThiChiTiet(ctpm);
+                HienThiChiTiet(dto);
             }
             else if (dsMuonTra.Count > 0)
             {

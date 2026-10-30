@@ -7,9 +7,9 @@ namespace QuanLyThuVien.BLL
 {
     public class Thongtincanhan
     {
-        /// <summary>
+
         /// Lấy thông tin tài khoản người dùng theo mã tài khoản
-        /// </summary>
+
         public TaiKhoan? LayThongTin(int maTK)
         {
             try
@@ -23,9 +23,9 @@ namespace QuanLyThuVien.BLL
             }
         }
 
-        /// <summary>
+
         /// Cập nhật thông tin cá nhân của tài khoản người dùng
-        /// </summary>
+
         public bool CapNhatThongTin(int maTK, string hoTen, string matKhau, string? gioiTinh, DateTime? ngaySinh, string? sdt, string? email, string? diaChi, out string thongBaoLoi)
         {
             thongBaoLoi = string.Empty;

@@ -25,18 +25,18 @@ namespace QuanLyThuVien.SubViews
             CapNhatSoNgayTre();
         }
 
-        public TrasachView(ChiTietPhieuMuon ctpm) : this()
+        public TrasachView(ChiTietMuonTraDTO dto) : this()
         {
-            if (ctpm != null)
+            if (dto != null)
             {
-                this.maPM = ctpm.MaPM;
-                this.maSach = ctpm.MaSach;
-                this.hanTra = ctpm.HanTra != default ? ctpm.HanTra : DateTime.Today;
-                this.ngayMuon = ctpm.NgayMuon != default ? ctpm.NgayMuon : DateTime.Today;
+                this.maPM = dto.MaPM;
+                this.maSach = dto.MaSach;
+                this.hanTra = dto.HanTra != default ? dto.HanTra : DateTime.Today;
+                this.ngayMuon = dto.NgayMuon != default ? dto.NgayMuon : DateTime.Today;
 
-                txtMaPM.Text = ctpm.MaPM.ToString();
-                txtMaSV.Text = ctpm.MaSV + (string.IsNullOrWhiteSpace(ctpm.TenDocGia) ? "" : $" - {ctpm.TenDocGia}");
-                txtMaSach.Text = ctpm.MaSach + (string.IsNullOrWhiteSpace(ctpm.TenSach) ? "" : $" - {ctpm.TenSach}");
+                txtMaPM.Text = dto.MaPM.ToString();
+                txtMaSV.Text = dto.MaSV + (string.IsNullOrWhiteSpace(dto.TenDocGia) ? "" : $" - {dto.TenDocGia}");
+                txtMaSach.Text = dto.MaSach + (string.IsNullOrWhiteSpace(dto.TenSach) ? "" : $" - {dto.TenSach}");
                 dtpNgayHenTra.Value = this.hanTra;
 
                 CapNhatSoNgayTre();

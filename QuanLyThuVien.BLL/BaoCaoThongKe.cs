@@ -77,12 +77,12 @@ namespace QuanLyThuVien.BLL
         }
 
         /// <summary>
-        /// Lấy danh sách các bản ghi mượn sách đang được mượn (chưa trả)
+        /// Lấy danh sách các bản ghi mượn sách đang được mượn (chưa trả), trả về DTO.
         /// </summary>
-        public List<ChiTietPhieuMuon> LayDanhSachDangMuon()
+        public List<ChiTietMuonTraDTO> LayDanhSachDangMuon()
         {
             using var context = new AppDbContext();
-            return context.ChiTietPhieuMuons
+            var entities = context.ChiTietPhieuMuons
                 .Include(ct => ct.PhieuMuon)
                     .ThenInclude(pm => pm.DocGia)
                 .Include(ct => ct.PhieuMuon)
@@ -92,15 +92,17 @@ namespace QuanLyThuVien.BLL
                 .OrderByDescending(ct => ct.PhieuMuon.NgayMuon)
                 .AsNoTracking()
                 .ToList();
+
+            return entities.Select(ChiTietMuonTraDTO.FromEntity).ToList();
         }
 
         /// <summary>
-        /// Lấy danh sách các bản ghi sách đã được trả
+        /// Lấy danh sách các bản ghi sách đã được trả, trả về DTO.
         /// </summary>
-        public List<ChiTietPhieuMuon> LayDanhSachDaTra()
+        public List<ChiTietMuonTraDTO> LayDanhSachDaTra()
         {
             using var context = new AppDbContext();
-            return context.ChiTietPhieuMuons
+            var entities = context.ChiTietPhieuMuons
                 .Include(ct => ct.PhieuMuon)
                     .ThenInclude(pm => pm.DocGia)
                 .Include(ct => ct.PhieuMuon)
@@ -110,16 +112,18 @@ namespace QuanLyThuVien.BLL
                 .OrderByDescending(ct => ct.NgayTra ?? ct.PhieuMuon.HanTra)
                 .AsNoTracking()
                 .ToList();
+
+            return entities.Select(ChiTietMuonTraDTO.FromEntity).ToList();
         }
 
         /// <summary>
-        /// Lấy danh sách các bản ghi mượn sách đã quá hạn trả (chưa trả và Hạn Trả < Hôm Nay)
+        /// Lấy danh sách các bản ghi mượn sách đã quá hạn trả (chưa trả và Hạn Trả &lt; Hôm Nay), trả về DTO.
         /// </summary>
-        public List<ChiTietPhieuMuon> LayDanhSachQuaHan()
+        public List<ChiTietMuonTraDTO> LayDanhSachQuaHan()
         {
             using var context = new AppDbContext();
             DateTime today = DateTime.Today;
-            return context.ChiTietPhieuMuons
+            var entities = context.ChiTietPhieuMuons
                 .Include(ct => ct.PhieuMuon)
                     .ThenInclude(pm => pm.DocGia)
                 .Include(ct => ct.PhieuMuon)
@@ -131,6 +135,8 @@ namespace QuanLyThuVien.BLL
                 .OrderBy(ct => ct.PhieuMuon.HanTra)
                 .AsNoTracking()
                 .ToList();
+
+            return entities.Select(ChiTietMuonTraDTO.FromEntity).ToList();
         }
     }
 }

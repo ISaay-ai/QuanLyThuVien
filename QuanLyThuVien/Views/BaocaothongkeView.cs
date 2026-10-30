@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ClosedXML.Excel;
 using QuanLyThuVien.BLL;
 using QuanLyThuVien.DAL.Models;
+// DTO is used from BLL
 
 namespace QuanLyThuVien.Views
 {
@@ -178,7 +179,7 @@ namespace QuanLyThuVien.Views
         {
             try
             {
-                List<ChiTietPhieuMuon> ds = _bll.LayDanhSachDangMuon();
+                List<ChiTietMuonTraDTO> ds = _bll.LayDanhSachDangMuon();
                 dgvData.DataSource = null;
                 dgvData.DataSource = ds;
 
@@ -200,7 +201,7 @@ namespace QuanLyThuVien.Views
         {
             try
             {
-                List<ChiTietPhieuMuon> ds = _bll.LayDanhSachDaTra();
+                List<ChiTietMuonTraDTO> ds = _bll.LayDanhSachDaTra();
                 dgvData.DataSource = null;
                 dgvData.DataSource = ds;
 
@@ -222,7 +223,7 @@ namespace QuanLyThuVien.Views
         {
             try
             {
-                List<ChiTietPhieuMuon> ds = _bll.LayDanhSachQuaHan();
+                List<ChiTietMuonTraDTO> ds = _bll.LayDanhSachQuaHan();
                 dgvData.DataSource = null;
                 dgvData.DataSource = ds;
 
@@ -243,8 +244,6 @@ namespace QuanLyThuVien.Views
         private void DinhDangCot(CheDoXem cheDo)
         {
             // Ẩn các thuộc tính quan hệ / không cần thiết
-            if (dgvData.Columns["PhieuMuon"] is DataGridViewColumn colPM) colPM.Visible = false;
-            if (dgvData.Columns["Sach"] is DataGridViewColumn colS) colS.Visible = false;
             if (dgvData.Columns["SoLuong"] is DataGridViewColumn colSL) colSL.Visible = false;
             if (dgvData.Columns["SoLanGiaHan"] is DataGridViewColumn colGH) colGH.Visible = false;
 

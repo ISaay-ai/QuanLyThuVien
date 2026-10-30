@@ -27,10 +27,13 @@ namespace QuanLyThuVien.BLL
             return tk;
         }
 
-        public List<ChiTietPhieuMuon> LayDanhSachChiTietMuonTra()
+
+        /// Lấy toàn bộ danh sách chi tiết mượn trả, trả về DTO (đã chuyển logic hiển thị sang BLL).
+
+        public List<ChiTietMuonTraDTO> LayDanhSachChiTietMuonTra()
         {
             using var context = new AppDbContext();
-            return context.ChiTietPhieuMuons
+            var entities = context.ChiTietPhieuMuons
                 .Include(x => x.PhieuMuon)
                     .ThenInclude(pm => pm.DocGia)
                 .Include(x => x.PhieuMuon)
@@ -40,6 +43,8 @@ namespace QuanLyThuVien.BLL
                 .AsNoTracking()
                 .OrderByDescending(x => x.MaPM)
                 .ToList();
+
+            return entities.Select(ChiTietMuonTraDTO.FromEntity).ToList();
         }
 
         public List<DocGia> LayDanhSachDocGia()
@@ -101,7 +106,10 @@ namespace QuanLyThuVien.BLL
             }
         }
 
-        public List<ChiTietPhieuMuon> TimKiem(string? tuKhoa, bool isTimTheoMaSV)
+
+        /// Tìm kiếm chi tiết mượn trả, trả về DTO.
+
+        public List<ChiTietMuonTraDTO> TimKiem(string? tuKhoa, bool isTimTheoMaSV)
         {
             if (string.IsNullOrWhiteSpace(tuKhoa))
             {
@@ -120,20 +128,24 @@ namespace QuanLyThuVien.BLL
                     .ThenInclude(s => s.TacGia)
                 .AsNoTracking();
 
+            List<ChiTietPhieuMuon> entities;
+
             if (isTimTheoMaSV)
             {
-                return query
+                entities = query
                     .Where(x => x.PhieuMuon.MaSV.ToString().Contains(keyword) || (x.PhieuMuon.DocGia != null && x.PhieuMuon.DocGia.HoTen.Contains(keyword)))
                     .OrderByDescending(x => x.MaPM)
                     .ToList();
             }
             else
             {
-                return query
+                entities = query
                     .Where(x => x.MaSach.ToString().Contains(keyword) || (x.Sach != null && x.Sach.TenSach.Contains(keyword)))
                     .OrderByDescending(x => x.MaPM)
                     .ToList();
             }
+
+            return entities.Select(ChiTietMuonTraDTO.FromEntity).ToList();
         }
 
         public bool ThemPhieuMuon(int maSV, int maSach, DateTime ngayMuon, DateTime hanTra, out string thongBaoLoi)
