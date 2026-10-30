@@ -13,7 +13,7 @@ namespace QuanLyThuVien.BLL
 {
     public class ChatBotService
     {
-        private const string ApiKey = "AQ.Ab8RN6J8wsX16PulBG0WAlZBsuSU4pdADvG4QgUDHpgoBtODEA";
+        private const string ApiKey = "";
 
         private const string Model = "gemini-3.5-flash-lite";
 
