@@ -43,12 +43,6 @@ namespace QuanLyThuVien.SubViews
             CanChinhGiaoDien();
         }
 
-        private void CanChinhGiaoDien()
-        {
-            pnlCard.Left = Math.Max(20, (this.ClientSize.Width - pnlCard.Width) / 2);
-            btnLuu.Left = Math.Min(this.ClientSize.Width - btnLuu.Width - 30, pnlCard.Right - btnLuu.Width);
-            btnHuy.Left = btnLuu.Left - btnHuy.Width - 15;
-        }
 
         private void NapDuLieuNguoiDung()
         {

@@ -72,9 +72,12 @@ namespace QuanLyThuVien
             {
                 Form oldForm = currentChildForm;
                 currentChildForm = null;
+                ViewPanel.Controls.Remove(oldForm);
                 oldForm.Close();
                 oldForm.Dispose();
             }
+
+            pnlHome.Visible = false;
 
             currentChildForm = childForm;
 
@@ -86,7 +89,6 @@ namespace QuanLyThuVien
             // Bật thanh cuộn tự động trên ViewPanel
             ViewPanel.AutoScroll = true;
 
-            ViewPanel.Controls.Clear();
             ViewPanel.Controls.Add(childForm);
             ViewPanel.Tag = childForm;
 
@@ -125,40 +127,9 @@ namespace QuanLyThuVien
                 oldForm.Dispose();
             }
 
-            ViewPanel.Controls.Clear();
-
-            // Khung chào mừng trang chủ trên ViewPanel
-            var pnlHome = new Panel
-            {
-                Dock = DockStyle.Fill,
-                BackColor = Color.White,
-                Padding = new Padding(30)
-            };
-
-            var lblWelcome = new Label
-            {
-                Text = "CHÀO MỪNG ĐẾN VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN - GenLib",
-                Font = new Font("Segoe UI", 20F, FontStyle.Bold),
-                ForeColor = Color.FromArgb(53, 162, 184),
-                Dock = DockStyle.Top,
-                Height = 60,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            var lblUser = new Label
-            {
-                Text = $"Tài khoản đăng nhập: {currentUser.HoTen}  |  Vai trò: {(isAdmin ? "Quản trị viên" : "Nhân viên thư viện")}",
-                Font = new Font("Segoe UI", 12F, FontStyle.Regular),
-                ForeColor = Color.FromArgb(80, 80, 80),
-                Dock = DockStyle.Top,
-                Height = 40,
-                TextAlign = ContentAlignment.MiddleCenter
-            };
-
-            pnlHome.Controls.Add(lblUser);
-            pnlHome.Controls.Add(lblWelcome);
-
-            ViewPanel.Controls.Add(pnlHome);
+            lblUser.Text = $"Tài khoản đăng nhập: {currentUser?.HoTen}  |  Vai trò: {(isAdmin ? "Quản trị viên" : "Nhân viên thư viện")}";
+            pnlHome.Visible = true;
+            pnlHome.BringToFront();
         }
 
         // Xử lý thanh sidebar trượt ra vào

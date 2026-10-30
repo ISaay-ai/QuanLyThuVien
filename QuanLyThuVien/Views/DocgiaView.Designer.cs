@@ -82,6 +82,7 @@ namespace QuanLyThuVien.Views
             cmbKhoaHoc.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbKhoaHoc.Font = new Font("Segoe UI", 11F);
             cmbKhoaHoc.FormattingEnabled = true;
+            cmbKhoaHoc.Items.AddRange(new object[] { "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27" });
             cmbKhoaHoc.Location = new Point(152, 294);
             cmbKhoaHoc.Name = "cmbKhoaHoc";
             cmbKhoaHoc.Size = new Size(195, 28);
@@ -360,6 +361,34 @@ namespace QuanLyThuVien.Views
             groupBoxSearch.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        #endregion
+
+        #region Giao diện nút & Trạng thái UI
+
+        public void CapNhatGiaoDienTrangThaiNut(bool dangThaoTac)
+        {
+            btnThem.Enabled = !dangThaoTac;
+            btnSua.Enabled = !dangThaoTac;
+            btnXoa.Enabled = !dangThaoTac;
+
+            btnGhi.Enabled = dangThaoTac;
+            btnHuyBo.Enabled = dangThaoTac;
+
+            btnGhi.BackColor = dangThaoTac ? Color.FromArgb(42, 138, 98) : Color.FromArgb(248, 248, 248);
+            btnGhi.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
+
+            btnHuyBo.BackColor = dangThaoTac ? Color.FromArgb(220, 53, 69) : Color.FromArgb(248, 248, 248);
+            btnHuyBo.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
+
+            txtHoTen.ReadOnly = !dangThaoTac;
+            cboNganh.Enabled = dangThaoTac;
+            cmbKhoaHoc.Enabled = dangThaoTac;
+            txtSoDienThoai.ReadOnly = !dangThaoTac;
+
+            dgvDocGia.Enabled = !dangThaoTac;
+            groupBoxSearch.Enabled = !dangThaoTac;
         }
 
         #endregion

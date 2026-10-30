@@ -349,6 +349,64 @@ namespace QuanLyThuVien.Views
 
         #endregion
 
+        #region Định dạng DataGridView Nhân viên
+
+        public void DinhDangCotNhanVien()
+        {
+            if (dgvNhanVien.Columns["MatKhau"] != null)
+                dgvNhanVien.Columns["MatKhau"].Visible = false;
+
+            if (dgvNhanVien.Columns["PhieuMuons"] != null)
+                dgvNhanVien.Columns["PhieuMuons"].Visible = false;
+
+            if (dgvNhanVien.Columns["PhieuPhat"] != null)
+                dgvNhanVien.Columns["PhieuPhat"].Visible = false;
+
+            if (dgvNhanVien.Columns["MaTK"] != null)
+            {
+                dgvNhanVien.Columns["MaTK"].HeaderText = "Mã TK";
+                dgvNhanVien.Columns["MaTK"].FillWeight = 40;
+            }
+            if (dgvNhanVien.Columns["TenDangNhap"] != null)
+            {
+                dgvNhanVien.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+                dgvNhanVien.Columns["TenDangNhap"].FillWeight = 85;
+            }
+            if (dgvNhanVien.Columns["HoTen"] != null)
+            {
+                dgvNhanVien.Columns["HoTen"].HeaderText = "Họ và Tên";
+                dgvNhanVien.Columns["HoTen"].FillWeight = 110;
+            }
+            if (dgvNhanVien.Columns["GioiTinh"] != null)
+            {
+                dgvNhanVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
+                dgvNhanVien.Columns["GioiTinh"].FillWeight = 50;
+            }
+            if (dgvNhanVien.Columns["NgaySinh"] != null)
+            {
+                dgvNhanVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+                dgvNhanVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvNhanVien.Columns["NgaySinh"].FillWeight = 75;
+            }
+            if (dgvNhanVien.Columns["SDT"] != null)
+            {
+                dgvNhanVien.Columns["SDT"].HeaderText = "Số Điện Thoại";
+                dgvNhanVien.Columns["SDT"].FillWeight = 85;
+            }
+            if (dgvNhanVien.Columns["DiaChi"] != null)
+            {
+                dgvNhanVien.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+                dgvNhanVien.Columns["DiaChi"].FillWeight = 110;
+            }
+            if (dgvNhanVien.Columns["VaiTro"] != null)
+            {
+                dgvNhanVien.Columns["VaiTro"].HeaderText = "Vai Trò";
+                dgvNhanVien.Columns["VaiTro"].FillWeight = 60;
+            }
+        }
+
+        #endregion
+
         private DataGridView dgvNhanVien;
         private GroupBox groupBox1;
         private ComboBox cboGioiTinh;

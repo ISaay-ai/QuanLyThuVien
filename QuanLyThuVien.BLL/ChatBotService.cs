@@ -13,14 +13,12 @@ namespace QuanLyThuVien.BLL
 {
     public class ChatBotService
     {
-        private const string ApiKey = "";
+        private const string ApiKey = "AQ.Ab8RN6J8wsX16PulBG0WAlZBsuSU4pdADvG4QgUDHpgoBtODEA";
 
-        // Sử dụng model gemini-3.5-flash-lite với generateContent endpoint
         private const string Model = "gemini-3.5-flash-lite";
 
         private static readonly HttpClient _http = new HttpClient { Timeout = TimeSpan.FromSeconds(25) };
 
-        // Lưu lịch sử hội thoại trong phiên làm việc
         private readonly List<(string Role, string Content)> _history = new List<(string Role, string Content)>();
 
         public bool DaCoApiKey => !string.IsNullOrWhiteSpace(ApiKey);
@@ -40,7 +38,6 @@ namespace QuanLyThuVien.BLL
                 "Nếu dữ liệu không có thông tin thì nói rõ là không tìm thấy trong hệ thống, tuyệt đối không tự bịa thông tin.\n\n" +
                 "=== DỮ LIỆU THƯ VIỆN (cập nhật lúc " + DateTime.Now.ToString("dd/MM/yyyy HH:mm") + ") ===\n" + duLieu;
 
-            // Xây dựng mảng contents gồm lịch sử và câu hỏi hiện tại
             var contentsArray = new JsonArray();
             foreach (var h in _history)
             {
@@ -129,8 +126,6 @@ namespace QuanLyThuVien.BLL
             }
             return sb.Length > 0 ? sb.ToString() : null;
         }
-
-        /// Truy vấn database và tóm tắt dữ liệu thành văn bản để gửi cho chatbot
         private static string LayDuLieuThuVien()
         {
             using var db = new AppDbContext();

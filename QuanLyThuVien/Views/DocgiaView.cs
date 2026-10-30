@@ -16,20 +16,13 @@ namespace QuanLyThuVien.Views
         public DocgiaView()
         {
             InitializeComponent();
-            KhoiTaoComboBoxKhoa();
+            if (cmbKhoaHoc.Items.Count > 7)
+            {
+                cmbKhoaHoc.SelectedIndex = 7;
+            }
             KhoiTaoComboBoxNganh();
             ThietLapTrangThaiNut(false);
             LoadData();
-        }
-
-        private void KhoiTaoComboBoxKhoa()
-        {
-            cmbKhoaHoc.Items.Clear();
-            cmbKhoaHoc.Items.AddRange(new string[] { "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27" });
-            if (cmbKhoaHoc.Items.Count > 3)
-            {
-                cmbKhoaHoc.SelectedIndex = 7; 
-            }
         }
 
         private void KhoiTaoComboBoxNganh()
@@ -71,27 +64,7 @@ namespace QuanLyThuVien.Views
 
         private void ThietLapTrangThaiNut(bool dangThaoTac)
         {
-            btnThem.Enabled = !dangThaoTac;
-            btnSua.Enabled = !dangThaoTac;
-            btnXoa.Enabled = !dangThaoTac;
-
-            btnGhi.Enabled = dangThaoTac;
-            btnHuyBo.Enabled = dangThaoTac;
-
-            // Đổi màu để nhận diện nút Ghi/Hủy rõ ràng khi kích hoạt
-            btnGhi.BackColor = dangThaoTac ? Color.FromArgb(42, 138, 98) : Color.FromArgb(248, 248, 248);
-            btnGhi.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
-
-            btnHuyBo.BackColor = dangThaoTac ? Color.FromArgb(220, 53, 69) : Color.FromArgb(248, 248, 248);
-            btnHuyBo.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
-
-            txtHoTen.ReadOnly = !dangThaoTac;
-            cboNganh.Enabled = dangThaoTac;
-            cmbKhoaHoc.Enabled = dangThaoTac;
-            txtSoDienThoai.ReadOnly = !dangThaoTac;
-
-            dgvDocGia.Enabled = !dangThaoTac;
-            groupBoxSearch.Enabled = !dangThaoTac;
+            CapNhatGiaoDienTrangThaiNut(dangThaoTac);
         }
 
         private void XoaTrangForm()

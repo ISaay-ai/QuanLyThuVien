@@ -580,5 +580,107 @@ namespace QuanLyThuVien.Views
         }
 
         #endregion
+
+        #region Giao diện nút & Định dạng DataGridView
+
+        public void CapNhatGiaoDienTrangThaiNut(bool dangThaoTac, bool isMuon)
+        {
+            btnMuon.Enabled = !dangThaoTac;
+            btnGiaHan.Enabled = !dangThaoTac;
+            btnTraSach.Enabled = !dangThaoTac;
+
+            btnLuu.Enabled = dangThaoTac;
+            btnHuyBo.Enabled = dangThaoTac;
+
+            btnLuu.BackColor = dangThaoTac ? Color.FromArgb(42, 138, 98) : Color.FromArgb(248, 248, 248);
+            btnLuu.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
+
+            btnHuyBo.BackColor = dangThaoTac ? Color.FromArgb(220, 53, 69) : Color.FromArgb(248, 248, 248);
+            btnHuyBo.ForeColor = dangThaoTac ? Color.White : Color.FromArgb(64, 64, 64);
+
+            dgvMuonTra.Enabled = !dangThaoTac;
+            gbTimKiem.Enabled = !dangThaoTac;
+
+            cbPMTenSach.Enabled = isMuon;
+            cbPMMaSV.Enabled = isMuon;
+            dtpNgayMuon.Enabled = isMuon;
+            dtpNgayTra.Enabled = dangThaoTac;
+        }
+
+        public void DinhDangCotDataGridView()
+        {
+            if (dgvMuonTra.Columns["SoLuong"] is DataGridViewColumn colSL) colSL.Visible = false;
+
+            if (dgvMuonTra.Columns["MaPM"] is DataGridViewColumn cMaPM)
+            {
+                cMaPM.HeaderText = "Mã PM";
+                cMaPM.FillWeight = 50;
+            }
+            if (dgvMuonTra.Columns["MaSV"] is DataGridViewColumn cMaSV)
+            {
+                cMaSV.HeaderText = "Mã SV";
+                cMaSV.FillWeight = 55;
+            }
+            if (dgvMuonTra.Columns["TenDocGia"] is DataGridViewColumn cTenSV)
+            {
+                cTenSV.HeaderText = "Tên Độc Giả";
+                cTenSV.FillWeight = 110;
+            }
+            if (dgvMuonTra.Columns["MaSach"] is DataGridViewColumn cMaSach)
+            {
+                cMaSach.HeaderText = "Mã Sách";
+                cMaSach.FillWeight = 55;
+            }
+            if (dgvMuonTra.Columns["TenSach"] is DataGridViewColumn cTenSach)
+            {
+                cTenSach.HeaderText = "Tên Sách";
+                cTenSach.FillWeight = 130;
+            }
+            if (dgvMuonTra.Columns["NgayMuon"] is DataGridViewColumn cNgayMuon)
+            {
+                cNgayMuon.HeaderText = "Ngày Mượn";
+                cNgayMuon.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cNgayMuon.FillWeight = 75;
+            }
+            if (dgvMuonTra.Columns["HanTra"] is DataGridViewColumn cHanTra)
+            {
+                cHanTra.HeaderText = "Hạn Trả";
+                cHanTra.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cHanTra.FillWeight = 75;
+            }
+            if (dgvMuonTra.Columns["NgayTra"] is DataGridViewColumn cNgayTra)
+            {
+                cNgayTra.HeaderText = "Ngày Trả";
+                cNgayTra.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cNgayTra.FillWeight = 75;
+                cNgayTra.Visible = false;
+            }
+            if (dgvMuonTra.Columns["TinhTrangSach"] is DataGridViewColumn cTinhTrang)
+            {
+                cTinhTrang.HeaderText = "Tình Trạng";
+                cTinhTrang.FillWeight = 85;
+            }
+            if (dgvMuonTra.Columns["TrangThai"] is DataGridViewColumn cTrangThai)
+            {
+                cTrangThai.HeaderText = "Trạng Thái";
+                cTrangThai.FillWeight = 75;
+            }
+            if (dgvMuonTra.Columns["GhiChu"] is DataGridViewColumn cGhiChu)
+            {
+                cGhiChu.HeaderText = "Ghi Chú";
+                cGhiChu.FillWeight = 110;
+            }
+            if (dgvMuonTra.Columns["SoNgayQuaHan"] is DataGridViewColumn cSoNgayQuaHan)
+            {
+                cSoNgayQuaHan.Visible = false;
+            }
+            if (dgvMuonTra.Columns["SoLanGiaHan"] is DataGridViewColumn cSoLanGiaHan)
+            {
+                cSoLanGiaHan.HeaderText = "Lần GH";
+                cSoLanGiaHan.FillWeight = 45;
+            }
+        }
+
+        #endregion
     }
 }

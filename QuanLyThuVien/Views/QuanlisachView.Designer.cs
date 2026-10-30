@@ -343,6 +343,79 @@ namespace QuanLyThuVien.Views
             PerformLayout();
         }
 
+        #region Giao diện nút & Định dạng DataGridView Sách
+
+        public void DinhDangCotSach()
+        {
+            void SetHeader(string colName, string text, bool visible = true)
+            {
+                var col = dataGridView1.Columns[colName];
+                if (col != null)
+                {
+                    col.HeaderText = text;
+                    col.Visible = visible;
+                }
+            }
+
+            SetHeader("MaSach", "Mã Sách");
+            SetHeader("TenSach", "Tên Sách");
+            SetHeader("TenTheLoai", "Thể Loại");
+            SetHeader("TenTacGia", "Tác Giả");
+            SetHeader("TenNXB", "Nhà Xuất Bản");
+            SetHeader("NamXB", "Năm XB");
+            SetHeader("SoLuong", "Số Lượng");
+            SetHeader("SoLuongCon", "Còn Lại");
+            SetHeader("ViTri", "Vị Trí");
+
+            var colGiaBia = dataGridView1.Columns["GiaBia"];
+            if (colGiaBia != null)
+            {
+                colGiaBia.HeaderText = "Giá Bìa";
+                colGiaBia.DefaultCellStyle.Format = "N0";
+            }
+
+            // Ẩn các cột quan hệ và khóa ngoại kỹ thuật
+            SetHeader("MaTheLoai", "", false);
+            SetHeader("MaTacGia", "", false);
+            SetHeader("MaNXB", "", false);
+            SetHeader("TheLoai", "", false);
+            SetHeader("TacGia", "", false);
+            SetHeader("NhaXuatBan", "", false);
+            SetHeader("AnhBia", "", false);
+            SetHeader("ChiTietPhieuMuons", "", false);
+            SetHeader("PhieuPhats", "", false);
+        }
+
+        public void CapNhatTrangThaiNutSach(bool isEditing)
+        {
+            bool coDuLieu = dataGridView1.Rows.Count > 0;
+
+            btnThem.Enabled = !isEditing;
+            btnSua.Enabled = !isEditing && coDuLieu;
+            btnXoa.Enabled = !isEditing && coDuLieu;
+            btnGhi.Enabled = isEditing;
+            btnHuyBo.Enabled = isEditing;
+
+            txtMaSach.ReadOnly = true;
+            txtTenSach.ReadOnly = !isEditing;
+            txtSoTrang.ReadOnly = !isEditing;
+            txtGiaBan.ReadOnly = !isEditing;
+            txtSoLuong.ReadOnly = !isEditing;
+
+            cmbLoaiSach.Enabled = isEditing;
+            btnThemTheLoai.Enabled = isEditing;
+
+            cmbTacGia.Enabled = isEditing;
+            btnThemTacGia.Enabled = isEditing;
+
+            cmbNhaXuatBan.Enabled = isEditing;
+            btnThemNhaXuatBan.Enabled = isEditing;
+
+            dataGridView1.Enabled = !isEditing;
+            textBoxSearch.Enabled = !isEditing;
+        }
+        #endregion
+
         private System.Windows.Forms.TextBox txtMaSach;
         private System.Windows.Forms.TextBox txtTenSach;
         private System.Windows.Forms.ComboBox cmbTacGia;
