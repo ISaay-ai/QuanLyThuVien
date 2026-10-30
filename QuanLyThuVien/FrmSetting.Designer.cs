@@ -27,7 +27,9 @@ namespace QuanLyThuVien.GUI
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSetting));
             pnlHeader = new Panel();
+            pictureBox1 = new PictureBox();
             lblTitle = new Label();
             lblClose = new Label();
             pnlSidebar = new Panel();
@@ -36,15 +38,22 @@ namespace QuanLyThuVien.GUI
             btnGioiThieu = new Button();
             btnDangXuat = new Button();
             pnlContent = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox4 = new PictureBox();
             pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pnlSidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // pnlHeader
             // 
             pnlHeader.BackColor = Color.White;
+            pnlHeader.Controls.Add(pictureBox1);
             pnlHeader.Controls.Add(lblTitle);
-            // pnlHeader.Controls.Add(lblClose);
             pnlHeader.Dock = DockStyle.Top;
             pnlHeader.Location = new Point(0, 0);
             pnlHeader.Name = "pnlHeader";
@@ -52,16 +61,27 @@ namespace QuanLyThuVien.GUI
             pnlHeader.TabIndex = 0;
             pnlHeader.Paint += pnlHeader_Paint;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 9);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(41, 38);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             lblTitle.ForeColor = Color.FromArgb(24, 24, 27);
-            lblTitle.Location = new Point(20, 12);
+            lblTitle.Location = new Point(68, 14);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(89, 28);
+            lblTitle.Size = new Size(79, 28);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Settings";
+            lblTitle.Text = "Cài đặt";
+            lblTitle.Click += lblTitle_Click;
             // 
             // lblClose
             // 
@@ -82,6 +102,9 @@ namespace QuanLyThuVien.GUI
             // pnlSidebar
             // 
             pnlSidebar.BackColor = Color.FromArgb(248, 249, 250);
+            pnlSidebar.Controls.Add(pictureBox4);
+            pnlSidebar.Controls.Add(pictureBox3);
+            pnlSidebar.Controls.Add(pictureBox2);
             pnlSidebar.Controls.Add(pnlIndicator);
             pnlSidebar.Controls.Add(btnThongTinTaiKhoan);
             pnlSidebar.Controls.Add(btnGioiThieu);
@@ -109,12 +132,12 @@ namespace QuanLyThuVien.GUI
             btnThongTinTaiKhoan.FlatStyle = FlatStyle.Flat;
             btnThongTinTaiKhoan.Font = new Font("Segoe UI", 10.5F, FontStyle.Bold);
             btnThongTinTaiKhoan.ForeColor = Color.FromArgb(24, 24, 27);
-            btnThongTinTaiKhoan.Location = new Point(0, 8);
+            btnThongTinTaiKhoan.Location = new Point(3, 11);
             btnThongTinTaiKhoan.Name = "btnThongTinTaiKhoan";
             btnThongTinTaiKhoan.Padding = new Padding(48, 0, 0, 0);
             btnThongTinTaiKhoan.Size = new Size(230, 46);
             btnThongTinTaiKhoan.TabIndex = 1;
-            btnThongTinTaiKhoan.Text = "Thông tin tài khoản";
+            btnThongTinTaiKhoan.Text = "  Thông tin tài khoản";
             btnThongTinTaiKhoan.TextAlign = ContentAlignment.MiddleLeft;
             btnThongTinTaiKhoan.UseVisualStyleBackColor = false;
             btnThongTinTaiKhoan.Click += btnThongTinTaiKhoan_Click;
@@ -128,12 +151,12 @@ namespace QuanLyThuVien.GUI
             btnGioiThieu.FlatStyle = FlatStyle.Flat;
             btnGioiThieu.Font = new Font("Segoe UI", 10.5F);
             btnGioiThieu.ForeColor = Color.FromArgb(75, 85, 99);
-            btnGioiThieu.Location = new Point(0, 58);
+            btnGioiThieu.Location = new Point(3, 60);
             btnGioiThieu.Name = "btnGioiThieu";
             btnGioiThieu.Padding = new Padding(48, 0, 0, 0);
             btnGioiThieu.Size = new Size(230, 46);
             btnGioiThieu.TabIndex = 2;
-            btnGioiThieu.Text = "Về chúng tôi";
+            btnGioiThieu.Text = "  Về chúng tôi";
             btnGioiThieu.TextAlign = ContentAlignment.MiddleLeft;
             btnGioiThieu.UseVisualStyleBackColor = false;
             btnGioiThieu.Click += btnGioiThieu_Click;
@@ -146,13 +169,13 @@ namespace QuanLyThuVien.GUI
             btnDangXuat.FlatAppearance.BorderSize = 0;
             btnDangXuat.FlatStyle = FlatStyle.Flat;
             btnDangXuat.Font = new Font("Segoe UI", 10.5F);
-            btnDangXuat.ForeColor = Color.FromArgb(75, 85, 99);
-            btnDangXuat.Location = new Point(0, 108);
+            btnDangXuat.ForeColor = Color.Red;
+            btnDangXuat.Location = new Point(1, 112);
             btnDangXuat.Name = "btnDangXuat";
             btnDangXuat.Padding = new Padding(48, 0, 0, 0);
             btnDangXuat.Size = new Size(230, 46);
             btnDangXuat.TabIndex = 3;
-            btnDangXuat.Text = "Đăng xuất";
+            btnDangXuat.Text = "  Đăng xuất";
             btnDangXuat.TextAlign = ContentAlignment.MiddleLeft;
             btnDangXuat.UseVisualStyleBackColor = false;
             btnDangXuat.Click += btnDangXuat_Click;
@@ -168,6 +191,36 @@ namespace QuanLyThuVien.GUI
             pnlContent.Size = new Size(770, 605);
             pnlContent.TabIndex = 2;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(12, 14);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(41, 38);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(12, 64);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(41, 38);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 4;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(12, 116);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(41, 38);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 5;
+            pictureBox4.TabStop = false;
+            // 
             // FrmSetting
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -177,17 +230,17 @@ namespace QuanLyThuVien.GUI
             Controls.Add(pnlContent);
             Controls.Add(pnlSidebar);
             Controls.Add(pnlHeader);
-            FormBorderStyle = FormBorderStyle.Sizable;
-            MaximizeBox = true;
-            MinimizeBox = true;
-            ControlBox = true;
             Name = "FrmSetting";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Settings";
             Load += FrmSetting_Load;
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlSidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -286,5 +339,10 @@ namespace QuanLyThuVien.GUI
         }
 
         #endregion
+
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
     }
 }
