@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using QuanLyThuVien.DAL;
 
 namespace QuanLyThuVien.BLL
-{
+{`
     public class ChatBotService
     {
         private const string ApiKey = "";
