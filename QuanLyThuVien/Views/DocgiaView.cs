@@ -16,12 +16,16 @@ namespace QuanLyThuVien.Views
         public DocgiaView()
         {
             InitializeComponent();
-            KhoiTaoComboBoxKhoa();
+            if (cmbKhoaHoc.Items.Count > 7)
+            {
+                cmbKhoaHoc.SelectedIndex = 7;
+            }
             KhoiTaoComboBoxNganh();
             ThietLapTrangThaiNut(false);
             LoadData();
         }
 
+<<<<<<< HEAD
         private void KhoiTaoComboBoxKhoa()
         {
             cmbKhoaHoc.Items.Clear();
@@ -32,6 +36,8 @@ namespace QuanLyThuVien.Views
             }
         }
 
+=======
+>>>>>>> 40bbc33a642de7546867c33764dfeb4c3df6e8ad
         private void KhoiTaoComboBoxNganh()
         {
             cboNganh.Items.Clear();
@@ -71,6 +77,7 @@ namespace QuanLyThuVien.Views
 
         private void ThietLapTrangThaiNut(bool dangThaoTac)
         {
+<<<<<<< HEAD
             btnThem.Enabled = !dangThaoTac;
             btnSua.Enabled = !dangThaoTac;
             btnXoa.Enabled = !dangThaoTac;
@@ -93,6 +100,9 @@ namespace QuanLyThuVien.Views
 
             dgvDocGia.Enabled = !dangThaoTac;
             groupBoxSearch.Enabled = !dangThaoTac;
+=======
+            CapNhatGiaoDienTrangThaiNut(dangThaoTac);
+>>>>>>> 40bbc33a642de7546867c33764dfeb4c3df6e8ad
         }
 
         private void XoaTrangForm()

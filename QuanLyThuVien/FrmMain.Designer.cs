@@ -59,6 +59,9 @@ namespace QuanLyThuVien
             MinimizeBtn = new PictureBox();
             ExitBtn = new PictureBox();
             ViewPanel = new Panel();
+            pnlHome = new Panel();
+            lblWelcome = new Label();
+            lblUser = new Label();
             sidebar.SuspendLayout();
             MenuContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)MenuBtn).BeginInit();
@@ -422,6 +425,43 @@ namespace QuanLyThuVien
             ViewPanel.Location = new Point(316, 110);
             ViewPanel.Name = "ViewPanel";
             ViewPanel.Size = new Size(946, 1003);
+            ViewPanel.Controls.Add(pnlHome);
+            // 
+            // pnlHome
+            // 
+            pnlHome.BackColor = Color.White;
+            pnlHome.Controls.Add(lblUser);
+            pnlHome.Controls.Add(lblWelcome);
+            pnlHome.Dock = DockStyle.Fill;
+            pnlHome.Location = new Point(0, 0);
+            pnlHome.Name = "pnlHome";
+            pnlHome.Padding = new Padding(30);
+            pnlHome.Size = new Size(946, 1003);
+            pnlHome.TabIndex = 0;
+            // 
+            // lblWelcome
+            // 
+            lblWelcome.Dock = DockStyle.Top;
+            lblWelcome.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblWelcome.ForeColor = Color.FromArgb(53, 162, 184);
+            lblWelcome.Location = new Point(30, 30);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(886, 60);
+            lblWelcome.TabIndex = 0;
+            lblWelcome.Text = "CHÀO MỪNG ĐẾN VỚI HỆ THỐNG QUẢN LÝ THƯ VIỆN - GenLib";
+            lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblUser
+            // 
+            lblUser.Dock = DockStyle.Top;
+            lblUser.Font = new Font("Segoe UI", 12F);
+            lblUser.ForeColor = Color.FromArgb(80, 80, 80);
+            lblUser.Location = new Point(30, 90);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(886, 40);
+            lblUser.TabIndex = 1;
+            lblUser.Text = "Tài khoản người dùng";
+            lblUser.TextAlign = ContentAlignment.MiddleCenter;
             ViewPanel.TabIndex = 2;
             // 
             // FrmMain
@@ -490,5 +530,8 @@ namespace QuanLyThuVien
         public Panel ViewPanel;
         private Panel Chatbot;
         private Button Chatbotbtn;
+        private Panel pnlHome;
+        private Label lblWelcome;
+        private Label lblUser;
     }
 }

@@ -509,6 +509,10 @@ namespace QuanLyThuVien.Views
             // dgvData
             // 
             dgvData.AllowUserToAddRows = false;
+            dgvData.ReadOnly = true;
+            dgvData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvData.MultiSelect = false;
+            dgvData.AllowUserToResizeRows = false;
             dgvData.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvData.BackgroundColor = Color.White;
@@ -636,6 +640,163 @@ namespace QuanLyThuVien.Views
             {
                 g.FillRectangle(bBook, 65, 20, 42, 22);
                 g.FillEllipse(bApple, 80, 8, 12, 12);
+            }
+        }
+
+        #endregion
+
+        #region Giao diện đồ họa, Căn chỉnh Layout & Định dạng DataGridView
+
+        public void CanChinhGiaoDien()
+        {
+            grpThongKeSach.Left = Math.Max(10, (this.ClientSize.Width - grpThongKeSach.Width) / 2);
+            grpThongKeDocGia.Left = Math.Max(10, (this.ClientSize.Width - grpThongKeDocGia.Width) / 2);
+
+            int mid = grpThongKeMuonQuaHan.ClientSize.Width / 2;
+            btnDangMuon.Left = mid - 195;
+            btnDaTra.Left = mid - 60;
+            btnDSQuaHan.Left = mid + 75;
+
+            lblTitleList.Left = Math.Max(40, mid - 190);
+            lblTongSo.Left = mid + 50;
+
+            if (btnXuatExcel != null)
+            {
+                btnXuatExcel.Left = grpThongKeMuonQuaHan.ClientSize.Width - btnXuatExcel.Width - 25;
+            }
+        }
+
+        public void CapNhatGiaoDienNut(CheDoXem cheDo)
+        {
+            _currentCheDo = cheDo;
+            Color colorInactive = Color.FromArgb(108, 117, 137);
+
+            btnDangMuon.BackColor = (cheDo == CheDoXem.DangMuon) ? Color.FromArgb(38, 138, 88) : colorInactive;
+            btnDaTra.BackColor = (cheDo == CheDoXem.DaTra) ? Color.FromArgb(40, 110, 180) : colorInactive;
+            btnDSQuaHan.BackColor = (cheDo == CheDoXem.QuaHan) ? Color.FromArgb(220, 53, 69) : colorInactive;
+
+            btnDangMuon.ForeColor = Color.White;
+            btnDaTra.ForeColor = Color.White;
+            btnDSQuaHan.ForeColor = Color.White;
+
+            switch (cheDo)
+            {
+                case CheDoXem.DangMuon:
+                    lblTitleList.Text = "Danh sách sách đang mượn";
+                    lblTitleList.ForeColor = Color.FromArgb(40, 40, 40);
+                    lblTongSo.ForeColor = Color.FromArgb(38, 138, 88);
+                    break;
+                case CheDoXem.DaTra:
+                    lblTitleList.Text = "Danh sách sách đã trả";
+                    lblTitleList.ForeColor = Color.FromArgb(40, 40, 40);
+                    lblTongSo.ForeColor = Color.FromArgb(40, 110, 180);
+                    break;
+                case CheDoXem.QuaHan:
+                    lblTitleList.Text = "Danh sách sách mượn quá hạn";
+                    lblTitleList.ForeColor = Color.FromArgb(180, 40, 40);
+                    lblTongSo.ForeColor = Color.FromArgb(220, 53, 69);
+                    break;
+            }
+        }
+
+        public void DinhDangCot(CheDoXem cheDo)
+        {
+            if (dgvData.Columns["SoLuong"] is DataGridViewColumn colSL) colSL.Visible = false;
+            if (dgvData.Columns["SoLanGiaHan"] is DataGridViewColumn colGH) colGH.Visible = false;
+
+            if (dgvData.Columns["MaPM"] is DataGridViewColumn cMaPM)
+            {
+                cMaPM.HeaderText = "Mã PM";
+                cMaPM.FillWeight = 45;
+                cMaPM.DisplayIndex = 0;
+            }
+            if (dgvData.Columns["MaSV"] is DataGridViewColumn cMaSV)
+            {
+                cMaSV.HeaderText = "Mã SV";
+                cMaSV.FillWeight = 50;
+                cMaSV.DisplayIndex = 1;
+            }
+            if (dgvData.Columns["TenDocGia"] is DataGridViewColumn cTenSV)
+            {
+                cTenSV.HeaderText = "Tên Độc Giả";
+                cTenSV.FillWeight = 110;
+                cTenSV.DisplayIndex = 2;
+            }
+            if (dgvData.Columns["MaSach"] is DataGridViewColumn cMaSach)
+            {
+                cMaSach.HeaderText = "Mã Sách";
+                cMaSach.FillWeight = 50;
+                cMaSach.DisplayIndex = 3;
+            }
+            if (dgvData.Columns["TenSach"] is DataGridViewColumn cTenSach)
+            {
+                cTenSach.HeaderText = "Tên Sách";
+                cTenSach.FillWeight = 125;
+                cTenSach.DisplayIndex = 4;
+            }
+            if (dgvData.Columns["NgayMuon"] is DataGridViewColumn cNgayMuon)
+            {
+                cNgayMuon.HeaderText = "Ngày Mượn";
+                cNgayMuon.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cNgayMuon.FillWeight = 70;
+                cNgayMuon.DisplayIndex = 5;
+            }
+            if (dgvData.Columns["HanTra"] is DataGridViewColumn cHanTra)
+            {
+                cHanTra.HeaderText = "Hạn Trả";
+                cHanTra.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cHanTra.FillWeight = 70;
+                cHanTra.DisplayIndex = 6;
+            }
+            if (dgvData.Columns["NgayTra"] is DataGridViewColumn cNgayTra)
+            {
+                cNgayTra.HeaderText = "Ngày Trả";
+                cNgayTra.DefaultCellStyle.Format = "dd/MM/yyyy";
+                cNgayTra.FillWeight = 70;
+                cNgayTra.Visible = true;
+                cNgayTra.DisplayIndex = 7;
+            }
+            if (dgvData.Columns["TinhTrangSach"] is DataGridViewColumn cTinhTrang)
+            {
+                cTinhTrang.HeaderText = "Tình Trạng";
+                cTinhTrang.FillWeight = 75;
+                cTinhTrang.DisplayIndex = 8;
+            }
+            if (dgvData.Columns["TrangThai"] is DataGridViewColumn cTrangThai)
+            {
+                cTrangThai.HeaderText = "Trạng Thái";
+                cTrangThai.FillWeight = 75;
+                cTrangThai.DisplayIndex = 9;
+            }
+            if (dgvData.Columns["GhiChu"] is DataGridViewColumn cGhiChu)
+            {
+                cGhiChu.HeaderText = "Ghi Chú";
+                cGhiChu.FillWeight = 130;
+                cGhiChu.Visible = true;
+                cGhiChu.DisplayIndex = 10;
+            }
+            if (dgvData.Columns["SoNgayQuaHan"] is DataGridViewColumn cSoNgayQuaHan)
+            {
+                bool isQuaHan = (cheDo == CheDoXem.QuaHan);
+                cSoNgayQuaHan.Visible = isQuaHan;
+                if (isQuaHan)
+                {
+                    cSoNgayQuaHan.HeaderText = "Trễ Hạn (Ngày)";
+                    cSoNgayQuaHan.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    cSoNgayQuaHan.DefaultCellStyle.Font = new Font("Segoe UI", 9.5F, FontStyle.Bold);
+                    cSoNgayQuaHan.DefaultCellStyle.ForeColor = Color.FromArgb(220, 53, 69);
+                    cSoNgayQuaHan.FillWeight = 70;
+                    cSoNgayQuaHan.DisplayIndex = 11;
+                }
+            }
+
+            if (cheDo == CheDoXem.QuaHan)
+            {
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(180, 30, 30);
+                    row.DefaultCellStyle.SelectionForeColor = Color.Yellow;
+                }
             }
         }
 
