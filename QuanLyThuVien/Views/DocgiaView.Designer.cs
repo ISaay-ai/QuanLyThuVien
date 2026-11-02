@@ -21,9 +21,9 @@ namespace QuanLyThuVien.Views
 
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txtMaSV = new TextBox();
             txtHoTen = new TextBox();
             cboNganh = new ComboBox();
@@ -44,6 +44,8 @@ namespace QuanLyThuVien.Views
             label4 = new Label();
             label5 = new Label();
             groupBoxSearch = new GroupBox();
+            label6 = new Label();
+            txtEmail = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvDocGia).BeginInit();
             groupBoxSearch.SuspendLayout();
             SuspendLayout();
@@ -104,7 +106,7 @@ namespace QuanLyThuVien.Views
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThem.ForeColor = Color.White;
-            btnThem.Location = new Point(38, 405);
+            btnThem.Location = new Point(40, 475);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(98, 42);
             btnThem.TabIndex = 5;
@@ -120,7 +122,7 @@ namespace QuanLyThuVien.Views
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSua.ForeColor = Color.White;
-            btnSua.Location = new Point(150, 405);
+            btnSua.Location = new Point(152, 475);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(98, 42);
             btnSua.TabIndex = 6;
@@ -136,7 +138,7 @@ namespace QuanLyThuVien.Views
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnXoa.ForeColor = Color.White;
-            btnXoa.Location = new Point(262, 405);
+            btnXoa.Location = new Point(264, 475);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(98, 42);
             btnXoa.TabIndex = 7;
@@ -152,7 +154,7 @@ namespace QuanLyThuVien.Views
             btnGhi.FlatStyle = FlatStyle.Flat;
             btnGhi.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGhi.ForeColor = Color.White;
-            btnGhi.Location = new Point(83, 478);
+            btnGhi.Location = new Point(85, 548);
             btnGhi.Name = "btnGhi";
             btnGhi.Size = new Size(98, 42);
             btnGhi.TabIndex = 8;
@@ -168,7 +170,7 @@ namespace QuanLyThuVien.Views
             btnHuyBo.FlatStyle = FlatStyle.Flat;
             btnHuyBo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHuyBo.ForeColor = Color.White;
-            btnHuyBo.Location = new Point(230, 478);
+            btnHuyBo.Location = new Point(232, 548);
             btnHuyBo.Name = "btnHuyBo";
             btnHuyBo.Size = new Size(98, 42);
             btnHuyBo.TabIndex = 9;
@@ -180,32 +182,32 @@ namespace QuanLyThuVien.Views
             // 
             dgvDocGia.AllowUserToAddRows = false;
             dgvDocGia.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(248, 248, 255);
-            dgvDocGia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(248, 248, 255);
+            dgvDocGia.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvDocGia.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvDocGia.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDocGia.BackgroundColor = Color.White;
             dgvDocGia.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgvDocGia.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(88, 86, 245);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 120, 215);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dgvDocGia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(88, 86, 245);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 120, 215);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dgvDocGia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvDocGia.ColumnHeadersHeight = 36;
             dgvDocGia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.Padding = new Padding(6, 0, 0, 0);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(232, 230, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvDocGia.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.Padding = new Padding(6, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(232, 230, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvDocGia.DefaultCellStyle = dataGridViewCellStyle3;
             dgvDocGia.EnableHeadersVisualStyles = false;
             dgvDocGia.GridColor = Color.FromArgb(230, 230, 240);
             dgvDocGia.Location = new Point(416, 138);
@@ -304,7 +306,7 @@ namespace QuanLyThuVien.Views
             // 
             // label5
             // 
-            label5.Font = new Font("Segoe UI", 11F);
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(40, 40, 40);
             label5.Location = new Point(20, 346);
             label5.Name = "label5";
@@ -328,12 +330,31 @@ namespace QuanLyThuVien.Views
             groupBoxSearch.TabStop = false;
             groupBoxSearch.Text = "Tìm Kiếm Sinh Viên";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(85, 398);
+            label6.Name = "label6";
+            label6.Size = new Size(46, 20);
+            label6.TabIndex = 18;
+            label6.Text = "Email";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(150, 395);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(197, 23);
+            txtEmail.TabIndex = 19;
+            // 
             // DocgiaView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(972, 608);
+            Controls.Add(txtEmail);
+            Controls.Add(label6);
             Controls.Add(groupBoxSearch);
             Controls.Add(label1);
             Controls.Add(label2);
@@ -384,5 +405,7 @@ namespace QuanLyThuVien.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBoxSearch;
+        private Label label6;
+        private TextBox txtEmail;
     }
 }

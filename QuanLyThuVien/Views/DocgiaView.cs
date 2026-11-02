@@ -28,7 +28,7 @@ namespace QuanLyThuVien.Views
             cmbKhoaHoc.Items.AddRange(new string[] { "K19", "K20", "K21", "K22", "K23", "K24", "K25", "K26", "K27" });
             if (cmbKhoaHoc.Items.Count > 3)
             {
-                cmbKhoaHoc.SelectedIndex = 7; 
+                cmbKhoaHoc.SelectedIndex = 7;
             }
         }
 
@@ -89,6 +89,7 @@ namespace QuanLyThuVien.Views
             cboNganh.Enabled = dangThaoTac;
             cmbKhoaHoc.Enabled = dangThaoTac;
             txtSoDienThoai.ReadOnly = !dangThaoTac;
+            txtEmail.ReadOnly = !dangThaoTac; // Cập nhật trạng thái ReadOnly cho Email
 
             dgvDocGia.Enabled = !dangThaoTac;
             groupBoxSearch.Enabled = !dangThaoTac;
@@ -99,6 +100,7 @@ namespace QuanLyThuVien.Views
             txtMaSV.Text = string.Empty;
             txtHoTen.Text = string.Empty;
             txtSoDienThoai.Text = string.Empty;
+            txtEmail.Text = string.Empty; // Xóa trắng ô Email
             if (cboNganh.Items.Count > 0)
             {
                 cboNganh.SelectedIndex = 0;
@@ -196,6 +198,7 @@ namespace QuanLyThuVien.Views
             cboNganh.Text = dg.TenNganh;
             cmbKhoaHoc.Text = dg.Khoa;
             txtSoDienThoai.Text = dg.SDT;
+            txtEmail.Text = dg.Email; // Đọc giá trị Email từ model ra UI
         }
 
         private void dgvDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -284,6 +287,13 @@ namespace QuanLyThuVien.Views
             string khoaHoc = cmbKhoaHoc.Text.Trim();
             string sdt = txtSoDienThoai.Text.Trim();
 
+            // Lấy trực tiếp chuỗi từ ô nhập txtEmail, nếu trống thì tự tạo email mặc định theo SĐT hoặc để rỗng
+            string email = txtEmail.Text.Trim();
+            if (string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(sdt))
+            {
+                email = $"{sdt}@student.edu.vn";
+            }
+
             if (isAdding)
             {
                 var docGiaMoi = new DocGia
@@ -291,7 +301,7 @@ namespace QuanLyThuVien.Views
                     HoTen = hoTen,
                     Khoa = khoaHoc,
                     SDT = sdt,
-                    Email = !string.IsNullOrWhiteSpace(sdt) ? $"{sdt}@student.edu.vn" : string.Empty,
+                    Email = email, // Gán email đã lấy từ form
                     NgayLapThe = DateTime.Today,
                     NgayHetHan = DateTime.Today.AddYears(4)
                 };
@@ -322,7 +332,7 @@ namespace QuanLyThuVien.Views
                     HoTen = hoTen,
                     Khoa = khoaHoc,
                     SDT = sdt,
-                    Email = !string.IsNullOrWhiteSpace(sdt) ? $"{sdt}@student.edu.vn" : string.Empty
+                    Email = email // Gán email đã lấy từ form
                 };
 
                 if (docGiaMng.CapNhat(docGiaCapNhat, tenNganh, out string thongBaoLoi))

@@ -1,7 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 using QuanLyThuVien.DAL;
 using QuanLyThuVien.DAL.Models;
 
@@ -9,6 +13,12 @@ namespace QuanLyThuVien.BLL
 {
     public class MuonTraSach
     {
+        // Cấu hình SMTP Gmail
+        private const string SmtpServer = "smtp.gmail.com";
+        private const int SmtpPort = 587;
+        private const string SenderEmail = "dmgbepj@gmail.com";
+        private const string AppPassword = "rcty sinv aerv mhjp"; // Thay 16 ký tự Mật khẩu ứng dụng Gmail vào đây
+
         private TaiKhoan LayHoacTaoTaiKhoan(AppDbContext context)
         {
             var tk = context.TaiKhoans.FirstOrDefault();
@@ -27,9 +37,143 @@ namespace QuanLyThuVien.BLL
             return tk;
         }
 
+        #region TÍNH NĂNG TỰ ĐỘNG GỬI EMAIL NHẮC NỢ SÁCH (MAILKIT)
+
+        /// <summary>
+        /// Quét CSDL tìm các độc giả còn đúng 3 ngày nữa là đến hạn trả sách để gửi Gmail tự động.
+        /// Được gọi từ project ConsoleWorker (Task Scheduler) hoặc chạy ngầm trên WinForms.
+        /// </summary>
+        public async Task KiemTraVaGuiMailSapHetHanAsync()
+        {
+            using var context = new AppDbContext();
+            DateTime ngayCanThongBao = DateTime.Today.AddDays(3);
+
+            // Truy vấn các sách mượn chưa trả và có hạn trả đúng tròn 3 ngày tới
+            var danhSachSapHetHan = await context.ChiTietPhieuMuons
+                .Include(x => x.PhieuMuon)
+                    .ThenInclude(pm => pm.DocGia)
+                .Include(x => x.Sach)
+                .Where(x => x.NgayTra == null
+                         && x.PhieuMuon.TrangThai != "DaTra"
+                         && x.PhieuMuon.HanTra.Date == ngayCanThongBao)
+                .AsNoTracking()
+                .ToListAsync();
+
+            foreach (var item in danhSachSapHetHan)
+            {
+                var docGia = item.PhieuMuon?.DocGia;
+                var sach = item.Sach;
+
+                if (docGia != null && !string.IsNullOrWhiteSpace(docGia.Email) && sach != null)
+                {
+                    await GuiGmailMailKitAsync(
+                        docGia.Email,
+                        docGia.HoTen,
+                        docGia.MaSV,
+                        sach.TenSach,
+                        item.PhieuMuon.NgayMuon,
+                        item.PhieuMuon.HanTra
+                    );
+                }
+            }
+        }
+
+        private async Task GuiGmailMailKitAsync(string emailNguoiNhan, string tenDocGia, int maSV, string tenSach, DateTime ngayMuon, DateTime hanTra)
+        {
+            try
+            {
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress("Thư Viện GenLib", SenderEmail));
+                message.To.Add(MailboxAddress.Parse(emailNguoiNhan));
+                message.Subject = $"[GenLib] Sách '{tenSach}' sắp đến hạn trả ({hanTra:dd/MM/yyyy})";
+
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = TaoNoiDungHtmlEmail(tenDocGia, maSV, tenSach, ngayMuon, hanTra)
+                };
+                message.Body = bodyBuilder.ToMessageBody();
+
+                using var client = new SmtpClient();
+                await client.ConnectAsync(SmtpServer, SmtpPort, SecureSocketOptions.StartTls);
+                await client.AuthenticateAsync(SenderEmail, AppPassword);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[Lỗi gửi mail đến {emailNguoiNhan}]: {ex.Message}");
+            }
+        }
+
+        private string TaoNoiDungHtmlEmail(string tenDocGia, int maSV, string tenSach, DateTime ngayMuon, DateTime hanTra)
+        {
+            return $@"
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset='utf-8'>
+                <style>
+                    body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333333; background-color: #f4f4f4; margin: 0; padding: 20px; }}
+                    .container {{ max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }}
+                    .header {{ background-color: #0056b3; color: #ffffff; padding: 20px; text-align: center; }}
+                    .header h2 {{ margin: 0; font-size: 20px; }}
+                    .content {{ padding: 25px; }}
+                    .info-box {{ background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 15px; margin: 20px 0; border-radius: 4px; }}
+                    .info-table {{ width: 100%; border-collapse: collapse; }}
+                    .info-table td {{ padding: 8px 0; border-bottom: 1px dashed #e9ecef; }}
+                    .info-table td:first-child {{ font-weight: bold; color: #495057; width: 35%; }}
+                    .warning {{ color: #d9534f; font-weight: bold; }}
+                    .footer {{ background-color: #e9ecef; padding: 15px; text-align: center; font-size: 12px; color: #6c757d; }}
+                </style>
+            </head>
+            <body>
+                <div class='container'>
+                    <div class='header'>
+                        <h2>THƯ VIỆN GenLib - THÔNG BÁO TỰ ĐỘNG</h2>
+                    </div>
+                    <div class='content'>
+                        <p>Kính gửi độc giả <b>{tenDocGia}</b> (MSSV: <b>{maSV}</b>),</p>
+                        <p>Thư viện GenLib xin thông báo: Cuốn sách bạn mượn tại thư viện sắp đến hạn hoàn trả. Chi tiết như sau:</p>
+                        
+                        <div class='info-box'>
+                            <table class='info-table'>
+                                <tr>
+                                    <td>Tên đầu sách:</td>
+                                    <td><b style='color: #0056b3;'>{tenSach}</b></td>
+                                </tr>
+                                <tr>
+                                    <td>Ngày mượn sách:</td>
+                                    <td>{ngayMuon:dd/MM/yyyy}</td>
+                                </tr>
+                                <tr>
+                                    <td>Hạn trả sách:</td>
+                                    <td><b class='warning'>{hanTra:dd/MM/yyyy}</b> (Còn 3 ngày nữa)</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p><b>📌 Hướng dẫn dành cho bạn:</b></p>
+                        <ul>
+                            <li><b>Hoàn trả sách:</b> Vui lòng mang sách đến quầy thủ thư trước hoặc trong ngày <b>{hanTra:dd/MM/yyyy}</b>.</li>
+                            <li><b>Gia hạn sách:</b> Nếu chưa quá 2 lần gia hạn, bạn có thể thực hiện gia hạn trực tiếp tại bàn thủ thư.</li>
+                        </ul>
+
+                        <p class='warning'>⚠️ Lưu ý phí phạt quá hạn:</p>
+                        <p>Theo Quy định Thư viện, các trường hợp trả sách quá hạn sẽ áp dụng mức phí phạt <b>5.000 VNĐ / ngày trễ</b>.</p>
+                    </div>
+                    
+                    <div class='footer'>
+                        <p><b>BAN QUẢN LÝ THƯ VIỆN GenLib</b></p>
+                        <p><i>Email này được gửi tự động từ hệ thống. Vui lòng không trả lời (reply) trực tiếp.</i></p>
+                    </div>
+                </div>
+            </body>
+            </html>";
+        }
+
+        #endregion
 
         /// Lấy toàn bộ danh sách chi tiết mượn trả, trả về DTO (đã chuyển logic hiển thị sang BLL).
-
         public List<ChiTietMuonTraDTO> LayDanhSachChiTietMuonTra()
         {
             using var context = new AppDbContext();
@@ -106,9 +250,7 @@ namespace QuanLyThuVien.BLL
             }
         }
 
-
         /// Tìm kiếm chi tiết mượn trả, trả về DTO.
-
         public List<ChiTietMuonTraDTO> TimKiem(string? tuKhoa, bool isTimTheoMaSV)
         {
             if (string.IsNullOrWhiteSpace(tuKhoa))
